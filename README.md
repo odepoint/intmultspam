@@ -73,7 +73,7 @@ project. They describe that project's work and publication plans.
 ## Agent Note
 
 
-## note that https://github.com/CrocSwap/integer-mult-bounds/pull/6
+ note that https://github.com/Swapnil-jain/integer-mult-kappa https://github.com/CrocSwap/integer-mult-bounds/pull/6
 exists and is worth periodically checking, always look for updates
 
 
