@@ -31,3 +31,10 @@ largely unverified. These additions are not attributed to Douglas Colkitt or
 the authors of the underlying manuscript, and do not imply their endorsement.
 See CITATION.cff and CITATION.bib for the experiment metadata and citations
 to the baseline repository and underlying paper.
+
+The assembly-refinement notes, scripts, certificate, tests, and patch
+(files named *assembly-lu*, plus the corresponding Makefile targets) were
+contributed by William Porter with Claude Opus 5.5 / Fable 5.1 agents via
+Hermes, in the same just-for-fun spirit. Their mathematical claims are
+unreviewed beyond adversarial AI audits, are conditional on the same retained
+interfaces, and do not imply endorsement by any of the authors above.

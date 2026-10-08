@@ -1,0 +1,347 @@
+\subsection{A precomputed banded solve}
+\label{sec:banded-solve}
+The cited one-dimensional resampling solves its square Gaussian system by a
+Neumann series~\cite[Lemma~4.12]{HarveyHoeven2021}, which needs
+$\theta>p/\alpha^4$. Its Section~4.4.2 remarks that a precomputed LU
+decomposition would only need $\theta>1/\alpha^2$, but the authors did not use
+it ``because the error analysis is considerably more intricate''. We prove a
+precomputed banded solve with a complete fixed-point error analysis. With a
+diagonal rescaling it works for \emph{every} $\theta$ and every
+$\alpha\ge2$; it is therefore used below with the constant width $\alpha=2$.
+
+Throughout this subsection let $s<t<2s$ be coprime positive integers, put
+$\theta=t/s-1\in(0,1)$, and let $\alpha\ge2$. For $\ell\in\mathbb Z$ write
+\[
+ x_\ell=\frac{t\ell}s,\qquad q_\ell=\Bigl\lfloor x_\ell+\frac12\Bigr\rfloor,
+ \qquad \beta_\ell=x_\ell-q_\ell\in\Bigl[-\frac12,\frac12\Bigr),
+ \qquad \Delta q_\ell=q_{\ell+1}-q_\ell,
+\]
+and, for $h\in\mathbb Z$,
+\[
+ Q_h(\ell)=\Bigl(\frac{th}s+\beta_\ell\Bigr)^2-\beta_{\ell+h}^2 .
+\]
+For $0\le\ell<s$ these are the selected coordinates $q_\ell$ and fractional
+parts $\beta_\ell$ of the cited Gaussian system, and $\beta_{\ell+s}=\beta_\ell$.
+The square matrix $N=C\mathsf T\mathsf D$ of the cited
+Section~4.2, written with indices modulo $s$, has entries
+\[
+ N_{\ell,j}=\sum_{h\equiv j-\ell\ ({\rm mod}\ s)}e^{-\pi\alpha^2Q_h(\ell)} ,
+\]
+and $N=I+E$, where $E$ collects all terms with $h\ne0$; every such term is a
+positive real number. For matrices, $\|\cdot\|$ is the maximum absolute row
+sum, induced by the maximum coordinate norm.
+
+\begin{lemma}[Diagonally dominant LU factors]\label{lem:dominant-lu}
+Let $M$ be a real $n\times n$ matrix with
+$|M_{ii}-1|+\sum_{j\ne i}|M_{ij}|\le\rho$ for every $i$, where
+$0\le\rho\le\frac1{10}$. Gaussian elimination without pivoting runs to
+completion and gives $M=LU$, with $L$ unit lower triangular and $U$ upper
+triangular. Every Schur complement $S$ in the elimination satisfies
+$S_{ii}\in[1-\rho,1+\rho]$ and $\sum_{j\ne i}|S_{ij}|\le\rho$ in each row.
+Moreover, for every $i$,
+\[
+ U_{ii}\in[1-\rho,1+\rho],\qquad \sum_{j>i}|U_{ij}|\le\rho,\qquad
+ \sum_{j<i}|L_{ij}|\le\frac{\rho}{1-2\rho}\le\frac18,
+\]
+and, with $D_U$ the diagonal of $U$,
+\[
+ \|L^{-1}\|\le\tfrac87,\qquad\|(D_U^{-1}U)^{-1}\|\le\tfrac98,\qquad
+ \|U^{-1}\|\le\tfrac54,\qquad\|M^{-1}\|\le\tfrac{10}9 .
+\]
+\end{lemma}
+
+\begin{proof}
+For a matrix $X$ with positive diagonal write
+$\omega_i(X)=\sum_{j\ne i}|X_{ij}|$, $\mu_i(X)=X_{ii}-\omega_i(X)$ and
+$\tau_i(X)=X_{ii}+\omega_i(X)$. Initially $\mu_i(M)\ge1-\rho>0$ and
+$\tau_i(M)\le1+\rho$. One elimination step with pivot $1$ forms
+$X'_{ij}=X_{ij}-X_{i1}X_{1j}/X_{11}$ for $i,j\ge2$. Then
+\[
+ \omega_i(X')\le\omega_i(X)-|X_{i1}|+\frac{|X_{i1}|}{X_{11}}
+ \bigl(\omega_1(X)-|X_{1i}|\bigr),\qquad
+ |X'_{ii}-X_{ii}|\le\frac{|X_{i1}||X_{1i}|}{X_{11}},
+\]
+hence $\mu_i(X')\ge\mu_i(X)+|X_{i1}|\mu_1(X)/X_{11}\ge\mu_i(X)$ and
+$\tau_i(X')\le\tau_i(X)-|X_{i1}|\mu_1(X)/X_{11}\le\tau_i(X)$. By induction
+every Schur complement $S$ has positive pivots,
+$\mu_i(S)\ge1-\rho$ and $\tau_i(S)\le1+\rho$; thus
+$S_{ii}\in[1-\rho,1+\rho]$ and $\omega_i(S)=(\tau_i(S)-\mu_i(S))/2\le\rho$.
+Row $k$ of $U$ is row $k$ of the $k$-th Schur complement $S^{(k)}$, which gives
+the bounds on $U$.
+
+For $L$, fix $i$ and put $\omega^{(k)}=\sum_{j\ge k,\,j\ne i}|S^{(k)}_{ij}|$.
+Eliminating pivot $k<i$ removes $|S^{(k)}_{ik}|$ from row $i$ and adds at most
+$(|S^{(k)}_{ik}|/S^{(k)}_{kk})\,\omega_k(S^{(k)})\le|S^{(k)}_{ik}|\rho/(1-\rho)$
+to its other off-diagonal entries. Hence
+$|S^{(k)}_{ik}|(1-2\rho)/(1-\rho)\le\omega^{(k)}-\omega^{(k+1)}$, and summing
+over $k<i$ gives $\sum_{k<i}|S^{(k)}_{ik}|\le\rho(1-\rho)/(1-2\rho)$. As
+$L_{ik}=S^{(k)}_{ik}/S^{(k)}_{kk}$ and $S^{(k)}_{kk}\ge1-\rho$, the row bound on
+$L$ follows. Finally $L-I$, $D_U^{-1}U-I$ and $M-I$ have norms at most
+$\frac18$, $\frac{\rho}{1-\rho}\le\frac19$ and $\frac1{10}$, and
+$\|D_U^{-1}\|\le\frac{10}9$; Neumann series give the four norm bounds.
+\end{proof}
+
+The matrix $N$ itself need not be diagonally dominant: when
+$\beta_{\ell+1}$ is close to $-\frac12$, the entry $N_{\ell,\ell+1}$ is close to
+one. A diagonal similarity removes this. Let $\psi$ be the $1$-periodic
+function with
+\[
+ \theta\,\psi(x)=\begin{cases}
+ x\bigl(x+\frac12\bigr),&-\frac12\le x\le-\frac14,\\[2pt]
+ -\frac1{16},&-\frac14\le x\le\frac14,\\[2pt]
+ x\bigl(x-\frac12\bigr),&\frac14\le x\le\frac12,
+ \end{cases}
+\]
+and put
+\[
+ \Phi=\frac1{16\theta},\qquad \varphi_\ell=\psi(\beta_\ell)+\Phi\in[0,\Phi],
+ \qquad \Lambda={\rm diag}\bigl(e^{\pi\alpha^2\varphi_\ell}\bigr)_{\ell\in\mathbb Z/s},
+ \qquad R=e^{\pi\alpha^2\Phi}.
+\]
+Thus every diagonal entry of $\Lambda$ lies in $[1,R]$.
+
+\begin{lemma}[Scaled dominance]\label{lem:scaled-dominance}
+For every $\ell$ and $h\ne0$ the scaled exponent
+$\mathcal E_{\ell,h}=Q_h(\ell)-(\varphi_{\ell+h}-\varphi_\ell)$ satisfies
+\[
+ \mathcal E_{\ell,\pm1}\ge\tfrac12+\theta,\qquad
+ \mathcal E_{\ell,h}\ge|h|\bigl(|h|-\tfrac32\bigr)\quad(|h|\ge2).
+\]
+Consequently $\Lambda^{-1}N\Lambda=I+\Lambda^{-1}E\Lambda$ with
+\[
+ \|\Lambda^{-1}E\Lambda\|\le\rho_\alpha:=2e^{-\pi\alpha^2/2}+2.01e^{-\pi\alpha^2}
+ \le\rho_2<0.0038,
+\]
+$N$ is invertible with $\|N^{-1}\|\le R/(1-\rho_2)\le1.004R$, and for every
+integer $m\ge1$ the terms with $|h|>m$ contribute less than
+$3e^{-\pi\alpha^2m^2}$ to each row of $\Lambda^{-1}E\Lambda$.
+\end{lemma}
+
+\begin{proof}
+(a) Since $x_{\ell+1}-x_\ell=1+\theta\in(1,2)$ and $|\beta|\le\frac12$, we have
+$\Delta q_\ell\in\{1,2\}$ and $\beta_{\ell+1}=\beta_\ell+\theta+1-\Delta q_\ell$.
+
+(b) As $t/s+\beta_\ell=x_{\ell+1}-q_\ell=\beta_{\ell+1}+\Delta q_\ell$ and
+$-t/s+\beta_{\ell+1}=x_\ell-q_{\ell+1}=\beta_\ell-\Delta q_\ell$,
+\[
+ Q_1(\ell)=\Delta q_\ell(\Delta q_\ell+2\beta_{\ell+1}),\qquad
+ Q_{-1}(\ell+1)=\Delta q_\ell(\Delta q_\ell-2\beta_\ell).
+\]
+(c) For $h\ne0$, $|th/s+\beta_\ell|\ge(t/s)|h|-\frac12>|h|-\frac12\ge\frac12$,
+so $Q_h(\ell)>(|h|-\frac12)^2-\frac14=|h|(|h|-1)\ge0$, as in the proofs
+of~\cite[Lemmas~4.6 and~4.11]{HarveyHoeven2021}.
+
+(d) We have $\psi(x)=\theta^{-1}\int_{-1/2}^xg$, where $g(y)=2y+\frac12$ on
+$[-\frac12,-\frac14]$, $g=0$ on $[-\frac14,\frac14]$ and $g(y)=2y-\frac12$ on
+$[\frac14,\frac12]$. On $[-\frac12,\frac12]$ one has
+$2y-\frac12\le g(y)\le2y+\frac12$ and $|g(y)|\le\frac12$, and
+$\int_{-1/2}^{1/2}g=0$; so $\psi$ is continuous and $1$-periodic, and
+$\theta\psi$ takes values in $[-\frac1{16},0]$.
+
+(e) In both cases of (a), periodicity gives
+$\varphi_{\ell+1}-\varphi_\ell=\psi(\beta_\ell+\theta)-\psi(\beta_\ell)
+=\theta^{-1}\int_{\beta_\ell}^{\beta_\ell+\theta}\tilde g$, where $\tilde g$ is
+the periodic extension of $g$. Hence
+$|\varphi_{\ell+1}-\varphi_\ell|\le\frac12$ for every $\ell$. If
+$\Delta q_\ell=1$, then $[\beta_\ell,\beta_\ell+\theta]\subset[-\frac12,\frac12)$,
+and averaging the bounds of (d) gives
+\[
+ 2\beta_\ell+\theta-\tfrac12\le\varphi_{\ell+1}-\varphi_\ell\le2\beta_\ell+\theta+\tfrac12 .
+\]
+(f) If $\Delta q_\ell=1$, then by (b)
+$\mathcal E_{\ell,1}=1+2\beta_\ell+2\theta-(\varphi_{\ell+1}-\varphi_\ell)\ge\frac12+\theta$
+and $\mathcal E_{\ell+1,-1}=1-2\beta_\ell+(\varphi_{\ell+1}-\varphi_\ell)\ge\frac12+\theta$.
+If $\Delta q_\ell=2$, then $Q_1(\ell)\ge2$ and $Q_{-1}(\ell+1)\ge2$, and both
+scaled exponents are at least $\frac32$.
+
+(g) For $|h|\ge2$, (e) gives $|\varphi_{\ell+h}-\varphi_\ell|\le|h|/2$, and (c)
+gives $\mathcal E_{\ell,h}\ge|h|(|h|-1)-|h|/2$.
+
+(h) Row $\ell$ of $\Lambda^{-1}E\Lambda$ is the sum, over all $h\ne0$, of the
+positive terms $e^{-\pi\alpha^2\mathcal E_{\ell,h}}$; the terms with
+$h\equiv0\pmod s$ lie on the diagonal. By (f) and (g) the total is at most
+$2e^{-\pi\alpha^2/2}+2\sum_{k\ge2}e^{-\pi\alpha^2k(k-3/2)}$, and successive
+terms of the last sum decrease by at least $e^{-14\pi}$ when $\alpha\ge2$.
+This gives $\rho_\alpha$, which decreases in $\alpha$; the numerical bound
+$\rho_2<0.0038$ is an exact rational comparison. Neumann's series bounds
+$\|(I+\Lambda^{-1}E\Lambda)^{-1}\|$ by $1/(1-\rho_2)<1.004$, and
+$N^{-1}=\Lambda(I+\Lambda^{-1}E\Lambda)^{-1}\Lambda^{-1}$. For the tail,
+$k(k-\frac32)\ge(m+1)(m-\frac12)\ge m^2$ for $k\ge m+1\ge2$, so the terms with
+$|h|>m$ total less than $2.01e^{-\pi\alpha^2m^2}$.
+\end{proof}
+
+We now use an integer $\alpha$ with $2\le\alpha<\sqrt p$, where $p>100$ and
+$t<2^p$. Put
+\[
+ L=\Bigl\lceil\frac{4533\,\alpha^2s}{16000\,(t-s)}\Bigr\rceil,\qquad
+ w=3p+2L+12,\qquad m=\Bigl\lceil\frac{\sqrt w}{\alpha}\Bigr\rceil,
+\]
+\[
+ \mathcal B=\{s-m,\ldots,s-1\},\qquad
+ J_k=\bigl((k,k+m]\cup\mathcal B\bigr)\cap(k,s),
+\]
+\[
+ \mathcal P=\{(i,j):|i-j|\le m\}\cup(\mathcal B\times[0,s))\cup([0,s)\times\mathcal B),
+\]
+with indices in $[0,s)$, and assume $L\le p$ and $s\ge4m$. Since
+$\pi\log_2e<4.533$ and $s/(t-s)=1/\theta$, we have $\log_2R\le L$. Write
+$Q_w$ for truncation toward zero of the real and imaginary parts to
+$2^{-w}\mathbb Z$, so that $|Q_wz-z|<\sqrt2\,2^{-w}$ and $|Q_wz|\le|z|$.
+
+\begin{lemma}[Precomputed banded solve]\label{lem:banded-solve}
+Under these hypotheses put $\mathsf J=N^{-1}/2^{L+2}$, so that
+$\|\mathsf J\|\le0.251$.
+\begin{enumerate}
+\item A fixed multitape algorithm, given $p,s,t,\alpha$, writes a factor
+stream of $O(smw)$ bits in time $O(sm^2w^2)$.
+\item A fixed multitape algorithm, given that stream and $u\in\mathbb D_p^s$ in
+the scalar component format and increasing coordinate order, returns
+$\widetilde{\mathsf J}u\in\mathbb D_p^s$ in the same format with
+$2^p\|\widetilde{\mathsf J}u-\mathsf Ju\|<2$, in time $O(smw^{1+\delta})$.
+\end{enumerate}
+The tape count and the implicit constants are independent of $p,s,t,\alpha$.
+\end{lemma}
+
+\begin{proof}
+Write $X_\Lambda=\Lambda^{-1}X\Lambda$ for matrices and $y_\Lambda=\Lambda^{-1}y$
+for vectors. The machine never uses $\Lambda$; it appears only in the
+analysis. As $\Lambda$ has diagonal entries in $[1,R]$ and $R\le2^L$, an
+entrywise perturbation of size $\eta$ has scaled entries at most $2^L\eta$, and
+$\|y_\Lambda\|\le\|y\|\le2^L\|y_\Lambda\|$.
+
+\emph{Truncation.} Let $E_m$ keep exactly the terms with $1\le|h|\le m$. Since
+$s\ge4m$, these $h$ give distinct columns different from $\ell$, so $E_m$ is
+supported in the cyclic band; a band pair that wraps past $s$ has its row in
+$\mathcal B$, and one that wraps past $0$ has its column in $\mathcal B$, so
+the band lies in $\mathcal P$. By Lemma~\ref{lem:scaled-dominance},
+$(E_m)_\Lambda$ has row sums at most $\rho_2$, and as $\alpha^2m^2\ge w$ and
+$\pi\log_2e>1$, $\|(E-E_m)_\Lambda\|<3e^{-\pi w}<3\cdot2^{-w}$.
+
+\emph{Entries.} For $1\le|h|\le m$ the exponent of a term of $E_m$ is
+$\pi j/k$ with $k=s^2$ and the positive integer
+$j=\alpha^2\bigl((th+\sigma_\ell)^2-\sigma_{\ell+h}^2\bigr)$, where
+$\sigma_\ell=s\beta_\ell=t\ell-sq_\ell$ is an integer of $O(p)$ bits, and
+$j>0$ by part (c) of the proof of Lemma~\ref{lem:scaled-dominance}.
+\cite[Lemma~2.13]{HarveyHoeven2021}, applied with precision
+parameter $w$ (its Section~2.2 fixes an arbitrary precision parameter larger
+than $100$), returns an approximation of the real number $x$ on the grid
+$2^{-w}\mathbb Z[i]$ with error less than $2\cdot2^{-w}$ in time
+$O(w^{1+\delta})$; its real part $\tilde x\in2^{-w}\mathbb Z$ satisfies
+$|\tilde x-x|<2\cdot2^{-w}$. Let
+$\widetilde A=I+\widetilde E_m$ be the matrix of these values. Then
+$\|(\widetilde E_m-E_m)_\Lambda\|<4m2^{L-w}$.
+
+\emph{Elimination.} Put $a^{(0)}=\widetilde A$. For $k=0,\ldots,s-1$ let
+$\pi_k=a^{(k)}_{kk}$, $\tilde u_{kj}=a^{(k)}_{kj}$ for $j\in J_k$,
+$\psi_k=Q_w(1/\pi_k)$ and $\tilde l_{ik}=Q_w(a^{(k)}_{ik}/\pi_k)$ for
+$i\in J_k$, and for $i,j\in J_k$ set
+$a^{(k+1)}_{ij}=Q_w(a^{(k)}_{ij}-\tilde l_{ik}\tilde u_{kj})$, the product and
+difference being exact; leave all other entries unchanged. Put
+$\tilde l_{kk}=1$, $\tilde u_{kk}=\pi_k$, and let every other factor entry be
+zero. If $(i,k),(k,j)\in\mathcal P$ and $i,j>k$, then $(i,j)\in\mathcal P$:
+if $k\in\mathcal B$ then $i,j\in\mathcal B$, and otherwise $i$ or $j$ lies in
+$\mathcal B$, or $i,j\in(k,k+m]$. Thus $J_k$ lists exactly the possible
+nonzero positions, and nothing outside $\mathcal P$ is ever written.
+
+Let $\varepsilon^{(r)}_{ij}$ be the truncation error of the update of $(i,j)$
+at step $r$, or zero, and for $i>j$ let
+$\varepsilon'_{ij}=\pi_j\tilde l_{ij}-a^{(j)}_{ij}$. Then
+$|\varepsilon^{(r)}_{ij}|<2^{-w}$ and $|\varepsilon'_{ij}|<|\pi_j|2^{-w}$, and
+telescoping the updates gives
+\[
+ \widetilde L\widetilde U=\widetilde A+\Delta,\qquad
+ \Delta_{ij}=\sum_{r<\min(i,j)}\varepsilon^{(r)}_{ij}+[i>j]\,\varepsilon'_{ij},
+\]
+with $\widetilde L=(\tilde l_{ij})$ and $\widetilde U=(\tilde u_{ij})$. For
+$k\le s$ let $\Delta^{(k)}$ keep only the terms with $r<k$ and the
+$\varepsilon'_{ij}$ with $j<k$, and put $M^{(k)}=\widetilde A+\Delta^{(k)}$. The
+same telescoping shows that the computed $\tilde l_{ir},\tilde u_{rj}$,
+$r<k$, satisfy the Crout equations of $M^{(k)}$ in all positions with
+$\min(i,j)<k$, and that $(a^{(k)}_{ij})_{i,j\ge k}$ is the exact $k$-th Schur
+complement of $M^{(k)}$.
+
+Suppose $|\pi_r|\le\frac{11}{10}$ for $r<k$. Then $|\Delta^{(k)}_{ij}|<(s+1)2^{-w}$,
+and since a row has at most $s$ entries and $s<2^p$,
+$\|\Delta^{(k)}_\Lambda\|<2^Ls(s+1)2^{-w}<2^{2p+L-w}=2^{-p-L-12}$. Hence
+$M^{(k)}_\Lambda$ satisfies Lemma~\ref{lem:dominant-lu} with
+$\rho\le\rho_2+4m2^{L-w}+2^{-p-L-12}<\frac1{10}$. Pivots are invariant under the
+diagonal similarity, so $\pi_k\in[\frac9{10},\frac{11}{10}]$; the unscaled
+active entries satisfy $|a^{(k)}_{ij}|\le\frac{11}{10}2^L$ and
+$|\tilde l_{ik}|\le2^L/9+2^{-w}$. This closes the induction. All stored values
+therefore fit in words of $L+3$ integer and sign bits and $w$ fractional bits.
+At the end, $(\widetilde L_\Lambda,\widetilde U_\Lambda)$ is the LU factorization
+of $M_\Lambda$, where $M=\widetilde A+\Delta$, and it satisfies the bounds of
+Lemma~\ref{lem:dominant-lu}. Also $|\psi_k-1/\pi_k|<2^{-w}$.
+
+\emph{Factor stream and precomputation cost.} The record $F_k$ consists of
+$\psi_k$, the values $\tilde u_{kj}$ for $j\in J_k$, and the values
+$\tilde l_{ik}$ for $i\in J_k$, in increasing index order and followed by a
+separator: $O(m)$ words, hence $O(smw)$ bits in all. At step $k$ only rows and
+columns in $W_k=\{k\}\cup J_k$ are read or written. An active entry outside
+$W_k\times W_k$ is an unchanged entry of $\widetilde A$, because a row or
+column index larger than $k+m$ and outside $\mathcal B$ is in
+$\mathcal P$-relation with no earlier pivot. Keep the at most $(2m+1)^2$ words
+of $W_k\times W_k$ row-major on a work tape. A step performs at most
+$(2m+1)^2$ products and divisions of $O(w)$-bit numbers by schoolbook
+arithmetic, rewrites the window once, appends the new row and column with the
+$O(m)$ new entries of $\widetilde A$, and writes $F_k$. The integers
+$\sigma_\ell$ come from the counters $tj=sf_j+e_j$ of the selected coordinates,
+since $\sigma_\ell=e_\ell-s\,\mathbf 1_{2e_\ell\ge s}$. This proves the first
+claim.
+
+\emph{Solve.} Convert the input records to the fixed-point words and put
+$v=u/2$, which is exact. Forward: for $k=0,\ldots,s-1$ let
+$\tilde y_k=Q_w(\mathrm{acc}_k)$, where
+$\mathrm{acc}_k=v_k-\sum_{r<k}\tilde l_{kr}\tilde y_r$ is accumulated exactly.
+Keep the exact accumulators of the rows in $(k,k+m]\setminus\mathcal B$ in a
+queue on one tape and those of the rows in $\mathcal B$ on another, initialized
+with the corresponding $v_i$; after $\tilde y_k$ is formed, one forward scan of
+$F_k$ alongside both tapes subtracts $\tilde l_{ik}\tilde y_k$ for every
+$i\in J_k$, the head row leaves the queue, and the next row enters it. Backward:
+for $i=s-1,\ldots,0$ form exactly
+$g_i=\tilde y_i-\sum_{j\in J_i}\tilde u_{ij}\tilde x_j$ and
+$\tilde x_i=Q_w(\psi_ig_i)$, reading $F_i$ backward record by record; the
+values $\tilde x_j$ with $j\in(i,i+m]\setminus\mathcal B$ are kept in a queue,
+and those with $j\in\mathcal B$, computed first, on a separate tape. Output
+$\widetilde{\mathsf J}u=Q_p(\tilde x/2^{L+1})$ in the scalar component format.
+
+\emph{Errors.} Forward, $\widetilde L\tilde y=v+\xi$ with
+$|\xi_k|<\sqrt2\,2^{-w}$. Scaling gives
+$\widetilde L_\Lambda\tilde y_\Lambda=v_\Lambda+\xi_\Lambda$ with
+$\|\xi_\Lambda\|<\sqrt2\,2^{-w}$ and $\|v_\Lambda\|\le\frac12$, hence
+$\|\tilde y_\Lambda-\widetilde L_\Lambda^{-1}v_\Lambda\|\le\frac87\sqrt2\,2^{-w}$ and
+$\|\tilde y_\Lambda\|<0.58$. Backward, downward induction gives
+$|\tilde x_j|\le\lambda_j$: if this holds for $j>i$, then
+$|g_i|\le(0.58+\frac1{10})\lambda_i$ and $|\tilde x_i|\le
+(\frac{10}9+2^{-w})0.68\lambda_i<\lambda_i$. The residual
+$\eta_i=\tilde x_i-g_i/\pi_i$ satisfies
+$|\eta_i|/\lambda_i<(\sqrt2+0.68)2^{-w}<2.2\cdot2^{-w}$, and
+$\widetilde U\tilde x=\tilde y+D_U\eta$. Lemma~\ref{lem:dominant-lu} for the
+scaled factors gives
+\[
+ \|\tilde x_\Lambda-M_\Lambda^{-1}v_\Lambda\|
+ \le\tfrac54\cdot\tfrac87\sqrt2\,2^{-w}+\tfrac98\cdot2.2\cdot2^{-w}<5\cdot2^{-w},
+\]
+hence $\|\tilde x-M^{-1}v\|<5\cdot2^{L-w}$. Further,
+$\|N_\Lambda-M_\Lambda\|<3\cdot2^{-w}+4m2^{L-w}+2^{-p-L-12}<2^{-p-L-11}$,
+$\|N_\Lambda^{-1}\|\le1.004$ and $\|M_\Lambda^{-1}\|\le\frac{10}9$, so
+\[
+ \|(N^{-1}-M^{-1})v\|\le2^L\cdot1.004\cdot\tfrac{10}9\cdot2^{-p-L-11}\cdot\tfrac12
+ <0.56\cdot2^{-p-11},
+\]
+and $\|\tilde x-N^{-1}v\|<2^{-p-10}$. Since $N^{-1}v/2^{L+1}=\mathsf Ju$, the
+output error is less than $\sqrt2+2^{-11}<2$ units of $2^{-p}$. Also
+$\|\mathsf J\|\le1.004R/2^{L+2}\le0.251$, so the truncated output has modulus
+less than one and lies in $\mathbb D_p^s$.
+
+Every exact accumulator is bounded by $\frac12+0.58\cdot2^L/8$ and every $g_i$
+by $0.68\cdot2^L$, so all words have $O(w)$ bits; as $L\le p$, $w=O(p)$.
+
+\emph{Solve cost.} Each index uses $O(m)$ products of $O(w)$-bit integers,
+$O(w^{1+\delta})$ each with the established multiplier, and $O(mw)$ head moves
+for one record of the factor stream and one pass over each queue or the
+$\mathcal B$ tape. The factor stream is traversed once forward and once
+backward. Initializing the $\mathcal B$ accumulators, reversing the output
+order and the record conversions take $O(sw)$. Hence the solve costs
+$O(smw^{1+\delta})$ on a fixed number of tapes.
+\end{proof}

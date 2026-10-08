@@ -1,5 +1,25 @@
 # Current contracts and research status
 
+## Latest: assembly refinements (October 8, 2026)
+
+A follow-up contribution by William Porter, with Claude Opus 5.5 / Fable 5.1
+agents via Hermes, reports the conditional value
+`kappa = 296461013/(2*10^17) = 1.4823050650e-9 > 2^-30`, about 2.5 times the
+pair-star value below. Both finite networks and their certified savings are
+unchanged. Two downstream components are replaced, each with a written proof:
+a linear coefficient guard (the guard condition `eps*C1 < 1` becomes
+`eps < 1`) and a precomputed banded LU solve of the Gaussian resampling
+system, made diagonally dominant by an explicit diagonal similarity, which
+allows the constant width `alpha = 2`. The parameter supremum moves from
+`Q/(5+4Q)` to `Q/(2+2Q)`, with `Q = min(a_b, a_c)`. Within the retained
+framework the ceiling is `kappa < Q/2`.
+
+See the [assembly notes](../../artifacts/assembly-lu-note.pdf),
+[summary](assembly-lu.md), [certificate](../../certificates/assembly-lu.json)
+and [patch](../../patches/assembly-lu-30.patch). Run `make verify-assembly-lu`.
+The proofs remain unreviewed apart from two adversarial AI audits, and all
+retained proof dependencies of the pair-star experiment remain.
+
 ## The current experiment
 
 This hobby project explores integer multiplication with AI, just for fun.

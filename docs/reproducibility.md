@@ -14,6 +14,12 @@ The extension-specific checks run with `make verify-pair-star`; `make verify`
 also runs all retained baseline checks. Build the extension note with
 `make pair-star-note` (requires pdfLaTeX).
 
+The assembly refinements add the [assembly note](../artifacts/assembly-lu-note.pdf),
+[patch](../patches/assembly-lu-30.patch) (built on the pair-star patch), and
+[exact certificate](../certificates/assembly-lu.json). Their checks run with
+`make verify-assembly-lu` and are included in `make verify`; build the note
+with `make assembly-lu-note` (requires Tectonic).
+
 The preserved baseline artifacts are the [compact-control note](../artifacts/compact-control-note.pdf),
 [combined patch](../patches/compact-control-34.patch), and
 [exact layer certificate](../certificates/compact-control-layer.json).

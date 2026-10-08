@@ -1,4 +1,4 @@
-.PHONY: verify verify-pair-star pair-star-note note audit-note tuned-note reuse-note incidence-note dag-note shared-point-note paired-note compact-note fetch
+.PHONY: verify verify-pair-star verify-assembly-lu pair-star-note assembly-lu-note note audit-note tuned-note reuse-note incidence-note dag-note shared-point-note paired-note compact-note fetch
 
 verify:
 	python3 scripts/certify.py
@@ -39,6 +39,8 @@ verify:
 	python3 scripts/complex_pair_star_parameters.py
 	python3 scripts/complex_pair_star.py
 	python3 scripts/make_complex_pair_star_patch.py
+	python3 scripts/assembly_lu.py
+	python3 scripts/make_assembly_lu_patch.py
 	python3 -m unittest discover -s tests -v
 	git apply --check --directory=upstream patches/frozen-154.patch
 	git apply --check --directory=upstream patches/balanced-153.patch
@@ -58,6 +60,7 @@ verify:
 	git apply --check --directory=upstream patches/h50-paired-59.patch
 	git apply --check --directory=upstream patches/compact-control-34.patch
 	git apply --check --directory=upstream patches/complex-pair-star-31.patch
+	git apply --check --directory=upstream patches/assembly-lu-30.patch
 
 verify-pair-star:
 	python3 scripts/complex_pair_star_parameters.py
@@ -66,10 +69,20 @@ verify-pair-star:
 	python3 -m unittest discover -s tests -p 'test_complex_pair_star*.py' -v
 	git apply --check --directory=upstream patches/complex-pair-star-31.patch
 
+verify-assembly-lu:
+	python3 scripts/assembly_lu.py
+	python3 scripts/make_assembly_lu_patch.py
+	python3 -m unittest discover -s tests -p 'test_assembly_lu*.py' -v
+	git apply --check --directory=upstream patches/assembly-lu-30.patch
+
 pair-star-note:
 	mkdir -p artifacts
 	cd notes && pdflatex -halt-on-error -interaction=nonstopmode -output-directory=../artifacts complex-pair-star-note.tex
 	cd notes && pdflatex -halt-on-error -interaction=nonstopmode -output-directory=../artifacts complex-pair-star-note.tex
+
+assembly-lu-note:
+	mkdir -p artifacts
+	tectonic --outdir artifacts notes/assembly-lu-note.tex
 
 note:
 	mkdir -p artifacts

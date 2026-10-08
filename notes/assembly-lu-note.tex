@@ -1,0 +1,383 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[margin=0.94in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newcommand{\ab}{a_{\rm b}}
+\newcommand{\ac}{a_{\rm c}}
+\hypersetup{pdftitle={A linear guard and a constant-width Gaussian solve},
+pdfauthor={William Porter (AI-assisted)}}
+\title{A linear guard and a constant-width Gaussian solve\newline
+\large Downstream assembly refinements for integer multiplication}
+\author{William Porter\thanks{Prepared with AI assistance (Claude agents).
+This note builds on odepoint's \emph{intmultspam}, a fork of Douglas Colkitt's
+\emph{integer-mult-bounds}, and on OpenAI's paper \emph{Integer multiplication
+below $n\log n$}. It has no independent review or endorsement from their
+authors.}}
+\date{October 8, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+These notes change two downstream components of the conditional
+integer-multiplication bound, leaving both finite networks untouched.
+First, the coefficient guard of a simultaneous butterfly layer is bounded
+linearly in the number of axes, by charging each completed recursive child
+with its exact kernel instead of its internal dependency depth. The guard
+condition $\epsilon C_1<1$ becomes $\epsilon<1$. Second, the Gaussian
+resampling system is solved by a precomputed banded LU factorization with a
+complete fixed-point error analysis. A diagonal similarity makes the system
+strongly diagonally dominant for every separation $\theta$, so the Gaussian
+width can be the constant $\alpha=2$. The Gaussian row of the cost table
+drops from power $\frac34+\delta+\frac54\epsilon$ to
+$\frac12+\delta+\epsilon$. For certified savings $\ab,\ac$ the parameter
+supremum moves from $Q/(5+4Q)$ to $Q/(2+2Q)$, $Q=\min(\ab,\ac)$. With the
+current certified savings, exact rational parameters give
+\[
+ T(n)=O\!\left(n(\log n)^{1-\kappa}\right),\qquad
+ \kappa=\frac{296461013}{2\cdot10^{17}}=1.4823050650\cdot10^{-9}>2^{-30},
+\]
+about $2.5$ times the previous conditional witness $5929220328/10^{19}$.
+The result is conditional on the same upstream interfaces as before, plus
+the new written proofs. The exact checks support those proofs; they do not
+independently establish the complete upstream theorem.
+\end{abstract}
+
+\section{Baseline, dependencies, and the change}
+The baseline is odepoint's \emph{intmultspam}~\cite{fork}, revision
+\texttt{8e1701f}, a fork of Douglas Colkitt's
+\emph{integer-mult-bounds}~\cite{baseline}. Its conditional witness is
+$\kappa=5929220328/10^{19}>2^{-31}$, which is the exact parameter supremum
+$\ab/(5+4\ab)$ of its assembly for the certified bit saving
+$\ab=29646101715649/10^{22}$. Both rest on OpenAI's \emph{Integer
+multiplication below $n\log n$}~\cite{upstream}, pinned at
+\begin{center}\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.\end{center}
+Numbered citations to Harvey and van der Hoeven~\cite{HarveyHoeven2021}
+refer to its author-hosted manuscript, as in the pinned source.
+
+We retain every interface that the baseline assumes: the pinned stream
+operations, bit transfer and complex phase transfer, the paired bit network
+and the pair-star complex network with their certified savings
+$\ab=29646101715649/10^{22}$ and $\ac=4/10^9$, nonadjacent routing,
+compact dirty controls with their reservations and local repair, synthetic
+transforms, prime selection, the Gaussian identity and its forward and
+diagonal maps, and the final rounding. Two components change.
+\begin{enumerate}
+\item The width guard of the simultaneous layer (Section~\ref{sec:note-guard}).
+The retained depth recurrence $A(e)\le sA(e/m)+E$ gives widths
+$p+O(d^{C_1})$ with $C_1=5-4\beta+\zeta$. We prove widths $p+O(d)$.
+\item The solve of the square Gaussian system
+(Section~\ref{sec:note-resampling}). The retained Neumann series costs
+$O(tp^{5/2+\delta}/(\alpha^3\theta))$ on a line of length $t$ and is used
+under the hypothesis $\theta>p/\alpha^4$, so that it does not dominate the
+$O(tp^{3/2+\delta}\alpha)$ forward map~\cite[Section~4.4.2]{HarveyHoeven2021}.
+The retained separations are $\theta_i\asymp1/d$, so $\alpha\asymp(pd)^{1/4}$,
+and the Gaussian row has power $\frac34+\delta+\frac54\epsilon$: one factor
+$d$ for the axes and $\alpha\asymp p^{(1+\epsilon)/4}$. Harvey and van der
+Hoeven remark that a precomputed LU decomposition ``allows us to relax the
+condition $\theta>p/\alpha^4$ to merely $\theta>1/\alpha^2$'', and that they
+did not use it ``because the error analysis is considerably more intricate
+than for the iterative method''~\cite[Section~4.4.2, pp.~34--35]{HarveyHoeven2021}.
+With $\theta_i\asymp1/d$ that condition would still force
+$\alpha\asymp\sqrt d$. We prove a complete version that needs neither
+condition, for every integer $\alpha\ge2$, and use $\alpha=2$.
+\end{enumerate}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+& Baseline & This note\\
+\midrule
+Coefficient guard & $\epsilon(5-4\beta+\zeta)<1$ & $\epsilon<1$\\
+Gaussian width $\alpha$ & $\lceil(32db)^{1/4}\rceil$ & $2$\\
+Gaussian row power & $\frac34+\delta+\frac54\epsilon$ & $\frac12+\delta+\epsilon$\\
+Source scale $\gamma$ & $O(p^{1/2+3\epsilon/2})$ & $O(d^2)=O(p^{2\epsilon})$\\
+Parameter supremum & $Q/(5+4Q)$ & $Q/(2+2Q)$\\
+Witness $\kappa$ & $5.929220328\cdot10^{-10}$ & $1.4823050650\cdot10^{-9}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Coefficient widths of the simultaneous layer}\label{sec:note-guard}
+The simultaneous layer applies $C^{\otimes D}$, with
+$C=aI+bX$, $a=(1+i)/2$, $b=(1-i)/2$, to $D\le d$ selected address bits, and
+converts it to the normalized butterfly layer by
+$H_0^{\otimes D}=b^D\mathcal S_DC^{\otimes D}\mathcal S_D$, where
+$\mathcal S_D$ multiplies each record by $i$ to the number of selected bits
+equal to one. Its recursion splits a group of $e=mf$ axes into $m$ slots,
+applies the finite pair-star network with $W$ roles and $s$ child calls,
+stops below $d^\beta$ axes, and uses individual kernels at the leaves and on
+at most $d$ reserved axes. The node count (PS11a)--(PS11b) cited below is
+the one in \texttt{notes/complex-pair-star-construction.tex}, which the
+pair-star manuscript patch \texttt{patches/complex-pair-star-31.patch}
+inserts into Section~3: it gives
+$D_{\rm scalar}=3v^2(12R_{\rm side}+4vh+10v)+8W$ for the scalar circuit and
+its endpoint and bank corrections, and $D_{\rm node}=D_{\rm scalar}+4s$,
+where $4s$ pays for the inverse-child wrappers. The following subsection
+replaces the guard subsection of the retained layer proof.
+
+\input{assembly-lu-guard.tex}
+
+\section{Gaussian resampling with a constant width}\label{sec:note-resampling}
+Here $\mathbb D_p$ is the disk grid $2^{-p}\mathbb Z[i]\cap\{|z|\le1\}$, vectors
+carry the maximum coordinate norm, and an approximation $\widetilde L$ of a
+linear contraction $L$ has error $E$ if $2^p\|\widetilde Lu-Lu\|<E$ for every
+input on the grid. The maps $\mathsf S,\mathsf T,C,\mathsf D$ are those
+of~\cite[Section~4]{HarveyHoeven2021}: for $0\le k<t$,
+\[
+ (\mathsf Su)_k=\frac1\alpha\sum_{j\in\mathbb Z}e^{-\pi\alpha^{-2}(j-sk/t)^2}u_j,
+ \qquad
+ (\mathsf Tu)_k=\sum_{j\in\mathbb Z}e^{-\pi\alpha^2(tj/s-k)^2}u_j,
+\]
+$C$ selects the coordinates $q_\ell$ and
+$\mathsf D={\rm diag}(e^{\pi\alpha^2\beta_\ell^2})$, so that $N=C\mathsf T\mathsf D$.
+
+\input{assembly-lu-resampling.tex}
+
+\subsection{The revised one-dimensional interface}
+\begin{proposition}\label{prop:note-one-dimensional}
+Fix $0<\delta<1/8$. Let $p>100$, $2\le s<t<2^p$ and $2\le\alpha<\sqrt p$ be
+integers with $\gcd(s,t)=1$ and $t<2s$, let $L,w,m$ be as in
+Lemma~\ref{lem:banded-solve}, and assume $L\le p$ and $s\ge4m$. With
+$(P_su)_j=u_{tj}$ and $(P_tv)_k=v_{-sk}$, the maps $A=\mathsf S/2$ and
+$B_0=\mathsf D'\mathsf JC$, where $\mathsf D'=2^{-(2\alpha^2-2)}\mathsf D$,
+are contractions and
+\[
+ P_sF_s=2^{2\alpha^2+L+1}B_0P_tF_tA .
+\]
+There are fixed multitape algorithms for approximations $\widetilde A$ and
+$\widetilde B_0$ with errors less than $p^2$ and times
+$O(tp^{3/2+\delta}\alpha)$ and $O(tmw^{1+\delta}+tp^{1+\delta})$, the second
+given the factor stream of Lemma~\ref{lem:banded-solve}.
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:scaled-dominance} the matrix $N$ is invertible, so the
+left-inverse identity $(\mathsf DN^{-1}C)\mathsf T=I$
+of~\cite[(4.2)]{HarveyHoeven2021} holds, and the resampling
+identity~\cite[Theorem~4.2]{HarveyHoeven2021} gives
+$P_sF_s=\mathsf DN^{-1}CP_tF_t\mathsf S$. Inserting
+$\mathsf D=2^{2\alpha^2-2}\mathsf D'$, $N^{-1}=2^{L+2}\mathsf J$ and
+$\mathsf S=2A$ proves the identity. The norms $\|A\|<\frac34$ and
+$\|\mathsf D'\|<1$ hold as in the proof of~\cite[Proposition~4.7(i)]{HarveyHoeven2021},
+and $\|\mathsf J\|\le0.251$ by Lemma~\ref{lem:banded-solve}. The
+approximations are $\widetilde A=\widetilde{\mathsf S}'$ and
+$\widetilde B_0=\widetilde{\mathsf D}'\widetilde{\mathsf J}C$, with the cited
+algorithms for $\mathsf S'$ (error $<16p$) and $\mathsf D'$ (error $<4$), the
+banded solve (error $<2$), and the exact ordered selection $C$. Errors add
+through the contractions, so $\varepsilon(\widetilde B_0)<4+2<p^2$ and
+$\varepsilon(\widetilde A)<16p<p^2$.
+
+The cited statements are used outside the hypothesis $\theta>p/\alpha^4$ of
+their Proposition~4.7. We record the sentences of their proofs that are
+used, by section and printed page of the cited manuscript; none of them
+involves $\theta$.
+\begin{itemize}
+\item Section~4.1, p.~24: ``let $s$ and $t>s$ be positive integers such that
+$\gcd(s,t)=1$, and let $\alpha\in(0,\infty)$''; Theorem~4.2, p.~24: ``We have
+$\mathsf TP_sF_s=P_tF_t\mathsf S$''.
+\item Lemma~4.5, p.~26: ``We have $\|\mathsf S\|<1+\alpha^{-1}$.'' The
+estimate (4.1), p.~27: ``$\|\mathsf D\|\le e^{\pi\alpha^2/4}$''. The left
+inverse (4.2), p.~28: ``$(\mathsf DN^{-1}C)\mathsf T=\mathsf DN^{-1}T'
+=\mathsf D(T'\mathsf D)^{-1}T'=I$'', valid whenever $N=T'\mathsf D$ is
+invertible.
+\item Proof of Proposition~4.7(i), p.~29: ``Lemma~4.5 implies that
+$\|\mathsf S\|<\frac32$'' and ``By (4.1) we have
+$\|\mathsf D\|\le e^{\pi\alpha^2/4}<2^{1.14\alpha^2}<2^{2\alpha^2-2}$, as
+$1.14x<2x-2$ for all $x>4$; hence also $\|\mathsf D'\|<1$''. The last
+inequality holds for every $x>2.33$, in particular for $x=\alpha^2=4$.
+\item Lemma~4.8, pp.~29--30, computing $\mathsf D'$: its proof uses that
+``$\alpha$, $s$, $t$ and $\ell$ are all integers with $O(p)$ bits (here we
+have used the hypotheses $s,t<2^p$ and $\alpha<p^{1/2}$)'', the estimate
+$\|\mathsf D'\|<1$, and Lemma~2.14 ``with $\sigma:=2\alpha^2-2<2p$''.
+\item Lemma~4.9, pp.~30--31, computing $\mathsf S'$ with $m=\lceil p^{1/2}\rceil\alpha$
+terms: its proof uses ``Since $\|u\|\le1$ and $\alpha>2$ we have'', only to
+bound the weight $\frac12\alpha^{-1}$ by $\frac14$, which also holds for
+$\alpha=2$; then ``Since $\alpha<p^{1/2}$ we have
+$w^m=e^{-\pi\lceil p^{1/2}\rceil/\alpha}\le e^{-\pi p^{1/2}/\alpha}<e^{-\pi}<0.05$'',
+``As $m<\lceil p^{1/2}\rceil p^{1/2}\le p+p^{1/2}$ and $p>100$'', and
+``Recalling from the proof of Proposition~4.7(i) that $\|\mathsf S'\|<\frac34$''.
+Its statement assumes the hypotheses of Proposition~4.7, which allow
+$2\le\alpha<p^{1/2}$.
+\item Section~2.2, p.~8: ``Fix a precision parameter $p>100$''; Lemma~2.13,
+p.~17, is stated for this arbitrary precision and is applied above with
+precision $w$.
+\end{itemize}
+The cited Lemmas~4.11 and~4.12 (the Neumann solve), and Lemma~4.6, are not
+used.
+\end{proof}
+
+For the tensor interface, every axis $i$ uses its own $L_i$, the scale
+becomes $\gamma=\sum_i(2\alpha^2+L_i+1)$, and the factor stream of axis $i$
+is written once on a dedicated tape before its lines are compressed. The
+error bound $dp^2$ and the contraction properties are unchanged. The
+one-dimensional calls cost $\sum_i(T/t_i)O(t_ip^{3/2+\delta}\alpha
++t_im_iw_i^{1+\delta})$, and the precomputations
+$O(\sum_is_im_i^2w_i^2)$.
+
+\section{Parameters, costs and the witness}
+Keep $b=\lceil\log_2n\rceil$, $p=6b$, $d=\lfloor b^\epsilon\rfloor$, $K=d$,
+$T,r,\ell,t_i$, $\eta=1/(4d)$ and the prime selection
+$(1-2\eta)t_i<s_i\le(1-\eta)t_i$ of the pinned source. Set
+\[
+ \alpha=2,\qquad
+ L_i=\Bigl\lceil\frac{4533\,s_i}{4000\,(t_i-s_i)}\Bigr\rceil,\qquad
+ \gamma=\sum_{i=1}^d(2\alpha^2+L_i+1).
+\]
+Then $\theta_i>\eta$ gives $s_i/(t_i-s_i)<4d$, so $L_i\le\lceil4.533d\rceil$,
+and for $d\ge22$
+\[
+ \gamma\le d(10+4.533d)\le5d^2\le5b^{2\epsilon}.
+\]
+Also $s_i>(1-2\eta)t_i\ge t_i/2$, $L_i\le p$, $w_i\le6p$,
+$m_i\le\sqrt{6p}$ and $s_i\ge r/4\ge4m_i$ for large $n$, so
+Proposition~\ref{prop:note-one-dimensional} applies on every axis. Every
+later use of $\gamma$ in the pinned precision analysis needs only
+$\gamma\le b/4$, which holds once $b^{1-2\epsilon}\ge20$. The Gaussian line
+maps cost $O(dTp^{3/2+\delta})$ in total, and the precomputations
+$O(drp^3)=o(Tp)$ because $T/r\ge(r/2)^{d-1}$ and $r$ exceeds every fixed
+power of $p$. After division by $Tp$, the Gaussian row has power
+$\frac12+\delta+\epsilon$. No other row of the cost table changes. The seven
+margins are
+\begin{align*}
+ g_1&=1-\epsilon(1+c), &g_2&=\epsilon c\,\ab,\\
+ g_3&=\epsilon(1-\lambda'), &g_4&=\ab(1-\epsilon),\\
+ g_5&=\tfrac12-\delta-\epsilon,
+ &g_6&=1-\delta-\epsilon,\qquad g_7=\epsilon.
+\end{align*}
+Relative to the baseline constraint list, exactly five entries change:
+the guard $1-\epsilon(5-4\beta+\zeta)$ becomes $1-\epsilon$; the Gaussian
+cost $\frac14-\delta-\frac54\epsilon$ becomes $\frac12-\delta-\epsilon$; the
+dimension and source-scale conditions $\frac13-\epsilon$ and
+$\frac12-\frac32\epsilon$ become $\frac12-\epsilon$ and $1-2\epsilon$; and
+$\alpha<\sqrt p$ becomes unconditional.
+
+Put $t=10^{-12}$ and choose
+\[
+\begin{gathered}
+ \tau=1-\ab,\quad\sigma=1-\ac,\quad\beta=\frac1{10},\quad c=1,\quad
+ \delta=\frac1{10^{12}},\quad
+ \epsilon=\frac{124999999}{250000000},\\
+ \lambda=1-\ab(1-t/2),\qquad\lambda'=1-\ab(1-t),\qquad
+ \kappa=\frac{296461013}{2\cdot10^{17}}.
+\end{gathered}
+\]
+Since $\sigma<\tau$, the compact-control recurrence has
+$\chi=\tau+(1-\beta)\max\{\sigma-\tau,0\}=\tau$, and exact comparisons give
+$\max\{\tau,\sigma,\chi\}<\lambda<\lambda'<1$,
+$\sigma+\beta(1-\sigma)<\lambda'$ and $1-c=0<\lambda'$. All the other strict
+conditions hold, with $1-2\epsilon=8/10^9$. The minimum margin is
+\[
+\begin{gathered}
+ G_*=g_3=\epsilon\ab(1-t)=\frac{3705762684806317521666189976715649}{25\cdot10^{41}},\\
+ G_*-\kappa=\frac{22306317521666189976715649}{25\cdot10^{41}}>0,
+\end{gathered}
+\]
+while $g_5=3999/10^{12}$, $g_1=8/10^9$ and $g_2,g_4>G_*$. The strict gap
+absorbs all fixed powers of $\log p$.
+
+\begin{theorem}[Conditional refinement]
+Under the retained upstream, network and compact-control interfaces, and the
+written proofs of this note,
+\[
+ T(n)=O\!\left(n(\log n)^{1-296461013/(2\cdot10^{17})}\right).
+\]
+The saving lies strictly between $2^{-30}$ and $2^{-29}$ and exceeds the
+previous witness $5929220328/10^{19}$ by the factor
+$7411525325/2964610164\approx2.49999997$.
+\end{theorem}
+
+The choice of $\epsilon$ is within $4\cdot10^{-9}$ of $\frac12$. The resulting
+eventual cutoffs, for example $b\ge2^{541000000}$ for $\gamma\le b/4$, are
+astronomically large; they are fixed constants, which the asymptotic
+statement allows. Any fixed $\epsilon<\frac12$ gives a witness with smaller
+cutoffs; $\epsilon=\frac25$ gives about twice the previous witness with
+$b^{1/5}\ge20$.
+
+\section{The supremum and the ceiling of this assembly}
+Write $q=1-\lambda'$. For the current savings ($\sigma<\tau$) the layer
+conditions can be met exactly when $q<\min(\ab,(1-\beta)\ac)$, and $\beta$
+now enters no other condition. With
+$c=1$, the binding margins are $g_3=\epsilon q$ and
+$g_5=\frac12-\delta-\epsilon$; their crossing $\epsilon\to1/(2+2q)$ lies
+strictly below every other cap. Hence the parameter supremum is
+\[
+ \kappa_{\sup}=\frac Q{2+2Q},\qquad Q=\min(\ab,\ac),
+\]
+about $1.4823050814\cdot10^{-9}$ for the current savings. The previous
+assembly gives $Q/(5+4Q)$.
+
+The value is within the factor $1+Q$ of a ceiling that no Gaussian stage
+can remove. The retained conditions include $g_2=\epsilon c\ab>\kappa$,
+$g_3=\epsilon q>\kappa$, the transform layout requirement
+$K=\lfloor d^c\rfloor\le\ell-1$, which gives $\epsilon(1+c)<1$, and the
+prime-interval requirement $\log(r/2)/d\to\infty$, which gives
+$1-2\epsilon>0$. Therefore
+\[
+ \kappa<\epsilon\min(q,c\,\ab)\le\frac{\min(q,c\,\ab)}{\max(1+c,2)}
+ \le\frac q2\le\frac Q2 .
+\]
+Exceeding $Q/2$ requires relaxing both $\epsilon<\frac12$ caps: the chunk
+layout of the synthetic transform and the prime-interval argument. Further
+gains otherwise come only from the finite networks: after the linear guard,
+$\beta$ may be arbitrarily small, so improving $\ab$ alone raises $\kappa$
+proportionally until $\ab$ reaches $\ac$.
+
+\section{Reproduction and verification boundary}
+The implementation uses only Python's standard library:
+\begin{verbatim}
+python3 scripts/assembly_lu.py
+python3 scripts/make_assembly_lu_patch.py
+python3 -m unittest discover -s tests -p 'test_assembly_lu*.py' -v
+git apply --check --directory=upstream patches/assembly-lu-30.patch
+\end{verbatim}
+The certificate re-derives $\ab$ with the retained paired-bit certificate and
+$\ac$ from the pair-star counts and a rational logarithm enclosure. It
+recomputes the node allowance $D_{\rm node}$ and $C_0^*$ from the pair-star
+circuit, the entries of $C^{\otimes f}$ for $f\le12$, rational enclosures of
+$\pi$, $e^{2\pi}$, $e^{4\pi}$, $e^{14\pi}$ and $\log2$, every constant of
+Lemmas~\ref{lem:dominant-lu}--\ref{lem:banded-solve}, the identities for
+$\psi$ on exact samples, and both scaled-exponent inequalities exactly on
+every row of six instances. It checks every strict constraint and margin of
+the witness, and that the retained constraint list agrees with the
+repository's code. The tests run the factorization and solve of
+Lemma~\ref{lem:banded-solve} in exact arithmetic at $p=101$, including two
+$\alpha=2$ instances whose unscaled off-diagonal row sums exceed $0.46$, and
+compare the output with a reference solve of the full matrix at more than
+$200$ digits; the worst observed error is below $1.4$ units of $2^{-p}$.
+
+The new patch applies to the unmodified pinned manuscript. It incorporates
+the earlier compact-control and pair-star modifications, replaces the guard
+subsection, inserts the banded solve before the one-dimensional resampling
+lemma and revises that lemma, and updates the assembly parameters, cost
+table, margins and witness. The verifier does not implement the
+multiplication machine, and the finite tests do not prove uniform tape
+estimates or the cited analytic identities. Those remain stated proof
+dependencies. No unrestricted optimality, independent review, or practical
+performance claim is made.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{fork} odepoint.
+\emph{intmultspam: integer multiplication, just for fun.}
+Fork of CrocSwap/integer-mult-bounds, revision \texttt{8e1701f}, October 2026.
+\bibitem{baseline} Douglas Colkitt.
+\emph{A sharper exponent for integer multiplication.}
+CrocSwap/integer-mult-bounds, revision
+\texttt{6e564879f51ae16f23d392e9e196c605f36d90df}, October 7, 2026.
+\url{https://github.com/CrocSwap/integer-mult-bounds}.
+\bibitem{upstream} OpenAI.
+\emph{Integer multiplication below $n\log n$.}
+Source pinned at revision
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}; see the repository's
+\texttt{upstream/manifest.json} for source URLs and hashes.
+\url{https://github.com/openai/math}.
+\bibitem{HarveyHoeven2021} David Harvey and Joris van der Hoeven.
+\emph{Integer multiplication in time $O(n\log n)$.}
+Annals of Mathematics 193 (2021). Numbering and printed pages refer to the
+45-page author-hosted manuscript
+\url{https://www.texmacs.org/joris/nlogn/nlogn.pdf}, as in the pinned
+source; its text agrees with hal-02070778v2.
+\end{thebibliography}
+\end{document}
