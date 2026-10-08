@@ -1,4 +1,8 @@
-# Draft compact-control release
+# Archived baseline release draft
+
+This is preserved text from Douglas Colkitt's original repository, describing
+that project's release plans. This repository is a separate, just-for-fun
+experiment with AI-generated math. The original draft follows for provenance.
 
 Repository: [CrocSwap/integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds)
 

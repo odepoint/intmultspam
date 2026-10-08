@@ -1,0 +1,326 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[margin=0.94in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newcommand{\ab}{a_{\rm b}}
+\newcommand{\ac}{a_{\rm c}}
+\hypersetup{pdftitle={Integer multiplication, just for fun},
+pdfauthor={odepoint (AI-generated experiment)}}
+\title{Integer multiplication, just for fun\newline
+\large An experiment with AI-generated math}
+\author{An experiment by \texttt{odepoint}\thanks{Put together by Owen DePoint
+using AI-generated material from OpenAI models. The baseline repository is by
+Douglas Colkitt; the underlying paper is by OpenAI. This experiment has no
+independent review or endorsement from their authors.}}
+\date{October 7, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+These notes record a just-for-fun attempt to see how far AI can push an
+integer-multiplication bound. They document a hobby project, not a research
+paper. The generated argument is largely unverified: the accompanying scripts
+check finite identities and arithmetic, but do not validate the full mathematical
+argument. The work builds on Douglas Colkitt's repository and OpenAI's paper,
+cited below.
+
+The proposed change replaces the side correction circuit in the complex finite network by
+reusable sums of triple indicators sharing two fixed points.  Within each
+batch these indicators are orthonormal over $\mathbb F_2$.  A bounded batch
+size provides explicit norm-one witnesses for every new complementary
+residual, in both circuit orientations.  Together with a redundant-center
+elimination and first/third-stage auxiliary reuse, the construction at
+$h=24$ has $4{,}496{,}369{,}044{,}992$ roles and supports the complex
+saving $\ac=4\cdot10^{-9}$.  The previously constructed bit network is
+unchanged.  Under the retained compact-control and multiplication
+interfaces, exact rational parameters give
+\[
+ T(n)=O\!\left(n(\log n)^{1-\kappa}\right),\qquad
+ \kappa=\frac{5929220328}{10^{19}}
+       =5.929220328\cdot10^{-10}>2^{-31}.
+\]
+This is about $7.14364$ times the saving at the repository revision
+examined.  These are conditional asymptotic exponent comparisons,
+not measured runtime improvements.  The proof and exact certificates do
+not independently establish the complete upstream theorem.
+\end{abstract}
+
+\section{Baseline, dependencies, and the change}
+The baseline is Douglas Colkitt's \emph{integer-mult-bounds}~\cite{baseline}, commit
+\begin{center}\texttt{6e564879f51ae16f23d392e9e196c605f36d90df}.\end{center}
+Its strongest stated witness is $83/10^{12}=8.3\cdot10^{-11}>2^{-34}$.
+This is newer than the earlier $2^{-59}$ witness.  The baseline retains
+OpenAI's \emph{Integer multiplication below $n\log n$}~\cite{upstream}, pinned at
+\begin{center}\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.\end{center}
+The model is a fixed finite alphabet on a fixed finite number of
+one-dimensional Turing tapes.  Source attribution, licenses, and the
+pinned manuscript are preserved.
+
+The present result assumes the pinned manuscript's stream operations,
+bit-transfer and complex-phase transfer, analytic estimates, prime
+selection, Gaussian resampling, synthetic transforms, and final rounding.
+It also retains the repository's paired $h=50$ bit circuit, nonadjacent
+routing, compact dirty-control movement, complete temporary reservations,
+local exceptional repair, generalized stopping guard, and tightened Gaussian
+choice.  The latter written arguments have the same conditional status
+here as in the baseline.  The new mathematical work concerns the finite
+complex circuit, its two binary frame assignments, and the parameter
+comparisons resulting from that circuit.
+
+The old complex motif at $h=25$ certifies only
+$\ac=4.18\cdot10^{-10}$, making its stopped leaves the limiting term.
+The new motif certifies $\ac=4\cdot10^{-9}$, larger than the retained
+bit saving.  This changes which term controls the completed layer.
+
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Quantity & Baseline complex motif & New complex motif\\
+\midrule
+Ground size $h$ & $25$ & $24$\\
+Ambient dimension $m$ & $15{,}625$ & $13{,}824$\\
+Central roles per invocation & $26$ & $24$\\
+Side roles per invocation & $3{,}693{,}800$ & $546{,}748$\\
+Total roles $W$ & $58{,}645{,}352{,}620{,}000$ & $4{,}496{,}369{,}044{,}992$\\
+Certified complex saving & $4.18\cdot10^{-10}$ & $4\cdot10^{-9}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The side-role comparison changes $h$ as well as the circuit.  At a common
+$h=24$, the original side count is $2{,}819{,}432$, so the new sum graph
+alone uses about $5.157$ times fewer side roles.  Total roles also benefit
+from using the same auxiliary bank at stages one and three.
+
+\section{The new finite complex circuit}
+\input{complex-pair-star-construction.tex}
+
+\section{Exact recurrence exponents}
+The complex counts above give
+\[
+ \eta_{\rm c}=1-\frac{s}{Wm}=\frac{37}{948319488}.
+\]
+The supplied exact logarithm enclosure proves
+\[
+ \log m<\frac{9535}{1000},\qquad
+ \eta_{\rm c}>\frac4{10^9}\frac{9535}{1000}.
+\]
+For $x>0$, $e^{-x}>1-x$.  Hence
+\[
+ m^{1-\ac}
+ =m e^{-\ac\log m}
+ >m(1-\ac\log m)>m(1-\eta_{\rm c})=\frac{s}{W},
+ \qquad\ac=\frac4{10^9}.
+\]
+This establishes the required strict complex recurrence exponent
+$\sigma=1-\ac$.  An exact enclosure of the actual recurrence saving is
+approximately $4.0922725765\cdot10^{-9}$, but the simpler certified
+$4\cdot10^{-9}$ already suffices.
+
+The bit graph remains the existing paired construction at $h_{\rm b}=50$,
+with $m_{\rm b}=125000$ and exact relative deficit
+\[
+ \eta_{\rm b}=\frac{23}{661055000}.
+\]
+For the readable witness below one may retain $\ab=296/10^{11}$.
+For the slightly stronger final witness, certify
+\[
+ \ab=\frac{29646101715649}{10^{22}}
+      =2.9646101715649\cdot10^{-9}.
+\]
+If $L_{\rm b}^{+}$ is the supplied rational upper bound on
+$\log(125000)$, exact arithmetic establishes
+\[
+ \eta_{\rm b}+\frac{\eta_{\rm b}^2}{2}
+      >\ab L_{\rm b}^{+}.
+\]
+The positive Taylor tail gives
+$-\log(1-\eta_{\rm b})>\eta_{\rm b}+\eta_{\rm b}^2/2$.
+It follows that the same bit circuit supports $\tau=1-\ab$.
+This sharpening changes no gate, role, frame, or tape algorithm.
+Using just the linear Taylor term is insufficient for this sharper
+numerical value; the verifier specifically checks that distinction.
+
+\section{Completed layers and two explicit parameter witnesses}
+The retained compact-control recurrence gives the internal, leaf, and
+reservation exponents
+\[
+ \chi=\tau+(1-\beta)\max\{\sigma-\tau,0\},\qquad
+ \chi_{\rm leaf}=\sigma+\beta(1-\sigma),\qquad
+ \chi_{\rm reserve}=\max\{1-c,0\}.
+\]
+Here $\ac>\ab$, so $\sigma<\tau$ and $\chi=\tau$.  Retaining the
+old formula without the maximum would incorrectly overstate the gain.
+We require
+\[
+ \max\{\tau,\sigma,\chi\}<\lambda<\lambda'<1,
+ \qquad
+ \max\{\chi_{\rm leaf},\chi_{\rm reserve}\}<\lambda'.
+\]
+For rational $0<\beta<1$ and $\zeta>0$ the guard has
+$C_1=5-4\beta+\zeta$.  Its node constant is evaluated using the
+\emph{new} $m,W,s$, not the baseline complex counts.  The finite circuit
+bound in the construction and $2\le s<m^5$ supply its hypotheses.
+
+We use $c=1$, so $K=d$.  The compact front and back fields each reserve
+$O(\log p)$ coordinate chunks, and the row reservations use $O(\log d)$
+chunks.  Their total remains $o(d)$.  Reservation preprocessing has
+exponent zero, while $\epsilon(1+c)=2\epsilon<1$ ensures
+$K=o(\ell)$ with $\ell=\Theta(p^{1-\epsilon})$.  Thus $c=1$ is
+within the retained layout proof; no free temporary address coordinates
+or new tape operation are being assumed.
+
+\subsection{A readable witness}
+Using $\ab=296/10^{11}$, choose
+\[
+\begin{gathered}
+ \epsilon=\frac{19999}{100000},\quad c=1,\quad
+ \beta=\frac14,\quad\zeta=\frac1{100},\quad
+ C_1=\frac{401}{100},\quad\delta=\frac1{10^6},\\
+ \lambda=1-\frac{5919}{2\cdot10^{12}},\qquad
+ \lambda'=1-\frac{2959}{10^{12}},\qquad
+ \kappa_0=\frac{59}{10^{11}}=5.9\cdot10^{-10}.
+\end{gathered}
+\]
+The leaf saving is $(1-\beta)\ac=3\cdot10^{-9}$, strictly larger
+than $1-\lambda'=2.959\cdot10^{-9}$.  The internal saving is
+$\ab=2.96\cdot10^{-9}>1-\lambda>1-\lambda'$.  Also
+$\epsilon C_1<1$.  The seven assembly margins are
+\begin{align*}
+ g_1&=1-\epsilon(1+c), &g_2&=\epsilon c\ab,\\
+ g_3&=\epsilon(1-\lambda'), &g_4&=\ab(1-\epsilon),\\
+ g_5&=\tfrac14-\delta-\tfrac54\epsilon,
+ &g_6&=1-\delta-\epsilon,\qquad g_7=\epsilon.
+\end{align*}
+Exact arithmetic gives
+\[
+ \min_i g_i=g_3=\frac{59177041}{10^{17}}
+              =5.9177041\cdot10^{-10}>\kappa_0.
+\]
+All remaining setup and precision constraints are checked in the companion
+certificate.  This already proves the conditional corollary $\kappa=2^{-31}$.
+
+\subsection{The strongest supplied witness}
+Use the sharpened $\ab=29646101715649/10^{22}$ and set
+$t=10^{-12}$.  Choose
+\[
+\begin{gathered}
+ \epsilon=\frac{399999999}{2000000000},\quad c=1,\quad
+ \beta=\frac1{10},\quad\zeta=\frac1{100},\quad
+ C_1=\frac{461}{100},\quad\delta=10^{-12},\\
+ \lambda=1-\ab(1-t/2),\qquad
+ \lambda'=1-\ab(1-t),\qquad
+ \kappa=\frac{5929220328}{10^{19}}.
+\end{gathered}
+\]
+Now $(1-\beta)\ac=3.6\cdot10^{-9}>\ab$, so the leaves do not
+limit $1-\lambda'$.  The minimum margin is
+\[
+ G=\epsilon\ab(1-t)
+   =\frac{11858440656601639843694386501715649}{2\cdot10^{43}}.
+\]
+In particular,
+\[
+ G-\kappa
+ =\frac{601639843694386501715649}{2\cdot10^{43}}>0,
+ \qquad g_5=\frac{39}{62500000000}>G.
+\]
+The other five margins are also strictly larger than $\kappa$.
+The guard exponent obeys
+\[
+ \epsilon C_1=\frac{184399999539}{200000000000}<1.
+\]
+The unchanged Gaussian choice $\alpha=\lceil(32db)^{1/4}\rceil$
+has exponent $(1+\epsilon)/4$, and
+$\gamma=2d\alpha^2$ has exponent $1/2+3\epsilon/2<1$.
+Prime selection retains $1-2\epsilon>0$.  The record suffix still grows
+faster than any fixed polynomial in $p$, and all rational exponent
+comparisons are fixed finite machine computations.  The strict gap
+$G-\kappa$ absorbs the remaining fixed powers of $\log p$.
+
+\begin{theorem}[Conditional extension]
+Under the retained upstream and compact-control interfaces identified above,
+the explicitly constructed finite network and parameter witness yield
+\[
+ T(n)=O\!\left(n(\log n)^{1-5929220328/10^{19}}\right).
+\]
+The saving lies strictly between $2^{-31}$ and $2^{-30}$ and exceeds the
+baseline $83/10^{12}$ by the factor
+$741152541/103750000\approx7.14364$.
+\end{theorem}
+
+\section{A scoped ceiling and the next obstruction}
+This construction moves the bottleneck to the bit recurrence.  Write
+$q=1-\lambda'$.  The strict layer constraints imply $q<\ab$.
+For any feasible saving,
+\[
+ \kappa<\epsilon q,\qquad
+ \kappa<\frac14-\delta-\frac54\epsilon.
+\]
+Eliminating $\epsilon$ yields
+\[
+ \kappa<\frac{q(1-4\delta)}{5+4q}
+         <\frac{\ab}{5+4\ab}.
+\]
+Conversely, with this complex saving, $\beta=1/4$, $\zeta=1/100$ and
+$c=1$, take $q\uparrow\ab$, $\delta\downarrow0$ and
+$\epsilon=(1-4\delta)/(5+4q)$; choose $\lambda$ strictly between
+$\tau$ and $\lambda'$.  The leaf and guard constraints stay slack and
+the other assembly margins do not bind.  Thus $\ab/(5+4\ab)$ is the
+parameter supremum for this fixed certified bit saving and these retained
+constraints.  It is about $5.9292203291\cdot10^{-10}$ for the sharpened
+$\ab$.  Replacing $\ab$ by the exact bit-graph saving and using rational
+logarithm enclosures changes only the last reported digits.
+
+This ceiling is not a lower bound on integer multiplication, nor an
+optimality result for all finite networks.  To cross the next dyadic
+milestone $2^{-30}$ within this approach, one needs a stronger bit
+primitive or a stronger downstream estimate, such as a changed Gaussian
+cost bound.  Further reducing the complex circuit alone does not remove
+the present restriction.
+
+\section{Reproduction and verification boundary}
+The new implementation uses only Python's standard library:
+\begin{verbatim}
+python3 scripts/complex_pair_star.py
+python3 scripts/complex_pair_star_parameters.py
+python3 scripts/make_complex_pair_star_patch.py
+python3 -m unittest discover -s tests -p 'test_complex_pair_star*.py' -v
+git apply --check --directory=upstream patches/complex-pair-star-31.patch
+\end{verbatim}
+The main certificate records all $263$ batches, all $77{,}454$ additions,
+all $469{,}294$ output uses, every one of the $4{,}096{,}576$ ordered
+source--target coefficients, both compiled frame directions, residual unit
+witnesses, exact recurrence inequalities, and all seven assembly margins.
+The tests additionally exercise the complete signed invocation, its inverse,
+and a three-shear signed exchange with reused arbitrary dyadic scratch at
+$h=8$.  Real dyadic tests suffice for the complex scalar identities because
+all operations are linear with real dyadic coefficients and hence act
+independently on real and imaginary parts.
+
+The new patch applies independently to the unmodified pinned manuscript.
+It incorporates the previously retained compact-control modifications and
+inserts this new complex interface and the sharpened bit comparison.
+The verifier does not implement the complete multiplication machine, and
+finite tests do not prove uniform Turing-tape estimates or the upstream
+analytic identities.  Those remain the explicitly stated proof dependencies.
+No new unrestricted optimality, independent human review, or practical
+performance claim is made.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{baseline} Douglas Colkitt.
+\emph{A sharper exponent for integer multiplication.}
+CrocSwap/integer-mult-bounds, revision
+\texttt{6e564879f51ae16f23d392e9e196c605f36d90df}, October 7, 2026.
+\url{https://github.com/CrocSwap/integer-mult-bounds}.
+\bibitem{upstream} OpenAI.
+\emph{Integer multiplication below $n\log n$.}
+Source pinned at revision
+\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}; see the repository's
+\texttt{upstream/manifest.json} for source URLs and hashes.
+\url{https://github.com/openai/math}.
+\end{thebibliography}
+\end{document}

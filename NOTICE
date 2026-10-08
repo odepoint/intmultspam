@@ -11,6 +11,23 @@ license is retained at upstream/LICENSE. The exact source URLs and hashes
 are recorded in upstream/manifest.json. Proposed modifications are supplied
 as separate files under patches/; upstream source files remain unchanged.
 
-The new research note, scripts, certificates, patches, and documentation
+The baseline research note, scripts, certificates, patches, and documentation
 were prepared by Douglas Colkitt with assistance from OpenAI Codex.
 This project is not an official OpenAI release or an OpenAI endorsement.
+
+Integer multiplication, just for fun
+Copyright 2026 Owen DePoint
+https://github.com/odepoint/intmultspam
+
+This derivative repository extends Douglas Colkitt's integer-mult-bounds:
+https://github.com/CrocSwap/integer-mult-bounds
+Baseline commit: 6e564879f51ae16f23d392e9e196c605f36d90df
+The original Git history, Apache-2.0 license, and attribution are retained.
+
+The pair-star notes, construction, scripts, certificates, tests, and patch
+come from a just-for-fun experiment with AI-generated math by odepoint
+(Owen DePoint). They document a hobby project whose mathematical claims remain
+largely unverified. These additions are not attributed to Douglas Colkitt or
+the authors of the underlying manuscript, and do not imply their endorsement.
+See CITATION.cff and CITATION.bib for the experiment metadata and citations
+to the baseline repository and underlying paper.

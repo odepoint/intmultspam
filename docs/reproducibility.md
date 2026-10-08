@@ -1,6 +1,20 @@
-# Reproducing the result
+# Reproducing the experiment
 
-The primary artifacts are the [compact-control note](../artifacts/compact-control-note.pdf),
+This is a just-for-fun experiment with AI-generated math. The steps below
+reproduce its generated output and finite checks; they do not establish the
+full mathematical argument. The source paper and baseline repository are
+cited in the [README](../README.md#what-this-is-based-on).
+
+The primary artifacts for this extension are the
+[pair-star note](../artifacts/complex-pair-star-note.pdf),
+[combined patch](../patches/complex-pair-star-31.patch),
+[circuit and frame certificate](../certificates/complex-pair-star.json), and
+[parameter certificates](../certificates/complex_pair_star_parameters.json).
+The extension-specific checks run with `make verify-pair-star`; `make verify`
+also runs all retained baseline checks. Build the extension note with
+`make pair-star-note` (requires pdfLaTeX).
+
+The preserved baseline artifacts are the [compact-control note](../artifacts/compact-control-note.pdf),
 [combined patch](../patches/compact-control-34.patch), and
 [exact layer certificate](../certificates/compact-control-layer.json).
 They are conditional on the retained algorithmic interfaces and written
@@ -86,6 +100,10 @@ This command performs these steps:
    patch, including the changed global exceptional-stream accounting.
    `scripts/research_networks.py` and `scripts/search_network_variants.py`
    record scoped family bounds and clearly marked exploratory scores.
+   `scripts/complex_pair_star_parameters.py` and `scripts/complex_pair_star.py`
+   regenerate the pair-star parameters and finite circuit/frame certificates.
+   `scripts/make_complex_pair_star_patch.py` regenerates the independent
+   combined pair-star patch against the same pinned manuscript.
 4. The standard-library unittest suite checks certificate boundaries, selected
    finite identities, network counts, patch dependencies, and search bounds.
 5. Git checks that each alternative patch applies to the pinned source.
@@ -119,7 +137,7 @@ existing one. It leaves the bundled source untouched:
 mkdir -p build
 mkdir build/review
 cp -R upstream/build build/review/build
-git apply --directory=build/review patches/compact-control-34.patch
+git apply --directory=build/review patches/complex-pair-star-31.patch
 ```
 
 Read `build/review/build/main.tex` and its included sections. The other patches
@@ -127,7 +145,14 @@ are alternatives based on the same original manuscript, not successive commits.
 
 ## Build the note
 
-With Tectonic installed:
+For the current extension, with pdfLaTeX installed:
+
+```sh
+make pair-star-note
+```
+
+The result is `artifacts/complex-pair-star-note.pdf`.
+For the preserved baseline, with Tectonic installed:
 
 ```sh
 make compact-note
@@ -159,6 +184,12 @@ copy. Those preview-only edits are not included in the mathematical patches.
 
 ## Source provenance
 
+This extension is based on Douglas Colkitt's
+[integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds/tree/6e564879f51ae16f23d392e9e196c605f36d90df)
+at commit `6e564879f51ae16f23d392e9e196c605f36d90df`; that history is retained.
+See [CITATION.cff](../CITATION.cff), [CITATION.bib](../CITATION.bib), and
+[NOTICE](../NOTICE) for authorship, source references, and licenses.
+
 The pinned upstream revision is
 `adc7f1241b42e322a6451854ab7e4b4c146bf78a`.
 [The manifest](../upstream/manifest.json) records each source URL and SHA-256
@@ -174,5 +205,5 @@ and [setup-python](https://github.com/actions/setup-python) actions, with
 read-only repository permissions. The PDF is supplied for readers and can be
 rebuilt locally using the command above.
 
-Build the latest note with `make compact-note`. The earlier notes and
+Build the latest note with `make pair-star-note`. The earlier notes and
 patches remain available as independent witnesses.

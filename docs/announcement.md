@@ -1,4 +1,10 @@
-# Draft Twitter announcement
+# Archived baseline announcement draft
+
+This is preserved text from Douglas Colkitt's
+[integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds/tree/6e564879f51ae16f23d392e9e196c605f36d90df).
+It describes the original project's work. This repository is a separate hobby
+project exploring integer multiplication with AI, just for fun. The original
+draft follows for provenance.
 
 Prepared for publication after the repository is updated. Nothing has been
 posted by preparing this file. Each numbered paragraph is a separate post.

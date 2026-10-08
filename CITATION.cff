@@ -1,33 +1,46 @@
 cff-version: 1.2.0
 message: >-
-  Please cite this project and the upstream manuscript. This is a conditional
-  research draft; include the repository commit used until a release is archived.
-title: "A sharper exponent for integer multiplication"
+  This is a hobby project exploring integer multiplication with AI, just for fun.
+  Credit Douglas Colkitt's integer-mult-bounds baseline and the OpenAI paper
+  listed in references. If referring to this experiment, include its Git commit.
+title: "Integer multiplication, just for fun"
 authors:
-  - family-names: Colkitt
-    given-names: Douglas
+  - family-names: DePoint
+    given-names: Owen
+    alias: odepoint
+    website: "https://github.com/odepoint"
 license: Apache-2.0
 type: software
-repository-code: "https://github.com/CrocSwap/integer-mult-bounds"
-url: "https://github.com/CrocSwap/integer-mult-bounds"
+repository-code: "https://github.com/odepoint/intmultspam"
+url: "https://github.com/odepoint/intmultspam"
 abstract: >-
-  Exact rational certificates, source patches, and research notes for conditional
-  improvements to OpenAI's integer-multiplication manuscript. Compact dirty-control
-  fields remove the simultaneous layer's spacing penalty. Together with complete
-  temporary reservations, local exceptional repair, a separately sized complex
-  network, and retained refinements, the supplied written proofs support
-  kappa = 83/10^12 > 2^-34. The complete upstream algorithmic theorem is assumed;
-  the new arguments are not independently reviewed or formally verified.
+  A just-for-fun experiment by odepoint to see how far AI can push an
+  integer-multiplication bound. Includes generated notes, code, exact-arithmetic
+  output, and source patches based on Douglas Colkitt's integer-mult-bounds and
+  OpenAI's underlying paper. The math is largely unverified. This repository
+  documents a hobby project, not a research paper; the included checks cover
+  finite identities and arithmetic rather than the full mathematical argument.
 keywords:
   - integer multiplication
   - computational complexity
   - exact arithmetic
   - parameter optimization
-  - reproducible research
+  - AI-generated math
 references:
+  - type: software
+    title: "A sharper exponent for integer multiplication"
+    authors:
+      - family-names: Colkitt
+        given-names: Douglas
+    year: 2026
+    repository-code: "https://github.com/CrocSwap/integer-mult-bounds"
+    url: "https://github.com/CrocSwap/integer-mult-bounds/tree/6e564879f51ae16f23d392e9e196c605f36d90df"
+    commit: "6e564879f51ae16f23d392e9e196c605f36d90df"
+    license: Apache-2.0
   - type: unpublished
     title: "Integer multiplication below n log n"
     authors:
       - name: OpenAI
     year: 2026
+    commit: "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
     url: "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026"

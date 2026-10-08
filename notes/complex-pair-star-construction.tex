@@ -1,0 +1,429 @@
+\subsection{A complex network from orthogonal pair-star sums}
+\label{sec:pair-star-complex}
+The following construction changes the complex scalar network and its binary
+labels.  The bit network used for address movement is unchanged.  Let $h>6$
+be even, use ground coordinates $\{1,\ldots,h\}$, let
+$\mathcal T=\binom{\{1,\ldots,h\}}3$, and put
+\[
+ v=\binom h3,\qquad N=v^3,\qquad m=h^3,\qquad
+ F=\mathbb F_2^h,\qquad \mathcal F=F^{\otimes3}.
+\]
+The form on $F$ is the ordinary binary dot product.  For a triple $T$,
+write $t_T$ for its indicator.  Thus $t_T$ has binary norm one, and
+$t_S\cdot t_T=0$ whenever $|S\cap T|$ is even.  All scalar arithmetic
+below takes place in $\mathbb Z[i,1/2]$; the binary field is used only
+for labels and address frames.
+The two data banks $X_a,Y_a$ have indices
+$a=(a_1,a_2,a_3)\in\mathcal T^3$.  Write
+$u_a=t_{a_1}\otimes t_{a_2}\otimes t_{a_3}$ and
+$U_a=\langle u_a\rangle$.  The choice of one-based ground coordinates
+is only a relabeling of the original interface.
+
+\paragraph{Partitioning the side corrections.}
+Give the ground set its natural order.  Write each source triple uniquely as
+$T=\{a,b,k\}$ with $a<b<k$.  For each fixed pair $(a,b)$, partition the
+ordered list of possible $k>b$ into consecutive batches, each of size at
+most $h-6$.  These batches partition the source triples.  Fix one batch
+$K$ and a target triple $S$, and put $r=|S\cap\{a,b\}|$.  The contribution
+of this batch to the side injection is
+\[
+ \begin{cases}
+ \displaystyle\frac12\sum_{k\in K\setminus S}x_{\{a,b,k\}},&r=0,\\[5pt]
+ \displaystyle-\frac12\sum_{k\in K\cap S}x_{\{a,b,k\}},&r=1,\\[5pt]
+ \displaystyle-\frac12\sum_{k\in K\setminus S}x_{\{a,b,k\}},&r=2.
+ \end{cases}                                                    \tag{PS1}
+\]
+An empty sum is omitted.  For $r=0$, only intersection-zero sources
+survive; for $r=1$, only intersection-two sources survive; for $r=2$,
+the intersection-two sources survive and the possible diagonal source
+$T=S$ is excluded.  Summing (PS1) over the disjoint source batches therefore
+gives exactly
+\[
+ -\sum_{\substack{T\ne S\\ |S\cap T|\ {\rm even}}}
+                  \frac{|S\cap T|-1}{2}\,x_T.                    \tag{PS2}
+\]
+The signs in (PS1) belong to the output injections.  All intermediate
+nodes compute sums with coefficient $+1$.
+
+\paragraph{A specified cancellation-free sum graph.}
+For each batch, represent a nonempty source subset by a bit mask $M$, with
+the bits ordered by increasing $k$.  A singleton mask is an input node.
+For a mask with at least two set bits, let $\ell$ be the lowest set-bit
+index and let $u$ be one more than the highest set-bit index.  Set
+$j=\lfloor(\ell+u)/2\rfloor$ and split $M$ into its bits below $j$ and
+its bits at least $j$.  Both pieces are nonempty and disjoint.  Compute
+their sums recursively and add the results.  Intern every mask within
+this batch, so a previously computed formal sum is reused.  Process
+batches in the order of their anchor pair and then their first $k$, and
+process target triples in lexicographic order.  Request precisely the
+nonempty supports in (PS1), keeping one output use per target and batch,
+even when two uses request the same sum.  This completely specifies the
+finite graph; its children are defined using the occupied-mask endpoints,
+not the endpoints of the entire batch.
+
+Every addition has disjoint input supports.  Consequently a source has
+coefficient one in a node exactly when it belongs to that node's mask;
+there is no cancellation and no repeated contribution.  Let $c_{\rm add}$
+be the number of distinct addition nodes and let $q_{\rm out}$ count
+output uses, including multiplicities.  The same graph is used for every
+invocation of a stage.  Its input triples are partitioned between batches,
+so no node combines different batches.
+
+\paragraph{Reversible roles and signed restoration.}
+Treat each use by an addition and each designated output use as an outgoing
+edge.  At an input node allocate one role for every outgoing edge, select
+one as a pivot, and add the pivot into the others.  At an addition node
+reuse its first incoming role as the pivot for one outgoing edge; allocate
+a new role for every other outgoing edge.  Add the second incoming value
+to the pivot and then add the pivot into the new outgoing roles.  The
+second incoming role is thereafter inactive during the forward graph.
+Every node operation is invertible by reversing its additions.  Roles
+are identified only along directed paths, so two simultaneously used
+incoming roles remain distinct.
+
+There are $2c_{\rm add}+q_{\rm out}$ outgoing uses and precisely one
+role identification per addition.  Thus the side computation uses
+\[
+ R_{\rm side}=c_{\rm add}+q_{\rm out}                            \tag{PS3}
+\]
+roles.  Write $\mathcal L$ for the resulting invertible mixer on these
+roles, $\mathcal V$ for copying the physical sources into the input
+pivots, and $\mathcal J$ for injecting the designated output slots into
+their targets with the coefficients in (PS1).  On a zero side vector,
+$\mathcal J\mathcal L\mathcal V$ is (PS2).
+
+Let $\mathcal G,\mathcal R$ denote the central gather and scatter defined
+below.  An operation written $+\mathcal J$ or $-\mathcal J$ means adding
+or subtracting the indicated injection into the targets, leaving all its
+controls unchanged; the same convention applies to $\mathcal V$,
+$\mathcal G$ and $\mathcal R$.  The forward chronological schedule is
+\[
+ \mathcal L,\ -\mathcal J,\ \mathcal L^{-1},\ -\mathcal R,\
+ +\mathcal V,\ +\mathcal G,\ +\mathcal R,\
+ \mathcal L,\ +\mathcal J,\ \mathcal L^{-1},\
+ -\mathcal G,\ -\mathcal V.                                   \tag{PS4}
+\]
+For arbitrary initial side vector $z$ and central vector $c_0$, the net
+target change is
+\[
+ -\mathcal J\mathcal Lz-\mathcal Rc_0
+ +\mathcal R(c_0+\mathcal Gx)
+ +\mathcal J\mathcal L(z+\mathcal Vx)
+ =(\mathcal J\mathcal L\mathcal V+\mathcal R\mathcal G)x.
+\]
+The final two operations restore the centers and the side vector exactly.
+The minus signs in (PS4) are essential over the complex scalar ring.
+
+\paragraph{Only $h$ central coordinates are needed.}
+Use center roles $C_1,\ldots,C_{h-1},C_\ast$.  Gather by adding
+\[
+ (\mathcal Gx)_i=\sum_{T\ni i}x_T\quad(i<h),\qquad
+ (\mathcal Gx)_\ast=\sum_Tx_T.
+\]
+Define the scatter at target $S$ by
+\[
+ (\mathcal Rc)_S=
+ \begin{cases}
+ \displaystyle\frac12\left(\sum_{i\in S}c_i-c_\ast\right),
+                                    &h\notin S,\\[6pt]
+ \displaystyle c_\ast-\frac12
+                  \sum_{\substack{i<h\\i\notin S}}c_i,
+                                    &h\in S.
+ \end{cases}                                                     \tag{PS5}
+\]
+The omitted gather coordinate equals
+$3(\mathcal Gx)_\ast-\sum_{i<h}(\mathcal Gx)_i$.  Substitution into
+the original scatter proves
+\[
+ (\mathcal R\mathcal G)_{S,T}=\frac{|S\cap T|-1}{2}.
+\]
+This identity is asserted for gather increments, not for arbitrary initial
+center values.  The latter cancel in (PS4), so no initial consistency
+condition is imposed on the centers.  Combining this identity with (PS2)
+gives $\mathcal J\mathcal L\mathcal V+\mathcal R\mathcal G=I$.
+Thus every forward invocation is $y\gets y+x$ and restores arbitrary
+scratch.  The inverse invocation uses the reversed inverse schedule.
+The three stage orientations remain forward $X\to Y$, inverse $Y\to X$,
+and forward $X\to Y$, and hence send $(X,Y)$ to $(-Y,X)$.
+
+\paragraph{Common frames in the two orientations.}
+Use the original stage decomposition
+\[
+ A=F^{\otimes(j-1)}=B\mathbin\perp P,
+ \qquad P=\langle t_{a_1}\otimes\cdots\otimes t_{a_{j-1}}\rangle,
+ \qquad Q=\langle t_{a_{j+1}}\otimes\cdots\otimes t_{a_3}\rangle.
+\]
+Empty tensor products are the one-dimensional field.  Both $P$ and $Q$
+have norm-one generators.  Suppress $Q$ temporarily and write
+\[
+ D_0=B\otimes F,\quad D_1=A\otimes F,\quad
+ D_U=(B\otimes F)\mathbin\perp(P\otimes U),
+ \quad X_t=D_{\langle t\rangle},\quad Y_t=D_{t^\perp}.
+\]
+All these labels are tensored with $Q$ in $\mathcal F$.
+
+At a graph node $z$, let $U_z$ be the span of the source indicators in
+its mask.  Two distinct triples in its batch share exactly the two anchors,
+so their binary indicators are orthogonal.  Each has norm one.  Thus
+these indicators form an orthonormal basis of $U_z$.  Every $U_z$ is
+nondegenerate, and along an edge $z\to w$ one has $U_z\subset U_w$.
+At a designated output for target $S$, all contributing source indicators
+are orthogonal to $t_S$, by (PS1); hence $U_z\subset t_S^\perp$.
+
+The common frames for the twelve forward operations in (PS4) are, in order,
+\[
+ D_0,\ D_0,\ D_0,\ D_0,\ X_{t_T},\ D_1,\ D_0,\
+ D_{U_z},\ Y_{t_S},\ D_1,\ D_1,\ D_1.                          \tag{PS6}
+\]
+The $X$ copy gates and $Y$ injection gates are grouped by their physical
+data triple; the middle mixer is grouped by graph node.  At each such
+gate the same displayed label is assigned to every incident role.
+All early mixer gates use $D_0$ and all late cleanup gates use $D_1$.
+An input or output node that otherwise gives an identity operation may
+be retained as an identity gate to specify these incidences.
+
+In the reversed invocation the middle computation is $\mathcal L^{-1}$.
+Assign its node $z$ the complement frame $D_{U_z^\perp}$.  Reversing
+an edge gives $U_w^\perp\subset U_z^\perp$.  At an original output
+$\langle t_S\rangle\subset U_z^\perp$, and at an original input
+$U_z^\perp=t_T^\perp$.  These are precisely the reversed physical
+$X$ and $Y$ attachments.  In chronological order the reversed operations
+and labels are
+\[
+\begin{array}{c|c|c@{\qquad}c|c|c}
+\text{step}&\text{operation}&\text{label}
+ &\text{step}&\text{operation}&\text{label}\\ \hline
+1&+\mathcal V&D_0&7&-\mathcal G&D_0\\
+2&+\mathcal G&D_0&8&-\mathcal V&Y_{t_T}\\
+3&\mathcal L&D_0&9&+\mathcal R&D_1\\
+4&-\mathcal J&X_{t_S}&10&\mathcal L&D_1\\
+5&\mathcal L^{-1}&D_{U_z^\perp}&11&+\mathcal J&D_1\\
+6&-\mathcal R&D_1&12&\mathcal L^{-1}&D_1.
+\end{array}                                                     \tag{PS7}
+\]
+The logical source in (PS7) is the physical $Y$ bank.  Pointwise scalar
+coefficients, including the signs and halves, commute with the common
+array frame exactly as in the original frame identity.
+
+\paragraph{Binary residuals, including entering and retired roles.}
+The following argument checks the additional condition needed by the
+complex phase transfer: every nonzero residual must have an orthonormal
+basis, not merely be nondegenerate.  The source support of a node occupies
+at most $(h-6)+2=h-4$ ground coordinates.  Adjoining one target triple
+occupies at most $h-1$ coordinates.  There is therefore a coordinate unit
+outside either union.  Such a unit belongs to $U_z^\perp$, and in the
+second case it also belongs to $t_S^\perp$; its norm is one.
+
+All the following residuals are nondegenerate.  For nested nondegenerate
+spaces this follows by orthogonally splitting the larger space into the
+smaller one and its residual.  Suppressing the common factor $P$, the
+new forward residual classes are
+\[
+\begin{array}{c|c|l}
+\text{transition}&\text{residual}&\text{norm-one witness if nonzero}\\ \hline
+D_0\to D_U&U&\text{a source indicator}\\
+D_U\to D_V\ (U\subset V)&V\cap U^\perp
+                              &\text{an indicator in the support difference}\\
+D_U\to Y_{t_S}&t_S^\perp\cap U^\perp
+                              &\text{a unit outside both supports}\\
+D_U\to D_1&U^\perp&\text{a unit outside the source support}.
+\end{array}                                                     \tag{PS8}
+\]
+The second row includes an input line entering a later sum.  It has the
+indicators in $V$'s support but not $U$'s support as an orthonormal basis.
+The first row also covers a newly allocated outgoing role; the last row
+covers a second input retired after an addition.  A direct $D_0\to D_1$
+transition has residual $F$.
+
+For the reversed computation the corresponding complete list is
+\[
+\begin{array}{c|c|l}
+\text{transition}&\text{residual}&\text{norm-one witness if nonzero}\\ \hline
+D_0\to D_{U^\perp}&U^\perp&\text{a unit outside the source support}\\
+X_{t_S}\to D_{U^\perp}&t_S^\perp\cap U^\perp
+                              &\text{a unit outside both supports}\\
+D_{V^\perp}\to D_{U^\perp}\ (U\subset V)&V\cap U^\perp
+                              &\text{an indicator in the support difference}\\
+D_{U^\perp}\to D_1&U&\text{a source indicator}.
+\end{array}                                                     \tag{PS9}
+\]
+Roles retired in the forward mixer become entering roles in its inverse,
+and newly allocated forward roles become retired inverse roles.  Thus the
+first and last rows of (PS9) are necessary; the two orientations do not
+assume zero values on such roles.  At an original input the final attachment
+to $Y_{t_T}$ is an equality of labels.  Tensoring a displayed witness with
+the norm-one generators of $P$ and $Q$ gives a norm-one witness for the
+actual residual in $\mathcal F$.
+
+The remaining data and central residuals are those of the original tensor
+stage table: zero spaces, copies of $P\otimes F$, copies of
+$P\otimes t^\perp$, and copies of $B\otimes t^\perp$, all tensored
+with $Q$.  Initial auxiliary edges have residual $B\otimes F\otimes Q$;
+final auxiliary edges have residual $(A\otimes F)\otimes Q^\perp$.
+When $B$ or $Q^\perp$ is nonzero it contains a coordinate unit outside
+the support of its defining earlier or future tensor indicator.  Those
+supports have size $3^j<h^j$.  A triple complement contains a coordinate
+unit outside the triple.  These observations give norm-one witnesses for
+every nonzero remaining tensor residual.  In particular all data boundaries
+are the original ones.  The sole decreases are the $h$ central-role
+returns from $D_1$ to $D_0$ in each invocation, each of dimension $h$.
+
+A nondegenerate symmetric binary space containing a norm-one vector has an
+orthonormal basis, by the elementary binary-space argument in the original
+residual lemma.  Equations (PS8)--(PS9) and the preceding tensor witnesses
+therefore verify the full orthonormal-residual hypothesis of the complex
+phase interface.  No positivity property of the rational bit labels is
+being substituted for this binary condition.
+
+\paragraph{Reusing the first-stage auxiliary bank in stage three.}
+Pair the $h$ ground coordinates consecutively and let $\pi$ send a triple
+to its image under the permutation swapping the two members of every pair.
+The intersection of a triple and its image has size zero or two, so
+$t_A\cdot t_{\pi(A)}=0$.  The map $\pi$ is a bijection of triples.
+Identify the entire auxiliary bank, including its $h$ centers, of the
+stage-1 invocation with fixed triples $(A,B)$ with the auxiliary bank of
+the stage-3 invocation with fixed triples $(B,\pi(A))$, retaining each
+local role index.  This is a bijection of invocation banks.  The two
+invocations occur at different stages and restore arbitrary scratch, so
+no simultaneous values are identified.
+
+Every auxiliary role now first has label $D_0\otimes Q$ and last has
+label $D_1\otimes Q$.  The new interstage join is
+\[
+ E=F\otimes\langle t_A\rangle\otimes\langle t_B\rangle
+ \ \subset\
+ H=\langle t_B\otimes t_{\pi(A)}\rangle^\perp_{F\otimes F}
+                                                 \otimes F.     \tag{PS10}
+\]
+Both spaces are nondegenerate, and the inclusion follows from
+$t_A\perp t_{\pi(A)}$.  The residual $H\cap E^\perp$ is nondegenerate.
+Choose a ground coordinate $j$ outside $A\cup\pi(A)$, and any coordinates
+$r,k$.  The norm-one tensor $e_r\otimes e_j\otimes e_k$ belongs to
+both $H$ and $E^\perp$.  Thus the new join residual also has an orthonormal
+basis.  It introduces no decreasing edge.  It replaces the old edges
+$E\to\mathcal F$ and $0\to H$ and reduces their total absolute
+dimension change by exactly $m$ per removed role.
+
+\paragraph{The coefficient-depth allowance still applies.}
+Every elementary arithmetic operation uses only coefficients
+$0,\pm1,\pm1/2$.  One application of $\mathcal L$ or its inverse
+contains at most $2R_{\rm side}$ scalar additions or subtractions:
+the outgoing-use count is $2c_{\rm add}+q_{\rm out}$, and the
+input fanouts save one operation per input.  There are four mixer
+applications in (PS4).  The two signed output injections cost at most
+$4q_{\rm out}$ additions and halvings; the two source copies cost
+at most $2v$ additions; the two gathers cost at most $8v$ additions;
+and the two scatters cost at most $4vh$ additions and halvings.
+Thus an invocation uses at most
+\[
+ 12R_{\rm side}+4vh+10v
+\]
+elementary coefficient operations.  Reversing the schedule has the same
+bound.  A conservative allowance for the complete three-stage scalar
+circuit and its scalar endpoint corrections is therefore
+\[
+ D_{\rm scalar}
+ =3v^2(12R_{\rm side}+4vh+10v)+8W.                              \tag{PS11a}
+\]
+This counts all operations in the finite scalar circuit, so in particular
+it bounds every coefficient dependency path there.  For each inverse
+recursive child, the two $Z^{\otimes f}$ corrections are each one sign
+selected by address parity, and $(-i)^f$ costs at most a sign and a
+multiplication by $i$.  The retained bound of four coefficient operations
+per child therefore applies.  Its computation of address parities is
+descriptor work.  The complete nonrecursive node allowance is
+\[
+ D_{\rm node}=D_{\rm scalar}+4s<64(W+m+1)^3,                    \tag{PS11b}
+\]
+where the strict inequality follows by integer comparison at the values
+below.  Source, sink and bank corrections were already included in the
+$8W$ term; the original bound for them is $4W+4\le8W$.
+
+For completeness, the number of edges also stays explicitly bounded.
+Refine each grouped scalar gate into two-role shears, retaining its common
+label throughout that refinement.  Its number of touched-role incidences
+is at most twice the operation count used above.  An identity incidence
+may be retained for each side role in each of the four mixer applications.
+A physical role participates in at most two shared invocations, so there
+are at most $8W$ such additional incidences.  Each role contributes one
+more edge than its number of gate incidences.  Hence the total edge count
+is at most
+\[
+ Q_{\rm edge}=2D_{\rm scalar}+9W<100W.                          \tag{PS11c}
+\]
+All new edges created by a refinement have zero residual.  For every
+nonzero residual edge its two binary changes of basis need at most
+$2(m(m-1)+3m)$ binary row additions.  These operations permute complete
+coefficient encodings and add zero coefficient depth.  They are charged
+to the compact-control movement bound in time, not to magnitude or
+denominator growth.  Thus they require no additional term in (PS11b).
+
+Consequently the retained guard recurrence may use its existing node
+charge $E=64(W+m+1)^3$, now evaluated with the new network constants.
+The recursive residual calls are charged separately by $sA(e/m)$,
+as before.  Address permutations and compact-control repair introduce
+no additional coefficient arithmetic.
+
+\paragraph{Finite counts and the phase interface.}
+There are $3v^2$ invocations.  First/third-stage reuse leaves two complete
+auxiliary banks per pair of fixed triples, giving
+\[
+ W=2N+2v^2(R_{\rm side}+h),\qquad
+ L_{\rm dec}=3v^2h^2,\qquad
+ s=Wm-2N+2L_{\rm dec}.                                         \tag{PS11}
+\]
+Here $L_{\rm dec}$ still counts central decreases in all three stages;
+sharing a central role does not remove either of its two separate returns.
+The signed sum of edge dimension changes telescopes to $Wm-2N$, and
+every decrease has just been listed, proving the formula for $s$.
+
+At $h=24$, exhaustive exact support generation by the stated mask rule gives
+\[
+\begin{gathered}
+ v=2024,\quad m=13824,\quad N=8291469824,\\
+ c_{\rm add}=77454,\quad q_{\rm out}=469294,\quad
+ R_{\rm side}=546748,\\
+ W=4496369044992,\quad L_{\rm dec}=7078883328,\\
+ s=62157803252796416,\qquad Wm-s=2425172992>0.
+\end{gathered}                                                  \tag{PS12}
+\]
+The companion checker verifies every mask split, every designated signed
+output, the complete side matrix, and these integer counts.  These finite
+checks support the explicit graph and its arithmetic; the general frame
+and tape claims use the arguments given here and the retained interfaces.
+
+\begin{proposition}\label{prop:pair-star-complex-interface}
+The $h=24$ construction has $W$ complex roles and total binary phase-residual
+length $s$ given in (PS12).  It performs the original signed bank exchange,
+restores arbitrary auxiliary values, and satisfies the original complex
+phase interface on any positive number of columns.  In particular
+\[
+ \frac{s}{W}<m^\sigma,\qquad \sigma=1-\frac4{10^9}.
+\]
+\end{proposition}
+\begin{proof}
+The signed scalar schedule was proved in (PS4)--(PS5).  Every gate has a
+common nondegenerate frame, every edge joins comparable labels, and every
+nonzero residual has an orthonormal basis by (PS8)--(PS10).  The original
+binary phase factorization therefore contributes exactly one forward or
+inverse translation kernel per residual basis vector, totaling $s$.
+The input/output data labels remain $U_a,0$ and
+$\mathcal F,U_a^\perp$ for $X_a,Y_a$, respectively.  Every surviving
+auxiliary role starts at zero, ends at $\mathcal F$, and is fixed by the
+scalar routing.  The original signed endpoint correction consequently
+applies on every role.  More explicitly, $u_a$ has norm one and weight
+$27$; the $X_a\to Y_a$ route has the same 27 inverse factors per column.
+The original source and sink $Z$ corrections, including the scalar
+$i^{27k}$ on $k$ columns, turn these into forward factors.  Negating the
+physical $X$ outputs and undoing the bank permutation then gives the
+required $C^{\otimes mk}$ on every role.  Finally the exact arithmetic
+comparisons
+\[
+ \sum_{j=0}^{15}\frac{(48/5)^j}{j!}>13824=m,\qquad
+ \eta:=\frac{Wm-s}{Wm}=\frac{37}{948319488}
+                   >\frac4{10^9}\frac{48}{5}
+\]
+give $\log m<48/5$ and $\eta>(4/10^9)\log m$.
+The strict inequality $e^{-x}>1-x$ for $x>0$ now gives
+$m^{1-4/10^9}>m(1-\eta)=s/W$.
+\end{proof}

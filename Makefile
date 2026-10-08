@@ -1,4 +1,4 @@
-.PHONY: verify note audit-note tuned-note reuse-note incidence-note dag-note shared-point-note paired-note compact-note fetch
+.PHONY: verify verify-pair-star pair-star-note note audit-note tuned-note reuse-note incidence-note dag-note shared-point-note paired-note compact-note fetch
 
 verify:
 	python3 scripts/certify.py
@@ -36,6 +36,9 @@ verify:
 	python3 scripts/audit_scratch_pooling.py
 	python3 scripts/reuse_network.py
 	python3 scripts/make_reuse_patch.py
+	python3 scripts/complex_pair_star_parameters.py
+	python3 scripts/complex_pair_star.py
+	python3 scripts/make_complex_pair_star_patch.py
 	python3 -m unittest discover -s tests -v
 	git apply --check --directory=upstream patches/frozen-154.patch
 	git apply --check --directory=upstream patches/balanced-153.patch
@@ -54,6 +57,19 @@ verify:
 	git apply --check --directory=upstream patches/h46-shared-point.patch
 	git apply --check --directory=upstream patches/h50-paired-59.patch
 	git apply --check --directory=upstream patches/compact-control-34.patch
+	git apply --check --directory=upstream patches/complex-pair-star-31.patch
+
+verify-pair-star:
+	python3 scripts/complex_pair_star_parameters.py
+	python3 scripts/complex_pair_star.py
+	python3 scripts/make_complex_pair_star_patch.py
+	python3 -m unittest discover -s tests -p 'test_complex_pair_star*.py' -v
+	git apply --check --directory=upstream patches/complex-pair-star-31.patch
+
+pair-star-note:
+	mkdir -p artifacts
+	cd notes && pdflatex -halt-on-error -interaction=nonstopmode -output-directory=../artifacts complex-pair-star-note.tex
+	cd notes && pdflatex -halt-on-error -interaction=nonstopmode -output-directory=../artifacts complex-pair-star-note.tex
 
 note:
 	mkdir -p artifacts

@@ -1,151 +1,75 @@
-# A sharper exponent for integer multiplication
+# Integer multiplication, just for fun
 
-**Research draft by Douglas Colkitt — conditional on the underlying manuscript
-and the written extensions supplied here.**
+A just-for-fun experiment to see how far AI can push an integer-multiplication
+bound. This repo keeps the generated notes, code, and checks so the attempt is
+easy to inspect and rerun. The math is largely unverified; this is a hobby
+project, not a research paper.
 
-This draft improves OpenAI's
-[*Integer multiplication below n log n*](https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026)
-(result family #109). In its fixed finite-alphabet Turing-machine model with a
-fixed number of one-dimensional tapes, the strongest supplied witness is
+## What this is based on
 
-$$
-T(n)=O\!\left(n(\log n)^{1-\kappa}\right),\qquad
-\boxed{\kappa=\frac{83}{10^{12}}=8.3\times10^{-11}>2^{-34}}.
-$$
+- **Douglas Colkitt, [A sharper exponent for integer multiplication](https://github.com/CrocSwap/integer-mult-bounds)**
+  (`CrocSwap/integer-mult-bounds`), baseline commit
+  [`6e564879f51ae16f23d392e9e196c605f36d90df`](https://github.com/CrocSwap/integer-mult-bounds/tree/6e564879f51ae16f23d392e9e196c605f36d90df).
+  This supplies the existing code, compact-control construction, and earlier
+  notes and checks. Its Git history and attribution are retained.
+- **OpenAI, [Integer multiplication below n log n](https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026/paper.pdf)**
+  (September 23, 2026), pinned at
+  `adc7f1241b42e322a6451854ab7e4b4c146bf78a`. This is the underlying paper.
+  Its bundled source and license remain unchanged in `upstream/`.
 
-The simpler **`kappa = 2^-34`** is a corollary. The witness remains below
-`2^-33`. It increases the exponent saving by approximately **47.85 million
-fold** over our preceding published `2^-59` witness. The original manuscript
-uses `2^-182`. These compare asymptotic exponents, not practical runtimes.
+Citations are in [CITATION.cff](CITATION.cff) and [CITATION.bib](CITATION.bib).
+Credit those sources for the underlying work. This experiment has no independent
+review or endorsement from their authors.
 
-**[Read the compact-control proof note (PDF)](artifacts/compact-control-note.pdf)** ·
-[Review the combined source patch](patches/compact-control-34.patch) ·
-[Inspect the exact certificate](certificates/compact-control-layer.json) ·
-[Review guide and dependencies](docs/research/compact-control-review.md)
+## What the AI generated
 
-This is a research claim supported by written proofs and reproducible checks.
-The complete upstream theorem is assumed; the new arguments have not received
-independent mathematical review or formal verification.
+The experiment tries a pair-star complex network on top of the baseline.
+Its generated notes and exact-arithmetic scripts report the conditional value
+`kappa = 5929220328/10^19 = 5.929220328e-10 > 2^-31`, about 7.14364 times the
+baseline's exponent saving. This is the model's proposed improvement, and it
+depends on the complete upstream theorem and the retained proof interfaces.
+The scripts check finite identities and arithmetic; they do not validate the
+full mathematical argument or measure a practical speedup.
 
-## What changed
+At `h=24`, the generated circuit records 263 batches, 77,454 additions,
+469,294 output uses, and 546,748 side roles per invocation. The files retain
+the derivation and finite checks so the experiment can be inspected or rerun.
 
-The new construction moves **compact control fields instead of entire spaced
-windows**. For `f` selected axes, it replaces the layer's movement cost
-`O(V*((f*K)^tau+1))` by
+- [AI-generated experiment notes (PDF)](artifacts/complex-pair-star-note.pdf)
+  and [editable TeX](notes/complex-pair-star-note.tex).
+- [Circuit and frame checks](certificates/complex-pair-star.json) and
+  [parameter output](certificates/complex_pair_star_parameters.json).
+- [Experimental patch against the pinned source](patches/complex-pair-star-31.patch).
+- [Verification transcript](artifacts/complex-pair-star-verification.txt).
 
-$$
-O\!\left(V\bigl((f\log p)^\tau+1\bigr)\right).
-$$
+Earlier notes and release drafts are preserved as background from the original
+project. They describe that project's work and publication plans.
 
-The proof reserves temporary fields from existing address coordinates,
-allows arbitrary initial temporary values, restores them exactly, and charges
-exceptional-address repair at every recursion node. The temporary ranges
-remain complete through padding and recursive row splitting.
+## Run it
 
-Removing `K^tau` removes the restriction responsible for the preceding
-quadratic dependence on the finite-network saving. The bit network stays at
-`h=50`. The original complex network is separately instantiated at `h=25`,
-and a generalized stopping-depth guard completes the new parameter witness.
-This is a change to the movement construction and its proof, beyond parameter
-tuning of the preceding algorithm.
-
-The exact minimum assembly margin is
-
-$$
-G_* = \frac{333833}{4\cdot10^{15}}
-    = 8.345825\times10^{-11} > \kappa.
-$$
-
-The remaining bottleneck is the complex layer's saving. With the **fixed
-`h=25` complex motif and retained Gaussian/leaf inequalities**, the scoped
-ceiling is below `8.369598075e-11`, hence below `2^-33`. This is not a ceiling
-for other networks or integer multiplication in general.
-
-## Evidence and scope
-
-| Component | Evidence |
-| --- | --- |
-| Parameters, logarithm enclosures, final margins | Exact rational certificate |
-| Dirty-control identities, inverses and repair | Finite exhaustive cases and seeded tests |
-| Wider-control tape bound, reservations and recursion | Written general proofs |
-| Separate complex arity and precision guard | Written proofs and exact accounting |
-| Source integration | Combined patch, reference checks and manuscript build |
-| Full upstream multiplication theorem | Assumed |
-| Independent review / full formalization | Not supplied |
-
-The [review guide](docs/research/compact-control-review.md) identifies the new
-proof obligations and their tests. [Current research status](docs/research/current-status.md)
-is authoritative when older notes describe superseded barriers or hypothetical
-witnesses. The earlier artifacts remain available and unchanged.
-
-## Reproduce
-
-With Python 3.11 or newer, Git and Make, run from the repository root:
+With Python 3.11 or newer, Git, and Make:
 
 ```sh
-make verify
+make verify-pair-star  # Checks for the pair-star experiment
+make verify           # Also runs all inherited checks
 git diff --exit-code -- certificates patches
 ```
 
-No third-party Python packages or network access are needed for these checks.
-They regenerate the certificates and patches, run the tests, verify upstream
-hashes, and check each patch against the pinned manuscript. The second command
-checks exact regeneration on a clean checkout.
+These checks need no third-party Python packages or network access. The final
+command checks that the generated certificates and patches match the checkout.
+The existing GitHub Actions workflow runs the full checks on Python 3.11,
+3.13, and 3.14. Finite checks and exact arithmetic are not a review of the full
+mathematical argument.
 
-With Tectonic installed, rebuild the latest note using:
+To rebuild the experiment notes with pdfLaTeX, run `make pair-star-note`.
+See [reproduction instructions](docs/reproducibility.md) for details.
 
-```sh
-make compact-note
-```
+## Credits and license
 
-The output is `artifacts/compact-control-note.pdf`. The first PDF build may
-download TeX resources. See [reproducibility instructions](docs/reproducibility.md)
-for applying the combined patch in a disposable copy and building older notes.
-[GitHub Actions](.github/workflows/verify.yml) runs the arithmetic and patch checks.
-Passing tests does not establish the complete multiplication theorem; this
-repository contains no full multiplication-machine implementation.
+Put together by **odepoint (Owen DePoint)**, using AI-generated material from
+OpenAI models, out of curiosity and for fun. The notes document the attempt;
+they make no claim to novelty or priority.
 
-## Earlier witnesses and independent patches
-
-Each patch applies independently to the **unmodified** pinned source; they are
-alternatives, not a sequence to apply together. The
-[result history](docs/research/result-history.md) records the earlier mechanisms
-and scoped ceilings.
-
-| Patch | Conditional saving | Scope |
-| --- | --- | --- |
-| [frozen-154](patches/frozen-154.patch) | `2^-154` | Original network and recurrence exponents |
-| [balanced-153](patches/balanced-153.patch) | `2^-153` | Balanced assembly parameters |
-| [same-network-129](patches/same-network-129.patch) | `2^-129` | Original network, sharper recurrence comparison |
-| [h46-111](patches/h46-111.patch) | `2^-111` | Smaller network, dyadic parameters |
-| [h46-109](patches/h46-109.patch) | `2^-109` | Rational recurrence saving, strict final margin |
-| [h46-108](patches/h46-108.patch) | `2^-108` | Variable stopping exponent |
-| [h46-rational](patches/h46-rational.patch) | `5.8e-33` | Strongest supplied parameter-only witness |
-| [nonadjacent-layout](patches/nonadjacent-layout.patch) | Original parameters retained | Routing proof and revised layout cost only |
-| [frozen-nonadjacent-107](patches/frozen-nonadjacent-107.patch) | `2^-107` | Direct routing, original network and recurrence exponents |
-| [h46-nonadjacent-78](patches/h46-nonadjacent-78.patch) | `2^-78` | Direct routing with the h = 46 network |
-| [h46-nonadjacent-76](patches/h46-nonadjacent-76.patch) | `2^-76` | Direct routing with tuned dimension and stopping parameters |
-| [h46-shared-side-75](patches/h46-shared-side-75.patch) | `2^-75` | Stage-1/stage-3 side-role sharing, routing, and parameter tuning |
-| [h46-incidence-67](patches/h46-incidence-67.patch) | `2^-67` | Rectangle incidence circuits, full auxiliary sharing, routing, and parameter tuning |
-| [h46-dag-63](patches/h46-dag-63.patch) | `2^-63` | Shared intermediate sums and reversible role allocation |
-| [h46-shared-point](patches/h46-shared-point.patch) | `13*2^-66` | Cross-group sharing |
-| [h50-paired-59](patches/h50-paired-59.patch) | `2^-59` | Paired sums, stopped guard and tighter Gaussian setup |
-| **[compact-control-34](patches/compact-control-34.patch)** | **`83/10^12 > 2^-34`** | **Compact controls, complete reservations, local repair and separate complex arity** |
-
-## Attribution, citation, and license
-
-Author: **Douglas Colkitt**. Research, implementation and drafting were performed
-with assistance from OpenAI Codex. The compact-control proposal originated
-with a separate research agent; the supplied note develops its tape, layout,
-repair and assembly arguments. AI assistance is not independent review or
-endorsement by OpenAI. No priority or unrestricted optimality claim is made.
-
-The original manuscript is by OpenAI, pinned at commit
-`adc7f1241b42e322a6451854ab7e4b4c146bf78a`. Source URLs and SHA-256 hashes are in
-[upstream/manifest.json](upstream/manifest.json). Files under `upstream/` remain
-unchanged; modifications are supplied as separate patches.
-
-Use [CITATION.cff](CITATION.cff) and also cite the
-[upstream manuscript](upstream/README.md). Until a release is archived, include
-the repository commit used. Licensed under [Apache-2.0](LICENSE); see
-[NOTICE](NOTICE) and [CONTRIBUTING.md](CONTRIBUTING.md).
+Baseline work: **Douglas Colkitt**. Underlying paper: **OpenAI**.
+Licensed under [Apache-2.0](LICENSE), with original notices retained in
+[NOTICE](NOTICE) and [upstream/LICENSE](upstream/LICENSE).

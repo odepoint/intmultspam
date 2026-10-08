@@ -1,12 +1,16 @@
-# Contributing and independent review
+# Contributing to the experiment
 
-This is a research draft. Corrections to the mathematics, implementation,
-source attribution, and stated scope are welcome through issues or pull requests.
+This is a hobby project exploring integer multiplication with AI, just for fun.
+Corrections to the generated math, code, and source attribution are welcome
+through issues or pull requests. The mathematical claims remain unreviewed.
 
 For a mathematical issue, identify the exact proposition, source label, or
 inequality; give a counterexample or the missing implication when possible;
 and distinguish numerical validation from an algorithmic proof obligation.
-For the current result, start with the
+For the current pair-star result, start with the
+[AI-generated experiment notes](notes/complex-pair-star-note.tex) and their
+[construction](notes/complex-pair-star-construction.tex). For retained baseline
+dependencies, consult the
 [compact-control review guide](docs/research/compact-control-review.md).
 The [original audit](docs/audit.md) describes the retained upstream assumptions.
 
@@ -21,7 +25,7 @@ make verify
 ```
 
 Include regenerated certificates and patches in the same change. If the note
-changes, also run its corresponding PDF target (`make compact-note` for the
+changes, also run its corresponding PDF target (`make pair-star-note` for the
 current result) and include the updated PDF. Review changes to
 claims in the README and note together. Finite tests should address a mathematical
 identity or a failure mode, rather than simply restating implementation details.
