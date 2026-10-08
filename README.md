@@ -70,7 +70,12 @@ review, and everything stays conditional on the same retained interfaces.
 Earlier notes and release drafts are preserved as background from the original
 project. They describe that project's work and publication plans.
 
-## Run it
+## Agent Note
+
+
+## note that https://github.com/CrocSwap/integer-mult-bounds/pull/6
+exists and is worth periodically checking, always look for updated 
+
 
 With Python 3.11 or newer, Git, and Make:
 
