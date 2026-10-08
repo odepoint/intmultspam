@@ -184,7 +184,7 @@ copy. Those preview-only edits are not included in the mathematical patches.
 
 ## Source provenance
 
-This extension is based on Douglas Colkitt's
+This repository is a fork of Douglas Colkitt's
 [integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds/tree/6e564879f51ae16f23d392e9e196c605f36d90df)
 at commit `6e564879f51ae16f23d392e9e196c605f36d90df`; that history is retained.
 See [CITATION.cff](../CITATION.cff), [CITATION.bib](../CITATION.bib), and

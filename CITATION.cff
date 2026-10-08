@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: >-
-  This is a hobby project exploring integer multiplication with AI, just for fun.
+  This is a fork of Douglas Colkitt's integer-mult-bounds, used for a
+  just-for-fun experiment with AI-generated math.
   Credit Douglas Colkitt's integer-mult-bounds baseline and the OpenAI paper
   listed in references. If referring to this experiment, include its Git commit.
 title: "Integer multiplication, just for fun"
@@ -14,10 +15,11 @@ type: software
 repository-code: "https://github.com/odepoint/intmultspam"
 url: "https://github.com/odepoint/intmultspam"
 abstract: >-
-  A just-for-fun experiment by odepoint to see how far AI can push an
-  integer-multiplication bound. Includes generated notes, code, exact-arithmetic
-  output, and source patches based on Douglas Colkitt's integer-mult-bounds and
-  OpenAI's underlying paper. The math is largely unverified. This repository
+  A fork of Douglas Colkitt's integer-mult-bounds, used by odepoint for a
+  just-for-fun experiment to see how far AI can push an integer-multiplication
+  bound. Includes generated notes, code, exact-arithmetic output, and source
+  patches, building on the original repository and OpenAI's underlying paper.
+  The math is largely unverified. This repository
   documents a hobby project, not a research paper; the included checks cover
   finite identities and arithmetic rather than the full mathematical argument.
 keywords:

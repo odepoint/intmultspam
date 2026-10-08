@@ -1,5 +1,8 @@
 # Integer multiplication, just for fun
 
+**Fork of [CrocSwap/integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds)
+by Douglas Colkitt.** The original Git history and credits are preserved.
+
 A just-for-fun experiment to see how far AI can push an integer-multiplication
 bound. This repo keeps the generated notes, code, and checks so the attempt is
 easy to inspect and rerun. The math is largely unverified; this is a hobby
@@ -70,6 +73,6 @@ Put together by **odepoint (Owen DePoint)**, using AI-generated material from
 OpenAI models, out of curiosity and for fun. The notes document the attempt;
 they make no claim to novelty or priority.
 
-Baseline work: **Douglas Colkitt**. Underlying paper: **OpenAI**.
+Original repository and baseline work: **Douglas Colkitt**. Underlying paper: **OpenAI**.
 Licensed under [Apache-2.0](LICENSE), with original notices retained in
 [NOTICE](NOTICE) and [upstream/LICENSE](upstream/LICENSE).

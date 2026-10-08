@@ -19,7 +19,7 @@ Integer multiplication, just for fun
 Copyright 2026 Owen DePoint
 https://github.com/odepoint/intmultspam
 
-This derivative repository extends Douglas Colkitt's integer-mult-bounds:
+This repository is a fork of Douglas Colkitt's integer-mult-bounds:
 https://github.com/CrocSwap/integer-mult-bounds
 Baseline commit: 6e564879f51ae16f23d392e9e196c605f36d90df
 The original Git history, Apache-2.0 license, and attribution are retained.

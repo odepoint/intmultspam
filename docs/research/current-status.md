@@ -14,9 +14,9 @@ See the [AI-generated experiment notes](../../artifacts/complex-pair-star-note.p
 [parameter certificates](../../certificates/complex_pair_star_parameters.json),
 and [combined patch](../../patches/complex-pair-star-31.patch).
 Run `make verify-pair-star` for this extension or `make verify` for all checks.
-The experiment was put together by odepoint (Owen DePoint), based on
+The experiment was put together by odepoint (Owen DePoint), in a fork of
 [Douglas Colkitt's baseline](https://github.com/CrocSwap/integer-mult-bounds/tree/6e564879f51ae16f23d392e9e196c605f36d90df)
-and the pinned OpenAI manuscript. All retained proof dependencies remain;
+and builds on the pinned OpenAI manuscript. All retained proof dependencies remain;
 the checks do not establish the complete multiplication theorem.
 
 ## Preserved baseline status
