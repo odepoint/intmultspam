@@ -74,7 +74,7 @@ project. They describe that project's work and publication plans.
 
 
 ## note that https://github.com/CrocSwap/integer-mult-bounds/pull/6
-exists and is worth periodically checking, always look for updated 
+exists and is worth periodically checking, always look for updates
 
 
 With Python 3.11 or newer, Git, and Make:
