@@ -1,0 +1,25 @@
+{
+  "status": "finite_replay_passed_full_proof_review_pending",
+  "completed_utc": "2026-10-08T13:23:02.740842+00:00",
+  "checkpoint": "1a74950ce5074b848243ba89d8022fbadba66105",
+  "incoming_pr": 39,
+  "incoming_commit": "70ae24129649f6d6d4ec6360962a80c3c42a38f1",
+  "command": "make verify",
+  "exit_code": 0,
+  "main_suite_tests": 217,
+  "focused_test_runs": [
+    10,
+    12
+  ],
+  "independent_upstream_patch_checks": 20,
+  "verify_log_sha256": "66b7cdce9545e30fb41b5b9d9a5cd88c508dd034da059e50e7f36d49e8a9b9ce",
+  "checkpoint_scientific_files_preserved_byte_for_byte": 193,
+  "incoming_scientific_paths_compared": 188,
+  "incoming_serialization_changes": [
+    {
+      "path": "certificates/endpoint-gauge-network.json",
+      "change": "JSON key ordering only; parsed JSON exactly equal"
+    }
+  ],
+  "scope": "Fresh producer/geometry/rank/moment/assembly replay plus all checkpoint tests. Not a full analytic or fixed-tape proof audit."
+}

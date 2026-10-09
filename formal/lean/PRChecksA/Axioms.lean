@@ -1,0 +1,90 @@
+import PRChecksA.Base
+import PRChecksA.Bit
+import PRChecksA.PR3
+import PRChecksA.PR4
+import PRChecksA.PR8
+
+/-! `#print axioms` for every theorem; only `propext`, `Classical.choice`, `Quot.sound` are allowed. -/
+
+#print axioms PRChecksA.exponent_certificate
+#print axioms PRChecksA.log_le_of_pow
+#print axioms PRChecksA.log_split_upper
+#print axioms PRChecksA.log_split_lower
+#print axioms PRChecksA.gaussian_cutoff_general
+#print axioms PRChecksA.Params.absorbs_iff_gmin
+#print axioms PRChecksA.Bit.bit50_counts
+#print axioms PRChecksA.Bit.bit50_eta
+#print axioms PRChecksA.Bit.log_125000
+#print axioms PRChecksA.Bit.bit50_exponent
+#print axioms PRChecksA.Bit.log_125000_gt
+#print axioms PRChecksA.Bit.certified_saving_le
+#print axioms PRChecksA.Bit.kappa_lt_fifth_bit
+#print axioms PRChecksA.Bit.ceiling_fixed_tau
+#print axioms PRChecksA.Bit.ceiling_any_certified_tau
+#print axioms PRChecksA.Bit.tau_2964_certified
+#print axioms PRChecksA.Bit.beyond_fixed_tau_ceiling_3
+#print axioms PRChecksA.Bit.beyond_fixed_tau_ceiling_8
+#print axioms PRChecksA.Bit.beyond_witness_meets_general_ceiling
+#print axioms PRChecksA.PR3.circuit_bookkeeping
+#print axioms PRChecksA.PR3.counts
+#print axioms PRChecksA.PR3.s3_eq
+#print axioms PRChecksA.PR3.eta
+#print axioms PRChecksA.PR3.log_15625
+#print axioms PRChecksA.PR3.deficit_slack
+#print axioms PRChecksA.PR3.exponent
+#print axioms PRChecksA.PR3.gate_bound
+#print axioms PRChecksA.PR3.guard_constants
+#print axioms PRChecksA.PR3.parameter_origin
+#print axioms PRChecksA.PR3.recurrence_values
+#print axioms PRChecksA.PR3.slack_values
+#print axioms PRChecksA.PR3.constraint_slacks
+#print axioms PRChecksA.PR3.margin_values
+#print axioms PRChecksA.PR3.kappa_witness
+#print axioms PRChecksA.PR3.note_comparisons
+#print axioms PRChecksA.PR3.gaussian_cutoff
+#print axioms PRChecksA.PR3.scoped_ceiling_values
+#print axioms PRChecksA.PR3.docs_line_102_is_equality
+#print axioms PRChecksA.PR3.witness_meets_fixed_tau_ceiling
+#print axioms PRChecksA.PR3.witness_meets_general_ceiling
+#print axioms PRChecksA.PR4.circuit_bookkeeping
+#print axioms PRChecksA.PR4.counts
+#print axioms PRChecksA.PR4.s4_eq
+#print axioms PRChecksA.PR4.eta
+#print axioms PRChecksA.PR4.log_13824
+#print axioms PRChecksA.PR4.deficit_slack
+#print axioms PRChecksA.PR4.exponent
+#print axioms PRChecksA.PR4.gate_bound
+#print axioms PRChecksA.PR4.guard_constants
+#print axioms PRChecksA.PR4.parameter_origin
+#print axioms PRChecksA.PR4.recurrence_values
+#print axioms PRChecksA.PR4.slack_values
+#print axioms PRChecksA.PR4.constraint_slacks
+#print axioms PRChecksA.PR4.margin_values
+#print axioms PRChecksA.PR4.kappa_witness
+#print axioms PRChecksA.PR4.note_comparisons
+#print axioms PRChecksA.PR4.gaussian_cutoff
+#print axioms PRChecksA.PR4.witness_below_fixed_tau_ceiling
+#print axioms PRChecksA.PR4.rect_counts
+#print axioms PRChecksA.PR4.rect_slack
+#print axioms PRChecksA.PR4.rect_exponent
+#print axioms PRChecksA.PR4.rect_differs_from_certificate
+#print axioms PRChecksA.PR8.circuit_bookkeeping
+#print axioms PRChecksA.PR8.counts
+#print axioms PRChecksA.PR8.s8_eq
+#print axioms PRChecksA.PR8.eta
+#print axioms PRChecksA.PR8.log_17576
+#print axioms PRChecksA.PR8.saving_slack
+#print axioms PRChecksA.PR8.exponent
+#print axioms PRChecksA.PR8.guard_constants
+#print axioms PRChecksA.PR8.parameter_origin
+#print axioms PRChecksA.PR8.recurrence_values
+#print axioms PRChecksA.PR8.slack_values
+#print axioms PRChecksA.PR8.constraint_slacks
+#print axioms PRChecksA.PR8.margin_values
+#print axioms PRChecksA.PR8.kappa_witness
+#print axioms PRChecksA.PR8.note_comparisons
+#print axioms PRChecksA.PR8.gaussian_cutoff
+#print axioms PRChecksA.PR8.scoped_ceiling_values
+#print axioms PRChecksA.PR8.witness_meets_fixed_tau_ceiling
+#print axioms PRChecksA.PR8.audit_sums_to_rank_sum
+#print axioms PRChecksA.PR8.audit_small

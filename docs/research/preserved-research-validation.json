@@ -1,0 +1,20 @@
+{
+  "baseline_commit": "64ed4cbf872b86b81c22f104967b88d24b8e4548",
+  "python": "3.14.6",
+  "scope": "Historical research integration; no new multiplication claim or fresh independent proof audit",
+  "local_checks": {
+    "historical_producers": 28,
+    "provenance_hashes": 135,
+    "mathematical_payloads_equal_to_preserved_records": true,
+    "existing_production_artifacts_unchanged": true,
+    "unit_tests": 419,
+    "patch_application_checks": 20,
+    "current_followup_arithmetic": "PASS"
+  },
+  "commands": [
+    "make verify-research",
+    "python3 -m unittest discover -s tests -v",
+    "20 git apply --check recipes from make verify-tests",
+    "make community-followup-check"
+  ]
+}

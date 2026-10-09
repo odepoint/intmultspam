@@ -1,0 +1,205 @@
+{
+  "all_h_screen": "For h>=27, v-1>4h^2 and B(h,k)/q(h,k)<=h^2/(v-1), so every coordinate pair is excluded.",
+  "decision": "Close this coordinate-carry fusion branch; prefer a different complete finite circuit/frame topology.",
+  "full_frame_certificate_supplied": false,
+  "full_size_screens": [
+    {
+      "columns": 1176,
+      "ell": 1,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 1382976,
+      "h": 50,
+      "k": 1,
+      "maximum_column_return_rank_credit": 232848,
+      "maximum_row_return_rank_credit": 232848,
+      "net_rank_increase_lower_bound": 917280,
+      "rows": 1176
+    },
+    {
+      "columns": 1176,
+      "ell": 5,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 6362160,
+      "h": 50,
+      "k": 1,
+      "maximum_column_return_rank_credit": 1117200,
+      "maximum_row_return_rank_credit": 1071180,
+      "net_rank_increase_lower_bound": 4173780,
+      "rows": 5410
+    },
+    {
+      "columns": 5410,
+      "ell": 5,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 29268100,
+      "h": 50,
+      "k": 5,
+      "maximum_column_return_rank_credit": 5139500,
+      "maximum_row_return_rank_credit": 5139500,
+      "net_rank_increase_lower_bound": 18989100,
+      "rows": 5410
+    },
+    {
+      "columns": 9720,
+      "ell": 25,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 168156000,
+      "h": 50,
+      "k": 10,
+      "maximum_column_return_rank_credit": 36450000,
+      "maximum_row_return_rank_credit": 31140000,
+      "net_rank_increase_lower_bound": 100566000,
+      "rows": 17300
+    },
+    {
+      "columns": 17300,
+      "ell": 25,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 299290000,
+      "h": 50,
+      "k": 25,
+      "maximum_column_return_rank_credit": 64875000,
+      "maximum_row_return_rank_credit": 64875000,
+      "net_rank_increase_lower_bound": 169540000,
+      "rows": 17300
+    },
+    {
+      "columns": 19600,
+      "ell": 49,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 384160000,
+      "h": 50,
+      "k": 48,
+      "maximum_column_return_rank_credit": 98000000,
+      "maximum_row_return_rank_credit": 98000000,
+      "net_rank_increase_lower_bound": 188160000,
+      "rows": 19600
+    },
+    {
+      "columns": 19600,
+      "ell": 50,
+      "excluded": true,
+      "global_Y_excess_lower_bound": 384160000,
+      "h": 50,
+      "k": 50,
+      "maximum_column_return_rank_credit": 98000000,
+      "maximum_row_return_rank_credit": 98000000,
+      "net_rank_increase_lower_bound": 188160000,
+      "rows": 19600
+    }
+  ],
+  "scalar_controls": [
+    {
+      "additional_roles": 0,
+      "additional_xors": 1500,
+      "column_repairs": {
+        "center": 900,
+        "side": 300
+      },
+      "columns": 10,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 4200,
+      "inverse_exact": true,
+      "program_sha256": "7df704ce6dfce10c6ee2ee1c3c248f9ce7afff556893880a3e8b8a97f0343649",
+      "rows": 10
+    },
+    {
+      "additional_roles": 0,
+      "additional_xors": 2400,
+      "column_repairs": {
+        "center": 1440,
+        "side": 480
+      },
+      "columns": 16,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 5220,
+      "inverse_exact": true,
+      "program_sha256": "857c99c81041cf3936d057b48925760c285f5dda174a76259ab2bbe1b774d551",
+      "rows": 10
+    },
+    {
+      "additional_roles": 0,
+      "additional_xors": 3000,
+      "column_repairs": {
+        "center": 1800,
+        "side": 600
+      },
+      "columns": 20,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 5900,
+      "inverse_exact": true,
+      "program_sha256": "fb9137b97f49a3b877227ff9dc2ddf8bcc40cf5b5c3b0eea3065915f54001f4c",
+      "rows": 10
+    },
+    {
+      "additional_roles": 0,
+      "additional_xors": 6615,
+      "column_repairs": {
+        "center": 3969,
+        "side": 1323
+      },
+      "columns": 21,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 8,
+      "independent_variables": 39998,
+      "inverse_exact": true,
+      "program_sha256": "9e5fdbe393c1ab4498e57a84d13c77a9cd1194dbdc0c088eba9f8e5347dc37c6",
+      "rows": 21
+    },
+    {
+      "additional_roles": 0,
+      "additional_xors": 90,
+      "column_repairs": {
+        "center": 54,
+        "side": 18
+      },
+      "columns": 3,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 1650,
+      "inverse_exact": true,
+      "program_sha256": "c0e022fa9fa0c4f266568b0571431fea879d867ec3cba2019e9dfbaaa5f07942",
+      "rows": 2
+    },
+    {
+      "additional_roles": 0,
+      "additional_xors": 0,
+      "column_repairs": {
+        "center": 0,
+        "side": 0
+      },
+      "columns": 0,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 970,
+      "inverse_exact": true,
+      "program_sha256": "2bdb40dd4582298571490bc8be50742becab1a17cc22f12c190722996782cdc1",
+      "rows": 1
+    },
+    {
+      "additional_roles": 0,
+      "additional_xors": 0,
+      "column_repairs": {
+        "center": 0,
+        "side": 0
+      },
+      "columns": 1,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 970,
+      "inverse_exact": true,
+      "program_sha256": "58905e4b8051d4217e5bd1f84475777f39c420fb3e91fdb7130b196e0768116b",
+      "rows": 0
+    }
+  ],
+  "scope": "Retained row/column high frames, coordinate-complement early gates on outside points, fixed outer data/auxiliary cuts, and readout containing the row carry. Both return credits are allowed simultaneously; all other new costs are ignored.",
+  "source_sha256": {
+    "docs/research/joint-return-audit.md": "9c9aaf566f3acc54cff112db5147ae1b41ad9bbdecd1c778ea62888ff94c4265",
+    "scripts/audit_joint_return.py": "da515bbd86dc9597e016c39ce2ea189343699a2d36f51f2224f4c2e39fa69601"
+  },
+  "status": "EXACT EARLY READOUT; TWO COORDINATE RETURNS STILL LOSE RANK; NO NEW KAPPA",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

@@ -1,0 +1,591 @@
+{
+  "balanced_model": {
+    "W": 10,
+    "auxiliary_inputs": [
+      [
+        "a",
+        3
+      ],
+      [
+        "b",
+        4
+      ],
+      [
+        "c",
+        5
+      ],
+      [
+        "u3",
+        6
+      ],
+      [
+        "u4",
+        7
+      ],
+      [
+        "u7",
+        8
+      ],
+      [
+        "u8",
+        9
+      ]
+    ],
+    "auxiliary_outputs": [
+      [
+        "u1",
+        1
+      ],
+      [
+        "u2",
+        2
+      ],
+      [
+        "u5",
+        4
+      ],
+      [
+        "u6",
+        6
+      ],
+      [
+        "u9",
+        5
+      ],
+      [
+        "ta",
+        9
+      ],
+      [
+        "tc",
+        8
+      ]
+    ],
+    "edge_roles": [
+      0,
+      3,
+      1,
+      4,
+      2,
+      5,
+      0,
+      4,
+      0,
+      6,
+      4,
+      7,
+      0,
+      5,
+      0,
+      8,
+      5,
+      9,
+      0,
+      0
+    ],
+    "gate_vertices": [
+      "a",
+      "b",
+      "c",
+      "u1",
+      "u2",
+      "u3",
+      "u4",
+      "u5",
+      "u6",
+      "u7",
+      "u8",
+      "u9",
+      "ta",
+      "tc"
+    ],
+    "pairs": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        0,
+        8
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    "prescribed": {
+      "0": 7,
+      "1": 0,
+      "2": 3
+    }
+  },
+  "characteristic_zero_control": {
+    "check": {
+      "W": 2,
+      "discrepancy_rank": 4,
+      "edge_ranks": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "exact_telescope": true,
+      "m": 2,
+      "monomial_coefficients": [
+        "1",
+        "-1"
+      ],
+      "rank_sum": 16
+    },
+    "gate_frames": [
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "2",
+          "1"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ],
+      [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ]
+    ],
+    "gates": [
+      {
+        "roles": [
+          1,
+          0
+        ],
+        "xors": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "roles": [
+          0,
+          1
+        ],
+        "xors": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "roles": [
+          1,
+          0
+        ],
+        "xors": [
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    ],
+    "local_rational_matrices": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          -1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "rho": [
+      1,
+      0
+    ],
+    "sink_frames": [
+      [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "2"
+        ]
+      ],
+      [
+        [
+          "2",
+          "2"
+        ],
+        [
+          "3",
+          "5"
+        ]
+      ]
+    ],
+    "source_frames": [
+      [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      [
+        [
+          "-1",
+          "0"
+        ],
+        [
+          "2",
+          "1"
+        ]
+      ]
+    ],
+    "transfer": [
+      [
+        "0",
+        "-1"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ]
+  },
+  "clean_Fano_undirected_unit_flow": {
+    "check": {
+      "backward_traversals": 8,
+      "exact_shared_capacity_check": true,
+      "loads": [
+        "1",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "rates": [
+        "1",
+        "1",
+        "1"
+      ],
+      "total_rate": "3"
+    },
+    "demands": [
+      [
+        "a",
+        "ta"
+      ],
+      [
+        "b",
+        "tb"
+      ],
+      [
+        "c",
+        "tc"
+      ]
+    ],
+    "edges": [
+      [
+        "a",
+        "u1"
+      ],
+      [
+        "a",
+        "tc"
+      ],
+      [
+        "b",
+        "u1"
+      ],
+      [
+        "b",
+        "u2"
+      ],
+      [
+        "c",
+        "u2"
+      ],
+      [
+        "c",
+        "u6"
+      ],
+      [
+        "u1",
+        "u3"
+      ],
+      [
+        "u2",
+        "u4"
+      ],
+      [
+        "u3",
+        "u5"
+      ],
+      [
+        "u3",
+        "u6"
+      ],
+      [
+        "u4",
+        "u5"
+      ],
+      [
+        "u4",
+        "ta"
+      ],
+      [
+        "u5",
+        "u7"
+      ],
+      [
+        "u6",
+        "u8"
+      ],
+      [
+        "u7",
+        "u9"
+      ],
+      [
+        "u7",
+        "tc"
+      ],
+      [
+        "u8",
+        "u9"
+      ],
+      [
+        "u8",
+        "ta"
+      ],
+      [
+        "u9",
+        "u10"
+      ],
+      [
+        "u10",
+        "tb"
+      ]
+    ],
+    "flows": [
+      [
+        {
+          "edges": [
+            0,
+            6,
+            9,
+            13,
+            17
+          ],
+          "weight": "1/2"
+        },
+        {
+          "edges": [
+            1,
+            15,
+            12,
+            10,
+            11
+          ],
+          "weight": "1/2"
+        }
+      ],
+      [
+        {
+          "edges": [
+            3,
+            7,
+            10,
+            12,
+            14,
+            18,
+            19
+          ],
+          "weight": "1/2"
+        },
+        {
+          "edges": [
+            3,
+            7,
+            11,
+            17,
+            16,
+            18,
+            19
+          ],
+          "weight": "1/2"
+        }
+      ],
+      [
+        {
+          "edges": [
+            5,
+            9,
+            6,
+            0,
+            1
+          ],
+          "weight": "1/2"
+        },
+        {
+          "edges": [
+            5,
+            13,
+            16,
+            14,
+            15
+          ],
+          "weight": "1/2"
+        }
+      ]
+    ],
+    "scope": "Only three clean demands. This does not reject all completions with additional auxiliary demands."
+  },
+  "completion_paper": {
+    "relevance": "Integer-valid signed permutation circuits are excluded as-is by the characteristic-zero rank obstruction. Completion discipline may still be useful for characteristic-dependent seeds.",
+    "reviewed": "Abstract and section III-B/III-C/III-D, not the complete proof or Lean build",
+    "submission_date": "2026-10-07",
+    "title": "Network Coding Can Beat Routing in Undirected Multiple-Unicast Networks",
+    "url": "https://arxiv.org/abs/2610.09367"
+  },
+  "exact_scalar_search": {
+    "W": 10,
+    "exhaustive_negative": true,
+    "exists": false,
+    "full_assignment_count": 78364164096,
+    "gates": 14,
+    "prefix_assignments": 279936,
+    "prefix_keys": 258156,
+    "prefix_sha256": "b34379c5feeb67216fb7531294f13da5f67ce4a22f92b94ff8ea2b26f3aa21ec",
+    "prescribed": {
+      "0": 7,
+      "1": 0,
+      "2": 3
+    },
+    "scope": "Existence with a free permutation of unprescribed roles; not an enumeration of every matching circuit.",
+    "split": 7,
+    "suffix_assignments": 279936,
+    "suffix_sha256": "a19c1f14c463451e7bdd0900a2aeae701d98bcee790e9145d70e05c316555c38",
+    "witness": null
+  },
+  "scope": "The rejection theorem is general; finite controls test its algebra. The exhaustive scalar exclusion covers the specified 14 two-port gates only, not other Fano topologies or larger local gates.",
+  "solver_required_for_replay": false,
+  "source_sha256": {
+    "docs/research/stronger-rank-screens.md": "58e9946054e31df444932833514d6a0f197fdee35334e7511c63af5e52f45ab1",
+    "scripts/audit_stronger_screens.py": "9678b66043b384f1454181bc2069c6d72685eda6576e284ce799d4b9aeb79860",
+    "scripts/experiments/balanced_fano.py": "1586fb1db4f40e79e97bae59f47192675663403bbcacbf5f4e0b702edfd22b0a",
+    "scripts/experiments/fano_completion.py": "6cade2a36b910bf7e68a872dc4fd3560837935cffe80f9526cd012a28b247738",
+    "scripts/finite_bit_contract.py": "3cff26a332cb6056f656b824e3a523fb8937d15206ddcc4118b911ac8df1b2a7",
+    "scripts/rank_obstructions.py": "af0bb5d7c21409bf0318ec4ec7d5f391163b7ad9564ed9e35de92ada14bca975"
+  },
+  "status": "STRONGER NECESSARY SCREENS; BALANCED FANO MODEL EXHAUSTED; NO NEW KAPPA",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

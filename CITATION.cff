@@ -4,6 +4,10 @@ message: >-
   just-for-fun experiment with AI-generated math.
   Credit Douglas Colkitt's integer-mult-bounds baseline and the OpenAI paper
   listed in references. If referring to this experiment, include its Git commit.
+  Please cite the final composition by Avi Eisenberg, eumemic and Alejandro Zarzuelo Urdiales, this project, the upstream
+  manuscript and the constituent contributions used. Project-level authorship
+  here identifies the maintainer; it does not assign sole authorship of the
+  community result. See CONTRIBUTORS.md, NOTICE and source-specific manifests.
 title: "Integer multiplication, just for fun"
 authors:
   - family-names: DePoint
@@ -46,3 +50,18 @@ references:
     year: 2026
     commit: "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
     url: "https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Integer-multiplication-below-n-log-n-September-23-2026"
+  - type: unpublished
+    title: "Interval strips, core-aware pair assembly and exact exponent refinement"
+    authors:
+      - family-names: Eisenberg
+        given-names: Avi
+      - name: eumemic
+      - family-names: Zarzuelo Urdiales
+        given-names: Alejandro
+    year: 2026
+    url: "https://github.com/CrocSwap/integer-mult-bounds/pull/62"
+    notes: >-
+      Cite PR62 together with eumemic's PR57 compiler and Alejandro Zarzuelo
+      Urdiales's PR61 refinement. Full constituent, parallel, maintainer and
+      upstream credits and assistance disclosures are retained in CONTRIBUTORS.md
+      and NOTICE; this entry does not replace those credits.

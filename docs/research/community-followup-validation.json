@@ -1,0 +1,81 @@
+{
+  "reviewed_at": "2026-10-08T16:08:01.989788+00:00",
+  "published_baseline": "0605a24a28836168ad29d6239b46064b892298fc",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "python": "3.14.6",
+  "pr49": {
+    "commit": "f95d2910e027495983b53cae1693cf535abf2569",
+    "make_verify_exit": 0,
+    "regression_tests": 192,
+    "focused_test_runs": [
+      17,
+      5
+    ],
+    "historical_patch_checks": 18,
+    "source_manifest_files": 21,
+    "clean_diff_exit": 1,
+    "clean_diff_finding": "Ordering only in certificates/endpoint-gauge-network.json; parsed values unchanged",
+    "independent_arithmetic_receipt": "community-followup-arithmetic.json"
+  },
+  "pr45": {
+    "commit": "7f0764750f6c78b68a8f2c579c936ed377216ec4",
+    "lean": "4.31.0",
+    "build_exit": 0,
+    "python_exact_image_exit": 0,
+    "allowed_axioms_only": true,
+    "current_main_complex_profile_equal": true
+  },
+  "pr26": {
+    "commit": "f764fb98208506354730f6f108a8c87fb679432e",
+    "lean": "4.21.0",
+    "mathlib": "v4.21.0",
+    "build_exit": 0,
+    "named_theorems_axiom_audited": 386,
+    "allowed_axioms_only": true,
+    "source_references": 241,
+    "source_declarations": 134,
+    "historical_pr_drift_references": [
+      404,
+      364,
+      439
+    ],
+    "h50_independent_circuit_exit": 0,
+    "source_checks_on_current_main": true
+  },
+  "raw_logs_local_directory": "artifacts/reviews/community-20261008",
+  "log_hashes": {
+    "pr49-make-verify.log": {
+      "sha256": "d814ca4aaebf718a7b2ad7485ba45048bd3613183885c05ebc84a79aa541ec57",
+      "bytes": 77578
+    },
+    "pr49-reproducibility.diff": {
+      "sha256": "a4ea7a3adfe9cffcf5f77f901a80dd1c84371d6dd3039534447b1752a61c4db9",
+      "bytes": 1376
+    },
+    "pr45-lean431.log": {
+      "sha256": "b67097ce8812cccb94bc7210ee9bea1c46677c214a2086a01116cc3ec271a3f3",
+      "bytes": 29022
+    },
+    "pr45-python.log": {
+      "sha256": "50143d163211ba765bf878b289b77a6cf6a665c50d6f38741f2447424662cf80",
+      "bytes": 5346
+    },
+    "pr26-lean.log": {
+      "sha256": "4a51d02124cb46cd18897f5a77b01227dc403628728fe7e082546c8454cbf8a2",
+      "bytes": 19979
+    },
+    "pr26-axioms.log": {
+      "sha256": "596b078292f4f71d96aaa91e654b2cc46f104765835a6722ca7ac04996a379f6",
+      "bytes": 34307
+    },
+    "pr26-circuit.log": {
+      "sha256": "6b3a0cfcb532dadfe77342293ab32b2c7de7136fa68643dcc46878726aac3e5f",
+      "bytes": 208
+    },
+    "pr26-axioms.lean": {
+      "sha256": "13d58b2c8443c3c9177a1d654f54e3bbb6be4e73ac77aa63195adb4d0d6f99bb",
+      "bytes": 17157
+    }
+  },
+  "publication_changed": false
+}

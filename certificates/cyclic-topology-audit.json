@@ -1,0 +1,2395 @@
+{
+  "cyclic_seeds": [
+    {
+      "W": 3,
+      "equality_control": {
+        "W": 3,
+        "baseline": 6,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ],
+        "gates": 6,
+        "m": 2,
+        "physical_edges": 15,
+        "rank_ratio": "1",
+        "rho": [
+          2,
+          0,
+          1
+        ],
+        "s": 6,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "adjacent",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            1
+          ],
+          "xors": [
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        2,
+        0,
+        1
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 3,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 15,
+          "used_edges": 15
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            6,
+            9,
+            10,
+            14
+          ],
+          [
+            1,
+            2,
+            5,
+            12
+          ],
+          [
+            7,
+            8,
+            11,
+            13
+          ]
+        ],
+        "reachable_permutations": 4,
+        "routable": true
+      }
+    },
+    {
+      "W": 3,
+      "equality_control": {
+        "W": 3,
+        "baseline": 6,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2
+        ],
+        "gates": 6,
+        "m": 2,
+        "physical_edges": 15,
+        "rank_ratio": "1",
+        "rho": [
+          1,
+          2,
+          0
+        ],
+        "s": 6,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "star",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            0
+          ],
+          "xors": [
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        1,
+        2,
+        0
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 3,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 15,
+          "used_edges": 15
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            13
+          ],
+          [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            14
+          ],
+          [
+            7,
+            8,
+            11,
+            12
+          ]
+        ],
+        "reachable_permutations": 4,
+        "routable": true
+      }
+    },
+    {
+      "W": 4,
+      "equality_control": {
+        "W": 4,
+        "baseline": 8,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2
+        ],
+        "gates": 9,
+        "m": 2,
+        "physical_edges": 22,
+        "rank_ratio": "1",
+        "rho": [
+          3,
+          0,
+          1,
+          2
+        ],
+        "s": 8,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "adjacent",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            1
+          ],
+          "xors": [
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            3
+          ],
+          "xors": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            2
+          ],
+          "xors": [
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            3
+          ],
+          "xors": [
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 4,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 22,
+          "used_edges": 22
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            6,
+            9,
+            10,
+            12,
+            15,
+            16,
+            21
+          ],
+          [
+            1,
+            2,
+            5,
+            18
+          ],
+          [
+            7,
+            8,
+            11,
+            19
+          ],
+          [
+            13,
+            14,
+            17,
+            20
+          ]
+        ],
+        "reachable_permutations": 8,
+        "routable": true
+      }
+    },
+    {
+      "W": 4,
+      "equality_control": {
+        "W": 4,
+        "baseline": 8,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2
+        ],
+        "gates": 9,
+        "m": 2,
+        "physical_edges": 22,
+        "rank_ratio": "1",
+        "rho": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "s": 8,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "star",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            0
+          ],
+          "xors": [
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            3
+          ],
+          "xors": [
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            0
+          ],
+          "xors": [
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            3
+          ],
+          "xors": [
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 4,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 22,
+          "used_edges": 22
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            19
+          ],
+          [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            20
+          ],
+          [
+            7,
+            8,
+            11,
+            12,
+            15,
+            16,
+            21
+          ],
+          [
+            13,
+            14,
+            17,
+            18
+          ]
+        ],
+        "reachable_permutations": 8,
+        "routable": true
+      }
+    },
+    {
+      "W": 5,
+      "equality_control": {
+        "W": 5,
+        "baseline": 10,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "gates": 12,
+        "m": 2,
+        "physical_edges": 29,
+        "rank_ratio": "1",
+        "rho": [
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        "s": 10,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "adjacent",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            1
+          ],
+          "xors": [
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            3
+          ],
+          "xors": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            2
+          ],
+          "xors": [
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            3
+          ],
+          "xors": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            4
+          ],
+          "xors": [
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            4,
+            3
+          ],
+          "xors": [
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            4
+          ],
+          "xors": [
+            [
+              3,
+              4
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        4,
+        0,
+        1,
+        2,
+        3
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 5,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 29,
+          "used_edges": 29
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            6,
+            9,
+            10,
+            12,
+            15,
+            16,
+            18,
+            21,
+            22,
+            28
+          ],
+          [
+            1,
+            2,
+            5,
+            24
+          ],
+          [
+            7,
+            8,
+            11,
+            25
+          ],
+          [
+            13,
+            14,
+            17,
+            26
+          ],
+          [
+            19,
+            20,
+            23,
+            27
+          ]
+        ],
+        "reachable_permutations": 16,
+        "routable": true
+      }
+    },
+    {
+      "W": 5,
+      "equality_control": {
+        "W": 5,
+        "baseline": 10,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "gates": 12,
+        "m": 2,
+        "physical_edges": 29,
+        "rank_ratio": "1",
+        "rho": [
+          1,
+          2,
+          3,
+          4,
+          0
+        ],
+        "s": 10,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "star",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            0
+          ],
+          "xors": [
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            3
+          ],
+          "xors": [
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            0
+          ],
+          "xors": [
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            3
+          ],
+          "xors": [
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            4
+          ],
+          "xors": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            4,
+            0
+          ],
+          "xors": [
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            4
+          ],
+          "xors": [
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 5,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 29,
+          "used_edges": 29
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            25
+          ],
+          [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            26
+          ],
+          [
+            7,
+            8,
+            11,
+            12,
+            15,
+            16,
+            27
+          ],
+          [
+            13,
+            14,
+            17,
+            18,
+            21,
+            22,
+            28
+          ],
+          [
+            19,
+            20,
+            23,
+            24
+          ]
+        ],
+        "reachable_permutations": 16,
+        "routable": true
+      }
+    },
+    {
+      "W": 6,
+      "equality_control": {
+        "W": 6,
+        "baseline": 12,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "gates": 15,
+        "m": 2,
+        "physical_edges": 36,
+        "rank_ratio": "1",
+        "rho": [
+          5,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "s": 12,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "adjacent",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            1
+          ],
+          "xors": [
+            [
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            2
+          ],
+          "xors": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            3
+          ],
+          "xors": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            2
+          ],
+          "xors": [
+            [
+              3,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            3
+          ],
+          "xors": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            4
+          ],
+          "xors": [
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            4,
+            3
+          ],
+          "xors": [
+            [
+              4,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            4
+          ],
+          "xors": [
+            [
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            4,
+            5
+          ],
+          "xors": [
+            [
+              4,
+              5
+            ]
+          ]
+        },
+        {
+          "roles": [
+            5,
+            4
+          ],
+          "xors": [
+            [
+              5,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            4,
+            5
+          ],
+          "xors": [
+            [
+              4,
+              5
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        5,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 6,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 36,
+          "used_edges": 36
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            6,
+            9,
+            10,
+            12,
+            15,
+            16,
+            18,
+            21,
+            22,
+            24,
+            27,
+            28,
+            35
+          ],
+          [
+            1,
+            2,
+            5,
+            30
+          ],
+          [
+            7,
+            8,
+            11,
+            31
+          ],
+          [
+            13,
+            14,
+            17,
+            32
+          ],
+          [
+            19,
+            20,
+            23,
+            33
+          ],
+          [
+            25,
+            26,
+            29,
+            34
+          ]
+        ],
+        "reachable_permutations": 32,
+        "routable": true
+      }
+    },
+    {
+      "W": 6,
+      "equality_control": {
+        "W": 6,
+        "baseline": 12,
+        "deficit": 0,
+        "edge_ranks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "gates": 15,
+        "m": 2,
+        "physical_edges": 36,
+        "rank_ratio": "1",
+        "rho": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "s": 12,
+        "scalar_and_endpoints_verified": true,
+        "strict_transfer_contract": false
+      },
+      "family": "star",
+      "gates": [
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            1,
+            0
+          ],
+          "xors": [
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            1
+          ],
+          "xors": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            2,
+            0
+          ],
+          "xors": [
+            [
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            2
+          ],
+          "xors": [
+            [
+              0,
+              2
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            3
+          ],
+          "xors": [
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            3,
+            0
+          ],
+          "xors": [
+            [
+              3,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            3
+          ],
+          "xors": [
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            4
+          ],
+          "xors": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            4,
+            0
+          ],
+          "xors": [
+            [
+              4,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            4
+          ],
+          "xors": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            5
+          ],
+          "xors": [
+            [
+              0,
+              5
+            ]
+          ]
+        },
+        {
+          "roles": [
+            5,
+            0
+          ],
+          "xors": [
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        {
+          "roles": [
+            0,
+            5
+          ],
+          "xors": [
+            [
+              0,
+              5
+            ]
+          ]
+        }
+      ],
+      "rho": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0
+      ],
+      "routing": {
+        "check": {
+          "actual_scalar_permutation": true,
+          "edge_disjoint": true,
+          "paths": 6,
+          "rank_lower_bound": "W*m",
+          "scope": "All rational frames satisfying the endpoint identities, all m>=2.",
+          "total_edges": 36,
+          "used_edges": 36
+        },
+        "exhaustive": true,
+        "gate_input_ports": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "paths": [
+          [
+            0,
+            3,
+            4,
+            31
+          ],
+          [
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            32
+          ],
+          [
+            7,
+            8,
+            11,
+            12,
+            15,
+            16,
+            33
+          ],
+          [
+            13,
+            14,
+            17,
+            18,
+            21,
+            22,
+            34
+          ],
+          [
+            19,
+            20,
+            23,
+            24,
+            27,
+            28,
+            35
+          ],
+          [
+            25,
+            26,
+            29,
+            30
+          ]
+        ],
+        "reachable_permutations": 32,
+        "routable": true
+      }
+    }
+  ],
+  "decision": "Do not optimize frames on routable topologies. Seek a scalar-correct nonroutable circuit before matrix search; nonroutability alone is not a rank deficit.",
+  "full_improved_frame_certificate_supplied": false,
+  "source_sha256": {
+    "docs/research/cyclic-topology-audit.md": "156f3bc880738b1a6d378fd5d1d97297fd1ae457eb71160690ccb1cc1f42fc4c",
+    "scripts/audit_cyclic_topology.py": "b20ece2cf1337e1808e35b602a0120c6aedaf602fa2315560726a149e9838c29",
+    "scripts/finite_bit_contract.py": "3cff26a332cb6056f656b824e3a523fb8937d15206ddcc4118b911ac8df1b2a7"
+  },
+  "status": "GENERAL EXACT VERIFIER; ROUTING OBSTRUCTION; NO NEW KAPPA",
+  "theorem": "An edge-disjoint routing of the actual scalar permutation implies s>=W*m for all rational frames satisfying the endpoint contract, in every m>=2.",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+  "word_searches": [
+    {
+      "W": 2,
+      "all_lengths_excluded": true,
+      "all_words_through_depth_excluded": true,
+      "depth_cap": 7,
+      "distinct_joint_states": 1,
+      "frontier_closed": true,
+      "layers": [
+        {
+          "depth": 0,
+          "frontier_sha256": "d494d64d05638b7ad16a317a555143c81777abd40ac84c0e1b117c7a83e74caf",
+          "new_states": 1,
+          "permutation_states": 1
+        },
+        {
+          "depth": 1,
+          "frontier_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_states": 0,
+          "permutation_states": 0
+        }
+      ],
+      "saturated_transitions_discarded": 2,
+      "scope": "Two-port XOR words on exactly W arbitrary-input roles. A closed joint-state frontier excludes every length; otherwise only lengths through depth_cap are covered.",
+      "survivors": []
+    },
+    {
+      "W": 3,
+      "all_lengths_excluded": true,
+      "all_words_through_depth_excluded": true,
+      "depth_cap": 7,
+      "distinct_joint_states": 235,
+      "frontier_closed": true,
+      "layers": [
+        {
+          "depth": 0,
+          "frontier_sha256": "161c7d6d4a47ea2cbbfa495843c5c0139e0bcec9eac2ccb0342cece77077bb1e",
+          "new_states": 1,
+          "permutation_states": 1
+        },
+        {
+          "depth": 1,
+          "frontier_sha256": "66607b43ab573e2f45cdc37008e9a6b5364358939256572f34b4ad23e924ba13",
+          "new_states": 6,
+          "permutation_states": 0
+        },
+        {
+          "depth": 2,
+          "frontier_sha256": "aa1713a8eaa1b33509c03f99cde1125ae2d4521d7034ce9e752e1eb27d60c2c9",
+          "new_states": 33,
+          "permutation_states": 3
+        },
+        {
+          "depth": 3,
+          "frontier_sha256": "9ce30d19da826f9a9a182bd0dd65f5b2366df264c0beab385fb7a5fe94774750",
+          "new_states": 75,
+          "permutation_states": 3
+        },
+        {
+          "depth": 4,
+          "frontier_sha256": "2f4832fc8377d06e28b215b4f5137f714f0a07eb3b91e244b0cd9055a9b7b551",
+          "new_states": 78,
+          "permutation_states": 6
+        },
+        {
+          "depth": 5,
+          "frontier_sha256": "29b9dd2341d6b453ceac03d016038f675de60f76207af51f8a4423eb4abe1662",
+          "new_states": 36,
+          "permutation_states": 12
+        },
+        {
+          "depth": 6,
+          "frontier_sha256": "260f2f8359dcfd8b45e52a131ccde427513c5fe85cb7d3dfa29b48035de17472",
+          "new_states": 6,
+          "permutation_states": 6
+        },
+        {
+          "depth": 7,
+          "frontier_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "new_states": 0,
+          "permutation_states": 0
+        }
+      ],
+      "saturated_transitions_discarded": 864,
+      "scope": "Two-port XOR words on exactly W arbitrary-input roles. A closed joint-state frontier excludes every length; otherwise only lengths through depth_cap are covered.",
+      "survivors": []
+    },
+    {
+      "W": 4,
+      "all_lengths_excluded": false,
+      "all_words_through_depth_excluded": true,
+      "depth_cap": 7,
+      "distinct_joint_states": 529066,
+      "frontier_closed": false,
+      "layers": [
+        {
+          "depth": 0,
+          "frontier_sha256": "baf8f8a284d4270ff4a4189488dd9e4e01fa78e770d7680790ccbd7623e72787",
+          "new_states": 1,
+          "permutation_states": 1
+        },
+        {
+          "depth": 1,
+          "frontier_sha256": "771b8275e186207c8de3d69051d9c0c791330687f25190e1f8cd8abe36120703",
+          "new_states": 12,
+          "permutation_states": 0
+        },
+        {
+          "depth": 2,
+          "frontier_sha256": "cbdf9a4f2b1e590086aa1e307e824796f3bb145c1604bd5f8919ca5f02e8cfa6",
+          "new_states": 126,
+          "permutation_states": 6
+        },
+        {
+          "depth": 3,
+          "frontier_sha256": "c2ad8c2b096659d76599b29da50287558c6ada1811a9e6dd18ae6fa0d9b73822",
+          "new_states": 1146,
+          "permutation_states": 6
+        },
+        {
+          "depth": 4,
+          "frontier_sha256": "e9ff1a6c44e869fb9524a60e878055c1383f5a0b6492ebd117a0746ceba21127",
+          "new_states": 8503,
+          "permutation_states": 31
+        },
+        {
+          "depth": 5,
+          "frontier_sha256": "24254bc1f74a354fea0371b216ea7bf69646bdd819edb182ecfed5823793d989",
+          "new_states": 51084,
+          "permutation_states": 66
+        },
+        {
+          "depth": 6,
+          "frontier_sha256": "257e37487a0e48dfd7218ae0f2a74008a263379a1de7a7c3ce0cd7b91b11b0e7",
+          "new_states": 150110,
+          "permutation_states": 212
+        },
+        {
+          "depth": 7,
+          "frontier_sha256": "dd0809d8b67147528983bb0b66d380d0c5479a175cbe752e8098b88e93622f6d",
+          "new_states": 318084,
+          "permutation_states": 624
+        }
+      ],
+      "saturated_transitions_discarded": 959688,
+      "scope": "Two-port XOR words on exactly W arbitrary-input roles. A closed joint-state frontier excludes every length; otherwise only lengths through depth_cap are covered.",
+      "survivors": []
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "decision": "Stop this expansion/pair-refactoring heuristic: all nine small trials and the full-size trial increase roles. This is not an impossibility result for earlier sharing.",
+  "full_size": {
+    "baseline": {
+      "additions": 427888,
+      "all_coefficients_exact": true,
+      "circuit_sha256": "f999ccafdda4de1902045ef8b02d1c52b87c846ebdfeefc05d5d5cbbeb50aa6d",
+      "every_addition_has_disjoint_support": true,
+      "h": 50,
+      "outputs": 19600,
+      "roles": 447488
+    },
+    "optimistic_score": {
+      "bit_saving_upper_if_no_extra_losses": "137387145746747118289899406315849189602748521097274344577138445976709871727000645230783970847404032567421719780023725165455611356243731413339333001094327723996561413515018071958320513853716238497842774180739380406973083725/46474367828302646362444299983074658617125921653784229410668976005256519837033566930702204931756855805166014761706914757945957532368543956101568904957737658486456700722125844290661909899685880159047183801117248124025556116725830272",
+      "fraction_of_target": "230497381981665770092719295803276607739026613212952869022908037005559248729618285717623252824460049365466875584093052222548453013575403056757927105528777260027869409180677743714828625815478973598582375646948762479395533184040960/363080998658614424706596093617770770446296262920189292270851375041066561226824741646110976029350435977859490325835271546452793221629249657043507069982325456925442974391608158520796171091295938742556123446228500968949657161920549",
+      "kappa_upper_if_no_extra_losses": "27477429149349423657979881263169837920549704219454868915427689195341974345400129046156794169480806513484343956004745033091122271248746282667866600218865544799312282703003614391664102770743247699568554836147876081394616745/46474367828302646362444299983074658617125921653784229410668976005256519837033566930702204931756855805166014761706914757945957532368543956101568904957737658486456700722125844290661909899685880159047183801117248124025556116725830272",
+      "necessary_integer_role_budget": 317035,
+      "scope": "Retained dimension, central losses, stage sharing and Gaussian assembly; assumes a loss-free frame certificate that has NOT been supplied at this size."
+    },
+    "scalar": {
+      "additions": 491100,
+      "all_coefficients_exact": true,
+      "circuit_sha256": "8dbaa56a8b3e6ca1d805117378017f9177c81350b49120cf38392c6dfa6cd8db",
+      "every_addition_has_disjoint_support": true,
+      "h": 50,
+      "outputs": 19600,
+      "roles": 510700
+    },
+    "search": {
+      "depth": 2,
+      "exposed_expressions": 312888,
+      "exposed_terms": 1020274,
+      "factored_pairs": 137568,
+      "max_fanout": 2
+    }
+  },
+  "new_frame_certificates_supplied": false,
+  "small_trials": [
+    {
+      "baseline": {
+        "additions": 1659,
+        "all_coefficients_exact": true,
+        "circuit_sha256": "ff3bffb65fc994e8ba9e9a674ca448cc9a21bf6942cd2a32d649b5ec6432cfe9",
+        "every_addition_has_disjoint_support": true,
+        "h": 10,
+        "outputs": 120,
+        "roles": 1779
+      },
+      "trials": [
+        {
+          "scalar": {
+            "additions": 1736,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "6d45f51c48f507aebe384b1099e06b1d65a2cdf14ba5d41c6a386efb88ba0ddf",
+            "every_addition_has_disjoint_support": true,
+            "h": 10,
+            "outputs": 120,
+            "roles": 1856
+          },
+          "search": {
+            "depth": 2,
+            "exposed_expressions": 1108,
+            "exposed_terms": 3328,
+            "factored_pairs": 331,
+            "max_fanout": 2
+          }
+        },
+        {
+          "scalar": {
+            "additions": 1735,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "3b9eba9a2985a85e85a17f13453c7fbf1a59b201a47bb933823d39ec2dbbe52b",
+            "every_addition_has_disjoint_support": true,
+            "h": 10,
+            "outputs": 120,
+            "roles": 1855
+          },
+          "search": {
+            "depth": 3,
+            "exposed_expressions": 827,
+            "exposed_terms": 3238,
+            "factored_pairs": 450,
+            "max_fanout": 2
+          }
+        },
+        {
+          "scalar": {
+            "additions": 1901,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "d5408622fb43086bb804deaa2a01ecfed608ca9b444b9891cac614558b909cc7",
+            "every_addition_has_disjoint_support": true,
+            "h": 10,
+            "outputs": 120,
+            "roles": 2021
+          },
+          "search": {
+            "depth": 3,
+            "exposed_expressions": 855,
+            "exposed_terms": 4183,
+            "factored_pairs": 593,
+            "max_fanout": 4
+          }
+        }
+      ]
+    },
+    {
+      "baseline": {
+        "additions": 3432,
+        "all_coefficients_exact": true,
+        "circuit_sha256": "39a0e0bc5ad702935d8483fe7573ec1276571c7c461522df914a752470d585d1",
+        "every_addition_has_disjoint_support": true,
+        "h": 12,
+        "outputs": 220,
+        "roles": 3652
+      },
+      "trials": [
+        {
+          "scalar": {
+            "additions": 3659,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "4c40957659409fe19bdd576c4429ae070803f5bd75e43c3acb03b9d120a0c583",
+            "every_addition_has_disjoint_support": true,
+            "h": 12,
+            "outputs": 220,
+            "roles": 3879
+          },
+          "search": {
+            "depth": 2,
+            "exposed_expressions": 2342,
+            "exposed_terms": 7130,
+            "factored_pairs": 729,
+            "max_fanout": 2
+          }
+        },
+        {
+          "scalar": {
+            "additions": 3740,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "6286535f702491ee77ff41e574b4765485bd08d17a897e9cc726003e5ea9f888",
+            "every_addition_has_disjoint_support": true,
+            "h": 12,
+            "outputs": 220,
+            "roles": 3960
+          },
+          "search": {
+            "depth": 3,
+            "exposed_expressions": 1809,
+            "exposed_terms": 7139,
+            "factored_pairs": 951,
+            "max_fanout": 2
+          }
+        },
+        {
+          "scalar": {
+            "additions": 4119,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "c119742ff8fd1fa125d961904f85b3220e274e68022d1e092cff664676703731",
+            "every_addition_has_disjoint_support": true,
+            "h": 12,
+            "outputs": 220,
+            "roles": 4339
+          },
+          "search": {
+            "depth": 3,
+            "exposed_expressions": 1911,
+            "exposed_terms": 10000,
+            "factored_pairs": 1443,
+            "max_fanout": 4
+          }
+        }
+      ]
+    },
+    {
+      "baseline": {
+        "additions": 21690,
+        "all_coefficients_exact": true,
+        "circuit_sha256": "da3a9065d769036eef0791d2c1940c1f92b211c1acb429fb0fa5e46b32d8129c",
+        "every_addition_has_disjoint_support": true,
+        "h": 20,
+        "outputs": 1140,
+        "roles": 22830
+      },
+      "trials": [
+        {
+          "scalar": {
+            "additions": 23645,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "dfa29a0416c8d453706dbc87c0718e9b049f6e6b40fdc5081b495451bb6b8eb4",
+            "every_addition_has_disjoint_support": true,
+            "h": 20,
+            "outputs": 1140,
+            "roles": 24785
+          },
+          "search": {
+            "depth": 2,
+            "exposed_expressions": 15395,
+            "exposed_terms": 48548,
+            "factored_pairs": 5853,
+            "max_fanout": 2
+          }
+        },
+        {
+          "scalar": {
+            "additions": 24774,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "47c240e84f1ceb498b48660dcdd8a0f44d9c65bc58ae6421a1d695c487b710cd",
+            "every_addition_has_disjoint_support": true,
+            "h": 20,
+            "outputs": 1140,
+            "roles": 25914
+          },
+          "search": {
+            "depth": 3,
+            "exposed_expressions": 12560,
+            "exposed_terms": 52192,
+            "factored_pairs": 7238,
+            "max_fanout": 2
+          }
+        },
+        {
+          "scalar": {
+            "additions": 25612,
+            "all_coefficients_exact": true,
+            "circuit_sha256": "2e4bdd0424d944095341a37e2e7ec8256d074b21f9c794ded774d1d47970a24b",
+            "every_addition_has_disjoint_support": true,
+            "h": 20,
+            "outputs": 1140,
+            "roles": 26752
+          },
+          "search": {
+            "depth": 3,
+            "exposed_expressions": 13000,
+            "exposed_terms": 74426,
+            "factored_pairs": 11664,
+            "max_fanout": 4
+          }
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "docs/research/early-sharing-and-centers.md": "f8706dbda32f7a07081f4010400ba15124b8ae8edacf73867392f1ce2d7d2d50",
+    "scripts/experiments/early_sharing.py": "1dd42768536bac13727528e51a999152cf9516a53c4001f2c390323e7f453378"
+  },
+  "status": "EARLY-SHARING COUNT SCREEN; NO NEW KAPPA",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

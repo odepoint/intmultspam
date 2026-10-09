@@ -1,0 +1,261 @@
+{
+  "best_h50": {
+    "decreasing_loss_after": 2498,
+    "decreasing_loss_before": 2500,
+    "rank_change": -4,
+    "selected_gather_points": 1,
+    "selected_scatter_points": 1
+  },
+  "global_tensor_integration_supplied": false,
+  "hypothetical_global_deficit_multiplier": "1153/1150",
+  "indefinite_rational_controls": [
+    {
+      "A": [
+        0
+      ],
+      "C": [
+        1
+      ],
+      "change": {
+        "X": 0,
+        "Y": 0,
+        "center": -4,
+        "total": -4
+      },
+      "score": {
+        "X": 1080,
+        "Y": 1080,
+        "center": 296
+      }
+    },
+    {
+      "A": [
+        0,
+        1
+      ],
+      "C": [
+        2,
+        3
+      ],
+      "change": {
+        "X": 16,
+        "Y": 16,
+        "center": -8,
+        "total": 24
+      },
+      "score": {
+        "X": 1096,
+        "Y": 1096,
+        "center": 292
+      }
+    },
+    {
+      "A": [
+        0,
+        1
+      ],
+      "C": [
+        1,
+        2
+      ],
+      "change": {
+        "X": 16,
+        "Y": 16,
+        "center": -6,
+        "total": 26
+      },
+      "score": {
+        "X": 1096,
+        "Y": 1096,
+        "center": 294
+      }
+    }
+  ],
+  "physical_controls": [
+    {
+      "A": [],
+      "C": [],
+      "change": {
+        "X": 0,
+        "Y": 0,
+        "center": 0,
+        "total": 0
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 100,
+        "Y": 100,
+        "center": 108,
+        "side": 984
+      }
+    },
+    {
+      "A": [
+        0
+      ],
+      "C": [],
+      "change": {
+        "X": 0,
+        "Y": 0,
+        "center": -2,
+        "total": -2
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 100,
+        "Y": 100,
+        "center": 106,
+        "side": 984
+      }
+    },
+    {
+      "A": [],
+      "C": [
+        1
+      ],
+      "change": {
+        "X": 0,
+        "Y": 0,
+        "center": -2,
+        "total": -2
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 100,
+        "Y": 100,
+        "center": 106,
+        "side": 984
+      }
+    },
+    {
+      "A": [
+        0
+      ],
+      "C": [
+        1
+      ],
+      "change": {
+        "X": 0,
+        "Y": 0,
+        "center": -4,
+        "total": -4
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 100,
+        "Y": 100,
+        "center": 104,
+        "side": 984
+      }
+    },
+    {
+      "A": [
+        0
+      ],
+      "C": [
+        0
+      ],
+      "change": {
+        "X": 0,
+        "Y": 0,
+        "center": -2,
+        "total": -2
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 100,
+        "Y": 100,
+        "center": 106,
+        "side": 984
+      }
+    },
+    {
+      "A": [
+        0,
+        1
+      ],
+      "C": [
+        2
+      ],
+      "change": {
+        "X": 8,
+        "Y": 0,
+        "center": -6,
+        "total": 2
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 108,
+        "Y": 100,
+        "center": 102,
+        "side": 984
+      }
+    },
+    {
+      "A": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "C": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "change": {
+        "X": 80,
+        "Y": 80,
+        "center": -12,
+        "total": 148
+      },
+      "scalar": {
+        "arbitrary_side_and_center_inputs_restored": true,
+        "forward_and_inverse_exact": true,
+        "independent_variables": 210
+      },
+      "score": {
+        "X": 180,
+        "Y": 180,
+        "center": 96,
+        "side": 984
+      }
+    }
+  ],
+  "scope": "Exact local active-factor paths and scalar restoration. Family optimum only for the specified hyperplane labels, fixed boundaries, D=0 and B=I; not a lower bound on other point-split matrices or schedules.",
+  "source_sha256": {
+    "docs/research/early-sharing-and-centers.md": "f8706dbda32f7a07081f4010400ba15124b8ae8edacf73867392f1ce2d7d2d50",
+    "scripts/audit_split_centers.py": "c5cfd0e89120c918b81c4ef0b69b767342457daa1b29ce2b7821658ea7ba6f2a"
+  },
+  "status": "POINT-SPLIT LOCAL RANK SAVING; NO NEW KAPPA",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

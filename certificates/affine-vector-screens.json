@@ -1,0 +1,153 @@
+{
+  "lattice_vector_screens": [
+    {
+      "binary_rank_lower": 683,
+      "d": 24,
+      "full_matrix_expanded": false,
+      "independent_rows_sha256": "b54f09a244ab154e868979e71fd81a428a6b4a9169f96bc6ded04e45d8fdfa35",
+      "minor_columns": 715,
+      "n": 98280,
+      "positive_deficit_excluded": true,
+      "shift": 0,
+      "signed": false
+    },
+    {
+      "binary_rank_lower": 1311,
+      "d": 25,
+      "full_matrix_expanded": false,
+      "independent_rows_sha256": "f743deb780a127a387d8e086ae1d48b42259e3070cc2c506516f0a51d2a88f33",
+      "minor_columns": 1343,
+      "n": 196560,
+      "positive_deficit_excluded": true,
+      "shift": -16,
+      "signed": true
+    },
+    {
+      "binary_rank_lower": 1311,
+      "d": 25,
+      "full_matrix_expanded": false,
+      "independent_rows_sha256": "51e0a2e8c02829aa8cac3dc1bde9d917e6330a7cb3526c35691b94be8cb8a833",
+      "minor_columns": 1343,
+      "n": 196560,
+      "positive_deficit_excluded": true,
+      "shift": -8,
+      "signed": true
+    },
+    {
+      "binary_rank_lower": 1311,
+      "d": 25,
+      "full_matrix_expanded": false,
+      "independent_rows_sha256": "10ecb66bffb241e22238f9b6264821f95f5f6924414a007df63ba59db2260fb5",
+      "minor_columns": 1343,
+      "n": 196560,
+      "positive_deficit_excluded": true,
+      "shift": 8,
+      "signed": true
+    },
+    {
+      "binary_rank_lower": 1311,
+      "d": 25,
+      "full_matrix_expanded": false,
+      "independent_rows_sha256": "c99ed2b19e1210503de5cba13452b355e351f238e6a4676f6bfe8036bf9de4d0",
+      "minor_columns": 1343,
+      "n": 196560,
+      "positive_deficit_excluded": true,
+      "shift": 16,
+      "signed": true
+    }
+  ],
+  "polynomial_code_screens": [
+    {
+      "base_sha256": "85fac52408bc15cc1ab4bebb36ae38191a63dd20756214de5f4cf7414137f810",
+      "binary_rank_lower": 342,
+      "d": 32,
+      "extra_monomials": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "full_matrix_expanded": false,
+      "n": 65536,
+      "positive_deficit_excluded": true
+    },
+    {
+      "base_sha256": "5d0520b580dcf77000b24577e6f4228492ec983299f25348448eead2903dad74",
+      "binary_rank_lower": 683,
+      "d": 32,
+      "extra_monomials": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ]
+      ],
+      "full_matrix_expanded": false,
+      "n": 131072,
+      "positive_deficit_excluded": true
+    },
+    {
+      "base_sha256": "d954c8a8bc374602438a93160526a407486a47aacdd8cd8aae06298b4f1706a1",
+      "binary_rank_lower": 683,
+      "d": 32,
+      "extra_monomials": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          3,
+          4
+        ]
+      ],
+      "full_matrix_expanded": false,
+      "n": 131072,
+      "positive_deficit_excluded": true
+    },
+    {
+      "base_sha256": "9cb5268cba8b29bdf82a4df265596f6d5f27eaeb4f3c0593288131797374f282",
+      "binary_rank_lower": 1366,
+      "d": 32,
+      "extra_monomials": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ]
+      ],
+      "full_matrix_expanded": false,
+      "n": 262144,
+      "positive_deficit_excluded": true
+    }
+  ],
+  "retained_kappa": "1/2147483648",
+  "scope": "Only I plus each full stated zero relation. Other supported binary matrices and subfamilies remain untested.",
+  "source_sha256": {
+    "docs/research/affine-vector-screens.md": "22e5beab6df8127fc4377142768fc1a0a3317d7e8fba52c089670ecf1aa076b6",
+    "scripts/audit_affine_vectors.py": "a3fccaeadb9a5db72c33787a055a54374504a6aa231907080396b2cf822e94a7",
+    "scripts/experiments/affine_vector_screens.py": "756778eeca27f490adc7354a122dc50c40375156259991469c47a90949118ea1",
+    "scripts/experiments/affine_vector_witnesses.json": "672a4318c48f5286ce088d34736c38957b7f662a5f753d440dbc638e7da5f62a",
+    "scripts/experiments/cube_core_family.py": "e58f1f4067bda2d4838343f42ec2505316f006561f0702e869847d88b85413a8",
+    "scripts/experiments/single_intersection.py": "08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d"
+  },
+  "status": "NINE SPECIFIED CENTRAL MATRICES REJECTED; NO NEW KAPPA",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

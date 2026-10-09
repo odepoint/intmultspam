@@ -1,0 +1,282 @@
+{
+  "decision": "Retain the scalar schedule, but reject the coordinate-carry realization even with arbitrary cleanup matrices when column central frames are retained. A viable continuation must also redesign column returns or change the carried representation/topology.",
+  "full_frame_certificate_supplied": false,
+  "full_size_screens": [
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 1176,
+      "flexible_cleanup_charge_lower_bound": 1176,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 978,
+      "h": 50,
+      "k": 1,
+      "late_Y_rank_charge_lower_bound": 2352,
+      "maximum_return_rank_saving": 198,
+      "net_rank_increase_lower_bound": 2154,
+      "optimistic_saved_decreasing_dimensions": 99,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 5410,
+      "flexible_cleanup_charge_lower_bound": 5410,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 4460,
+      "h": 50,
+      "k": 5,
+      "late_Y_rank_charge_lower_bound": 10820,
+      "maximum_return_rank_saving": 950,
+      "net_rank_increase_lower_bound": 9870,
+      "optimistic_saved_decreasing_dimensions": 475,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 9720,
+      "flexible_cleanup_charge_lower_bound": 9720,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 7920,
+      "h": 50,
+      "k": 10,
+      "late_Y_rank_charge_lower_bound": 19440,
+      "maximum_return_rank_saving": 1800,
+      "net_rank_increase_lower_bound": 17640,
+      "optimistic_saved_decreasing_dimensions": 900,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 17300,
+      "flexible_cleanup_charge_lower_bound": 17300,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 13550,
+      "h": 50,
+      "k": 25,
+      "late_Y_rank_charge_lower_bound": 34600,
+      "maximum_return_rank_saving": 3750,
+      "net_rank_increase_lower_bound": 30850,
+      "optimistic_saved_decreasing_dimensions": 1875,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 19480,
+      "flexible_cleanup_charge_lower_bound": 19480,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 14680,
+      "h": 50,
+      "k": 40,
+      "late_Y_rank_charge_lower_bound": 38960,
+      "maximum_return_rank_saving": 4800,
+      "net_rank_increase_lower_bound": 34160,
+      "optimistic_saved_decreasing_dimensions": 2400,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 19600,
+      "flexible_cleanup_charge_lower_bound": 19600,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 14600,
+      "h": 50,
+      "k": 48,
+      "late_Y_rank_charge_lower_bound": 39200,
+      "maximum_return_rank_saving": 5000,
+      "net_rank_increase_lower_bound": 34200,
+      "optimistic_saved_decreasing_dimensions": 2500,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 19600,
+      "flexible_cleanup_charge_lower_bound": 19600,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 14600,
+      "h": 50,
+      "k": 49,
+      "late_Y_rank_charge_lower_bound": 39200,
+      "maximum_return_rank_saving": 5000,
+      "net_rank_increase_lower_bound": 34200,
+      "optimistic_saved_decreasing_dimensions": 2500,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    },
+    {
+      "coordinate_candidate_excluded": true,
+      "deferred_columns": 19600,
+      "flexible_cleanup_charge_lower_bound": 19600,
+      "flexible_cleanup_excluded": true,
+      "flexible_cleanup_net_increase_lower_bound": 14600,
+      "h": 50,
+      "k": 50,
+      "late_Y_rank_charge_lower_bound": 39200,
+      "maximum_return_rank_saving": 5000,
+      "net_rank_increase_lower_bound": 34200,
+      "optimistic_saved_decreasing_dimensions": 2500,
+      "row_invocations": 1,
+      "scope": "Coordinate-complement carry retained at late readout, unchanged column central frames and outer Y cuts. Canonical readout cuts give two rank units per target; arbitrary cleanup/readout matrices containing the carry give at least one. Other new costs are credited as zero."
+    }
+  ],
+  "rational_geometry_controls": [
+    {
+      "deferred_targets": 10,
+      "h": 6,
+      "k": 1,
+      "nondegenerate": true,
+      "retained_dimension": 1
+    },
+    {
+      "deferred_targets": 36,
+      "h": 8,
+      "k": 2,
+      "nondegenerate": true,
+      "retained_dimension": 2
+    },
+    {
+      "deferred_targets": 36,
+      "h": 10,
+      "k": 1,
+      "nondegenerate": false,
+      "retained_dimension": 1
+    },
+    {
+      "deferred_targets": 64,
+      "h": 10,
+      "k": 2,
+      "nondegenerate": true,
+      "retained_dimension": 2
+    },
+    {
+      "deferred_targets": 1176,
+      "h": 50,
+      "k": 1,
+      "nondegenerate": true,
+      "retained_dimension": 1
+    },
+    {
+      "deferred_targets": 5410,
+      "h": 50,
+      "k": 5,
+      "nondegenerate": true,
+      "retained_dimension": 5
+    }
+  ],
+  "scalar_controls": [
+    {
+      "additional_roles": 0,
+      "baseline_xors": 15312,
+      "column_invocations": 10,
+      "deferred_xors": 15372,
+      "extra_xors": 60,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 2670,
+      "inverse_exact": true,
+      "program_sha256": "cdbd5b270d75f2e84f70adb5730a716442f50fa3c12e600ca0ec0f96bf3a5c38",
+      "row_invocations": 1
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 18096,
+      "column_invocations": 10,
+      "deferred_xors": 18276,
+      "extra_xors": 180,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 3010,
+      "inverse_exact": true,
+      "program_sha256": "f5ef56fc142810fc516a8019711d0ce1d7d5a2af0d3d02063842ff0098978e1e",
+      "row_invocations": 3
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 25056,
+      "column_invocations": 16,
+      "deferred_xors": 25248,
+      "extra_xors": 192,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 3860,
+      "inverse_exact": true,
+      "program_sha256": "c5444f51acd43aa31213b6a14d3cdac5d5071f314cdf229c7a33c01d711f5428",
+      "row_invocations": 2
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 30624,
+      "column_invocations": 20,
+      "deferred_xors": 30864,
+      "extra_xors": 240,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 4540,
+      "inverse_exact": true,
+      "program_sha256": "e29a76714d0ac2ddbdcbec030d7ca8cb865c0f0b9febd7a18838853c78722cf7",
+      "row_invocations": 2
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 144848,
+      "column_invocations": 21,
+      "deferred_xors": 144974,
+      "extra_xors": 126,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 8,
+      "independent_variables": 23938,
+      "inverse_exact": true,
+      "program_sha256": "a420684dbce6510e0ce145e26b0bdbd8480a336ac2f1f4a501c89ddd48630b42",
+      "row_invocations": 1
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 6960,
+      "column_invocations": 3,
+      "deferred_xors": 6996,
+      "extra_xors": 36,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 1650,
+      "inverse_exact": true,
+      "program_sha256": "a80f2cca3f3cb1ad49ae6e94e36b1700c1848e89e8a98d68560fee49f00b2236",
+      "row_invocations": 2
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 2784,
+      "column_invocations": 0,
+      "deferred_xors": 2784,
+      "extra_xors": 0,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 1140,
+      "inverse_exact": true,
+      "program_sha256": "f65d13ab01974928cc9fae8b6721beb3a1d5c19c5676a7fe21671efbf6d571e5",
+      "row_invocations": 2
+    },
+    {
+      "additional_roles": 0,
+      "baseline_xors": 2784,
+      "column_invocations": 2,
+      "deferred_xors": 2784,
+      "extra_xors": 0,
+      "full_map_and_dirty_restoration_exact": true,
+      "h": 6,
+      "independent_variables": 1140,
+      "inverse_exact": true,
+      "program_sha256": "27c3bee9fd5c43d242e5c4d873a928eb49007d4b8623d5b7496456afece404d6",
+      "row_invocations": 0
+    }
+  ],
+  "source_sha256": {
+    "docs/research/block-carry-audit.md": "a73886c6040e29931d7344263bc3f57109136e5b1c3fd32efdb825026f7bff5e",
+    "scripts/audit_block_carry.py": "2835f9262e0f835259a18c11aa3469643a19483d62daff90dbb91ddcb46e4505"
+  },
+  "status": "EXACT BLOCK CARRY SCHEDULE; RETAINED COLUMN RETURNS DEFEAT CARRY READOUT; NO NEW KAPPA",
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

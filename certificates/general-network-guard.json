@@ -1,0 +1,293 @@
+{
+  "hypothetical_insufficient_headroom": {
+    "alpha": "7",
+    "constraint_slacks": {
+      "K_dominates_log_p": "999/6941",
+      "K_smaller_than_ell": "4943/6941",
+      "alpha_below_sqrt_p": "2971/13882",
+      "beta_below_one": "99/100",
+      "beta_positive": "1/100",
+      "c_positive": "1",
+      "crt_layout": "2971/21690625000",
+      "delta_below_one_eighth": "1249/10000",
+      "delta_positive": "1/10000",
+      "dimension_upper_bound": "3944/20823",
+      "epsilon_positive": "999/6941",
+      "gamma_sublinear": "1972/6941",
+      "gaussian_cost": "4858059/69410000",
+      "guard_width": "1/1000",
+      "kappa_positive": "1/33554432",
+      "lambda_above_sigma": "299/125000000000",
+      "lambda_above_tau": "299/125000000000",
+      "lambda_below_one": "19701/125000000000",
+      "lambda_prime_above_lambda": "99/125000000000",
+      "lambda_prime_below_one": "9801/62500000000",
+      "leaf_cost": "99/62500000000",
+      "packed_overhead": "299/125000000000",
+      "prefix_cost": "4943/6941",
+      "prime_interval_growth": "4943/6941",
+      "r_superpolynomial": "5942/6941",
+      "reserved_axes": "62499990199/62500000000",
+      "scalar_cost": "59413059/69410000",
+      "sigma_below_one": "1/6250000",
+      "sigma_positive": "6249999/6250000",
+      "tau_below_one": "1/6250000",
+      "tau_positive": "6249999/6250000"
+    },
+    "finite_networks_verified": false,
+    "margins": {
+      "g1": "4943/6941",
+      "g2": "999/43381250000",
+      "g3": "890109/39437500000000",
+      "g4": "2971/21690625000",
+      "g5": "4858059/69410000",
+      "g6": "59413059/69410000",
+      "g7": "999/6941"
+    },
+    "minimum_margin": "890109/39437500000000",
+    "parameter_system_passes": false,
+    "parameters": {
+      "C1": "6941/1000",
+      "beta": "1/100",
+      "c": "1",
+      "delta": "1/10000",
+      "epsilon": "999/6941",
+      "kappa": "1/33554432",
+      "lam": "124999980299/125000000000",
+      "lamp": "62499990199/62500000000",
+      "sigma": "6249999/6250000",
+      "tau": "6249999/6250000"
+    },
+    "scalar_node_charge_verified": false,
+    "status": "HYPOTHETICAL PARAMETER WITNESS ONLY"
+  },
+  "hypothetical_target": {
+    "alpha": "7",
+    "constraint_slacks": {
+      "K_dominates_log_p": "199/1000",
+      "K_smaller_than_ell": "301/500",
+      "alpha_below_sqrt_p": "801/4000",
+      "beta_below_one": "1/2",
+      "beta_positive": "1/2",
+      "c_positive": "1",
+      "crt_layout": "801/6250000000",
+      "delta_below_one_eighth": "1249/10000",
+      "delta_positive": "1/10000",
+      "dimension_upper_bound": "403/3000",
+      "epsilon_positive": "199/1000",
+      "gamma_sublinear": "403/2000",
+      "gaussian_cost": "23/20000",
+      "guard_width": "203801/1000000",
+      "kappa_positive": "1/33554432",
+      "lambda_above_sigma": "201/1250000000",
+      "lambda_above_tau": "1/1250000000",
+      "lambda_below_one": "199/1250000000",
+      "lambda_prime_above_lambda": "1/1250000000",
+      "lambda_prime_below_one": "99/625000000",
+      "leaf_cost": "1/625000000",
+      "packed_overhead": "1/1250000000",
+      "prefix_cost": "301/500",
+      "prime_interval_growth": "301/500",
+      "r_superpolynomial": "801/1000",
+      "reserved_axes": "624999901/625000000",
+      "scalar_cost": "8009/10000",
+      "sigma_below_one": "1/3125000",
+      "sigma_positive": "3124999/3125000",
+      "tau_below_one": "1/6250000",
+      "tau_positive": "6249999/6250000"
+    },
+    "finite_networks_verified": false,
+    "margins": {
+      "g1": "301/500",
+      "g2": "199/6250000000",
+      "g3": "19701/625000000000",
+      "g4": "801/6250000000",
+      "g5": "23/20000",
+      "g6": "8009/10000",
+      "g7": "199/1000"
+    },
+    "minimum_margin": "19701/625000000000",
+    "parameter_system_passes": true,
+    "parameters": {
+      "C1": "4001/1000",
+      "beta": "1/2",
+      "c": "1",
+      "delta": "1/10000",
+      "epsilon": "199/1000",
+      "kappa": "1/33554432",
+      "lam": "1249999801/1250000000",
+      "lamp": "624999901/625000000",
+      "sigma": "3124999/3125000",
+      "tau": "6249999/6250000"
+    },
+    "scalar_node_charge_verified": false,
+    "status": "HYPOTHETICAL PARAMETER WITNESS ONLY"
+  },
+  "necessary_ceiling_examples": [
+    {
+      "alpha": "5",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "1",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/31250000"
+    },
+    {
+      "alpha": "6",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "5/4",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/31250000"
+    },
+    {
+      "alpha": "7",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "3/2",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/31250000"
+    },
+    {
+      "alpha": "8",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "7/4",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/31250000"
+    },
+    {
+      "alpha": "9",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "2",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/31250000"
+    },
+    {
+      "alpha": "10",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "9/4",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/34375000"
+    },
+    {
+      "alpha": "12",
+      "complex_to_bit_ratio_for_gaussian_value_of_this_bound": "11/4",
+      "scope": "Upper bound from necessary constraints only; no achievability or network certificate",
+      "stopping_fraction": "1/2",
+      "upper": "1/40625000"
+    }
+  ],
+  "retained_guard_regression": {
+    "B": 22734667915643833353538841452054190818112,
+    "C0": 163683105526161774852211653011111562104603718642394038114964451144205360970948886318088192,
+    "C1": "4961/1000",
+    "E": 22734667915643833353538716974924185538112,
+    "alpha": "5",
+    "beta": "1/100",
+    "finite_network_and_node_charge_verified": false,
+    "m": 17576,
+    "recurrence_assumption": "A(e)<=s A(e/m)+E internally; A(e)<=8e at leaves e<d^beta",
+    "s": 124477130005280000,
+    "zeta": "1/1000"
+  },
+  "scope": "The depth lemma assumes a verified scalar recurrence. New finite networks and node charges are not supplied by this certificate.",
+  "source_sha256": {
+    "certificates/complex-compression.json": "cf13df2ad68ca0db41e3c5a9dc36accc9cac92d9ec105831ae2bb95365a17927",
+    "docs/research/general-network-guard.md": "92074c0c22d41ecea5b2c138e0ebc8e82fe1c27f86d6bd302840f0494a22f7e4",
+    "notes/general-network-guard.tex": "f627914b46f355eb996d22e273cb98e0a4a9dd98e41ce0bb7c95dc2c906a9d86",
+    "scripts/audit_general_guard.py": "885743e70450f8da77dd8eee619eb784bd10b3078d4229baf4af2791a2e483c1",
+    "scripts/experiments/subset_core_family.py": "373a45a8fb4294cdf72d510d54e16d21535227b085aefb008aa092b3ad26e4de",
+    "scripts/general_network_guard.py": "790a2064449afdbffd6dbd4adbcf4a28eaf41931ce7134e4a4e8766f3764270c"
+  },
+  "status": "GENERAL GUARD LEMMA AND HYPOTHETICAL TARGETS; NO NEW KAPPA",
+  "unproved_complex_family_size_profiles": [
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 22,
+      "m": 10648,
+      "s": 13552218005002676856705024,
+      "scalar_node_charge_verified": false,
+      "side_model": "raw",
+      "strict_integer_residual_exponent": 7
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 22,
+      "m": 10648,
+      "s": 107061692077388353536,
+      "scalar_node_charge_verified": false,
+      "side_model": "free hypothetical",
+      "strict_integer_residual_exponent": 5
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 24,
+      "m": 13824,
+      "s": 297997535335065652427793408,
+      "scalar_node_charge_verified": false,
+      "side_model": "raw",
+      "strict_integer_residual_exponent": 7
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 24,
+      "m": 13824,
+      "s": 1156268075821640229888,
+      "scalar_node_charge_verified": false,
+      "side_model": "free hypothetical",
+      "strict_integer_residual_exponent": 6
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 26,
+      "m": 17576,
+      "s": 4932000021969945667600000000,
+      "scalar_node_charge_verified": false,
+      "side_model": "raw",
+      "strict_integer_residual_exponent": 7
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 26,
+      "m": 17576,
+      "s": 10064261704381456000000,
+      "scalar_node_charge_verified": false,
+      "side_model": "free hypothetical",
+      "strict_integer_residual_exponent": 6
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 28,
+      "m": 21952,
+      "s": 64531559633409690715975910400,
+      "scalar_node_charge_verified": false,
+      "side_model": "raw",
+      "strict_integer_residual_exponent": 7
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 28,
+      "m": 21952,
+      "s": 73179049988163096806400,
+      "scalar_node_charge_verified": false,
+      "side_model": "free hypothetical",
+      "strict_integer_residual_exponent": 6
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 30,
+      "m": 27000,
+      "s": 692946116369304084619488000000,
+      "scalar_node_charge_verified": false,
+      "side_model": "raw",
+      "strict_integer_residual_exponent": 7
+    },
+    {
+      "complete_complex_frame_certificate": false,
+      "h": 30,
+      "m": 27000,
+      "s": 456965237374315488000000,
+      "scalar_node_charge_verified": false,
+      "side_model": "free hypothetical",
+      "strict_integer_residual_exponent": 6
+    }
+  ],
+  "upstream_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
+}

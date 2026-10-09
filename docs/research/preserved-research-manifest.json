@@ -1,0 +1,851 @@
+{
+  "base_commit": "1c09a58",
+  "reconciled_against": "64ed4cbf872b86b81c22f104967b88d24b8e4548",
+  "files": [
+    {
+      "path": "Makefile",
+      "original_sha256": "ef7a66754e1999fc3378e063c127ce235b4dd45f8bf263780289423c25dbd836",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "artifacts/ternary-note.pdf",
+      "original_sha256": "c4aaace342c7997f8300c5dab50075f47ba537fbfd27e2388f33620104ed9768",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "certificates/affine-vector-screens.json",
+      "original_sha256": "5e272751f13ab577ac8d1d2bcb8f813f5354475e5f614b37a41cd88ea5f46147",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/bit-compression-audit.json",
+      "original_sha256": "6d15e563c2c6d2397f8472773de1850de79b01c6666deef2012207f688f1128a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/block-carry-audit.json",
+      "original_sha256": "fca0108a3c9cc7864b54052d4026625839fff3966944c82733a0965eadbbb2a8",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/block-core.json",
+      "original_sha256": "0b68d618fe0df41a5ca96d980e59ecd4dfab79b54df42e538be3eac5f6873ce5",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/core-limits.json",
+      "original_sha256": "79e867525c5395c21e392fb5ca7d3b5b3d65dd0f8389596544ccd55d380aba4f",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/cube-core-family.json",
+      "original_sha256": "c99288715d09b314f5156429d04ff7963fabcc5a70f8268afe9d3926621150e6",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/cyclic-topology-audit.json",
+      "original_sha256": "94803d7fac77f0f9179e8dbfadd07ce858596cc856b33c26d3e0b3997274a642",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/disjoint-tensor-compression.json",
+      "original_sha256": "be3cd60408decbc28c94305f9864879aa7d7ebdc3905805f09e8c692e74e72f1",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/dyadic-central-factor.json",
+      "original_sha256": "aeb652222d9b04286fa1e6552f6b58eb482e0df21707004d5a7205e79797413c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/early-sharing-audit.json",
+      "original_sha256": "8adbbcc9be3821a4172bdcfea751417f618cc724b3c95f88764431c7c117d34c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/fano-completion-audit.json",
+      "original_sha256": "e0625700a3d4204e9e3ad385f372fd1c764990da862d143761d34db773cd28d4",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/fano-permutation-audit.json",
+      "original_sha256": "b29e03dcd284d07de03772b8590a9dc1f7c93b728f8de48da2cace1233d54971",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/general-network-guard.json",
+      "original_sha256": "c14f7e74debaab7c0a6779ffd9a56aa69ee9bb489929e9aae10e0a4b87ccb982",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/inplace-side.json",
+      "original_sha256": "9a384e2c48f7281b240b62a9022ef1f741f7b4b71f69d085fceaafd15d96f52b",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/joint-return-audit.json",
+      "original_sha256": "c6e217798c0e911d99f93bd502fd31932f17bfdccaf79aeed0b78916f5a6cf6a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/mixed-point-audit.json",
+      "original_sha256": "71e426d58dde982c4f8aa59271aa7deec38bfcf975ad54e6809c8972c1e0da1e",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/parity-side.json",
+      "original_sha256": "f35d45ec67a98780d288075e758a9cc6f7e105190eefa4652da03c3b5c2244ad",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/positive-side-core.json",
+      "original_sha256": "b76fbb64ec3a9a517ebcee1996d915d9c8a3a8187aa21b754280a00452d6c199",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/prime-subset-limits.json",
+      "original_sha256": "c2866fec77f5d8116c0aca0bb9ddabc17a923b8e9d8afd434cb0510da6b638a6",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/quadratic-affine-vectors.json",
+      "original_sha256": "1a2a3dc5cf16bdc70da4deba30d1c7ba2be7cb5bec21bcb869354fe799d84389",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/rank-product-core.json",
+      "original_sha256": "aad5a87129f9c9346f237cd358b9692e128d1a0a40c078e45d0dd50b2b6b0211",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/shared-core.json",
+      "original_sha256": "1e7bb64e8d8167f561c6a8570b81fe08f61171a6eff3035457941cc7dca9fc1e",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/signed-sparse-core.json",
+      "original_sha256": "c3e886d9f5b985cd3399292ec0d83214019e4efa534e4cad27fe09cc13d7175d",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/single-intersection.json",
+      "original_sha256": "d06f7041b452e5b4eeb89947222fce24870ea44b2f6ded4e3e8a7d1846148938",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/split-centers-audit.json",
+      "original_sha256": "4e40bb0e3957df026cf202086a71541fef0a9b66869c5bf95015ceaa78acc3dc",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/stage-pair-audit.json",
+      "original_sha256": "a54c6089b9b31bb8e39279b66f15c1c7d4606f49b582eb19cc59c141a02b1653",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/stronger-rank-screens.json",
+      "original_sha256": "bc654301c16a688996dc4da36d8568eb68aa63f445e543c6d1f881e1c41bed5f",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/subset-core-family.json",
+      "original_sha256": "4e5c4b9dc07b9ef5bdbafa292430d5bc5280a4218fc3a7913e8db5d4d8080530",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "certificates/ternary-side.json",
+      "original_sha256": "664b8799c65caace2ce011db0a0e89b8baa41a8d5f93455c2c0cb973667012e4",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "docs/reproducibility.md",
+      "original_sha256": "bbcea9ffacdd7409f85c830cf8e7ac73f3782c2c2953468c96100ac46b3def5f",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "docs/research/affine-vector-screens.md",
+      "original_sha256": "231aa9a7aac5b83a772fa01617347b118184dcec37113a279a06eacf39dd0990",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/bit-compression-audit.md",
+      "original_sha256": "6e9d49a5d95a770adcb87eda601e03b2f6977ffe887943b0f9fa0bf0e5215df4",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/block-carry-audit.md",
+      "original_sha256": "ff9242e1ae4af06f0b9c8309aff3476cd200526ea3664e65084936e3a15c2e2f",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/block-core.md",
+      "original_sha256": "947dc046e4761732bc3b149ddf266309c6ac2b8f753f2e4f2cd1742add74734c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/core-limits.md",
+      "original_sha256": "df1619ebbfe76d4f80d93719f7e9a2b1c7e28dc5d736f808390ea1d1ceec5540",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/cube-core-family.md",
+      "original_sha256": "e14235579eed6f4a48e1401e3cc3257654dd704f39f55f977e09c1d4030e2056",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/current-status.md",
+      "original_sha256": "526676c263a6c2e0fce22a40157f2dff99d05559c041e0fe586bf5d3edfe031c",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "docs/research/cyclic-topology-audit.md",
+      "original_sha256": "51baf6f7f3cd13225b22f17221c077af791a24be76b34ec50e0a7a410455a50d",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/disjoint-tensor-compression.md",
+      "original_sha256": "bec240c645f5d51dc5c7def0189b2fd3de2c2af827aca135c958ae6c4130cb08",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/dyadic-central-factor.md",
+      "original_sha256": "47b15ab8c77162e76da119f445dd56637b76e1b2dad48c413001b40e68260215",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/early-sharing-and-centers.md",
+      "original_sha256": "b2d352826e737e2795343c2db586e11f6559559a37d82b929628b57b3dea9558",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/fano-completion-audit.md",
+      "original_sha256": "aba834b757b8caba33053716917638de09f082cb89b7b70ed79ccb5ddf8ba168",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/fano-permutation-audit.md",
+      "original_sha256": "c2c36413bc632d6a04fcc3374a005d6e0bf033955fbda5dff531eb98c71bdefe",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/general-network-guard.md",
+      "original_sha256": "ee13eb45c1576d109170d9fd9744b35ed76cbd5de4da6e2b3dee724659d44963",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/inplace-side.md",
+      "original_sha256": "dc7c71222565a1bf0b1131e0a28d55ac4010dde4a60df788ea677c762bbda8da",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/joint-return-audit.md",
+      "original_sha256": "71f166a99c73d023c01f6f5dee3f545eb7f411915a63c571e91e2f4fc21169f6",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/mixed-point-audit.md",
+      "original_sha256": "79f81d3dbf85cfcba3882310e38bcf9470b4c1a349dcc631d473061e9442f814",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/next-steps.md",
+      "original_sha256": "540fe1bc98e8a69455bf2b9ee0f4aa8bd022a778d2beccb4ab3a91009d8c7f24",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "docs/research/overnight-25-progress.md",
+      "original_sha256": "bf37384d49c712512e73ca8ae7f9d6a64e68743300e8b7f507103d0b0dc8b0bb",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/parity-side.md",
+      "original_sha256": "c603984b855b46db931f6a53008592c69fc8a880e2973d410885ff964bf73774",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/positive-side-core.md",
+      "original_sha256": "e601940fba27425bb7799ce6a667c62bf7e704ef07c02e637b60574bd754882d",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/prime-subset-limits.md",
+      "original_sha256": "2b3cb4567e2a7496fac98e2cdc246120968a1be600fe11e44ab3843885310e6a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/quadratic-affine-vectors.md",
+      "original_sha256": "6d960ae024b016d3cfdbf968192584ed61711f1eb0af1f62dd0307321216618c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/rank-product-core.md",
+      "original_sha256": "923d6416292f74c43928162db81ffddafaabe77ac4653e9b28f4a98bc02ea40f",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/result-history.md",
+      "original_sha256": "6e1795e9be36b073061db6a9f6d91803431ec605dafa4d3827566c049e4c6e62",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "docs/research/shared-core.md",
+      "original_sha256": "030a92784ec728401f34dc4066b538e17d8def6ca665d5e0a758d55251135c76",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/signed-sparse-core.md",
+      "original_sha256": "eb4d5427db0daed0b1bcf39478100265b6fabcd2c1ce8dba0b4ce50929e1279a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/single-intersection.md",
+      "original_sha256": "a406c445bc342da2dd98e55b5bd79c2f03c7346c4576d4fa5c59dfe4697e76c1",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/stage-pair-audit.md",
+      "original_sha256": "178fe11dce482370fc7e12e05a7bb2ac3b4aea2f1000dbac7f2a7459798cbb6c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/stronger-rank-screens.md",
+      "original_sha256": "673778f9e5457a1f1142ff64d11f6b519c64bc810777dc13409073e6bd568f6b",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/subset-core-family.md",
+      "original_sha256": "40775b2322e8d0fc67cbab90108259618193f60a1c506abc09092aff3e54ed09",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "docs/research/ternary-side-candidate.md",
+      "original_sha256": "66a5c2a707a54a9b0643bffb822c3106178d920e8c261111b82ed4f3b6096f23",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "notes/disjoint-tensor-compression.tex",
+      "original_sha256": "528cba56872313b8cd63ff11f523a399dfb3c85cae1a764110ae9d26ac9151ac",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "notes/dyadic-central-factor.tex",
+      "original_sha256": "24c0543fb2fd815f114021f929c3efefa1ae79f29c2f7968585bcd4595a96158",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "notes/finite-alphabet-transfer.tex",
+      "original_sha256": "0e3b0e98581dbd54fef2f6f7aee79a9b190a60a3f0d2726aefecdb3528131ce5",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "notes/general-network-guard.tex",
+      "original_sha256": "f627914b46f355eb996d22e273cb98e0a4a9dd98e41ce0bb7c95dc2c906a9d86",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "notes/ternary-five-subsets.tex",
+      "original_sha256": "10c925ddab1d802f3adbac3c0af2e4c4865224e8b11cdf5a1b7673944a5cb38b",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "notes/ternary-note.tex",
+      "original_sha256": "e309aacca2893b818ec845876bb28bb6f3c73d5f9b1e18bb426367ee01ada34d",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "patches/ternary-30.patch",
+      "original_sha256": "e1660d479e25c632b850d02ff96cd6fe460f7ce4a807b966a1e21059a03002c4",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "scripts/audit_affine_vectors.py",
+      "original_sha256": "a3fccaeadb9a5db72c33787a055a54374504a6aa231907080396b2cf822e94a7",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_bit_compression.py",
+      "original_sha256": "f0ed48592a885b54669d3f9086530fc84c467c39fd9281b357ba7550549aaa25",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_block_carry.py",
+      "original_sha256": "2835f9262e0f835259a18c11aa3469643a19483d62daff90dbb91ddcb46e4505",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_block_core.py",
+      "original_sha256": "a6ee56d5c238691701e9f17e9f2e7ed109a192d974614f58bdeca57a441ab968",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_complex_centers.py",
+      "original_sha256": "166b18f560cd0d520d23fa29ee8147e0ea056358c4268a466ec458195a97a960",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_core_limits.py",
+      "original_sha256": "33060eda83c47372daf887fbdbb5e684d2a0a193e527449443948880cbb0c70c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_cube_cores.py",
+      "original_sha256": "eaf815316abe1a55b43a62e71252243562486248f3275f4a28ee286a34c5cb07",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_cyclic_topology.py",
+      "original_sha256": "b20ece2cf1337e1808e35b602a0120c6aedaf602fa2315560726a149e9838c29",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_disjoint_tensor.py",
+      "original_sha256": "477db540e972b82751fac6a3a6d6e38fb4141e967261b1f9c260e2c686479a78",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_early_sharing.py",
+      "original_sha256": "2cf08ee65f8f8610578614d0ff0308eb432732e779f1e8c03e67f1979e75fdc6",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_fano_completion.py",
+      "original_sha256": "427c369eb2adec9214c5e804bb4413c5a1c4ecbe74ed81c4d65e1b11faa60ed0",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_fano_permutation.py",
+      "original_sha256": "168d286a09c9c25852c3edd8832c1dab3c30e8fec87c050a6daec8d075822bc5",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_general_guard.py",
+      "original_sha256": "885743e70450f8da77dd8eee619eb784bd10b3078d4229baf4af2791a2e483c1",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_inplace_side.py",
+      "original_sha256": "16d295f9f9250d35f6f1de2843d5e13c7adbf88d595ebcd0b65b00d1a938acd9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_joint_return.py",
+      "original_sha256": "da515bbd86dc9597e016c39ce2ea189343699a2d36f51f2224f4c2e39fa69601",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_mixed_point.py",
+      "original_sha256": "2eead5d410d1c96f1a7ef47c9c35d16ca6bb6d9c2a6a8d24273290add842214d",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_parity_side.py",
+      "original_sha256": "7cbdd405ce11fa6f7ffcbef3811174f8685ad4640e9330176601d3b3d3e95390",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_positive_side.py",
+      "original_sha256": "b021aad944d8a6c023e57b1b48937854803bbb370240c93e0fe359d831c838c9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_prime_subset_limits.py",
+      "original_sha256": "8f5c51d415c3248ce965d93469518e8d219020a1192c7be544a1a5f4b95dc1c9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_quadratic_affine.py",
+      "original_sha256": "9b7b3a7b8bcf417d95f19e44ff488733e7a3f4757fd12bd98d417e1d01d70425",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_rank_product_core.py",
+      "original_sha256": "1471f17e86d6c02d5c288116cc3a53544c881ded47a3500f70dac97b366e46a7",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_shared_core.py",
+      "original_sha256": "fd257e22b8eef948bd29c2934d15f96ea93bea439e51229965bed53d75e09307",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_signed_sparse.py",
+      "original_sha256": "5b64f4098fcf9092d3e24526f4d6ba90528104fe66396e3e7ee64a7eaf3c8a51",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_single_intersection.py",
+      "original_sha256": "1de7f9a62edc93c624ff2693ae9bb725cf6dc9735ff1caad56f6913aae9448ee",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_split_centers.py",
+      "original_sha256": "c5cfd0e89120c918b81c4ef0b69b767342457daa1b29ce2b7821658ea7ba6f2a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_stage_pair.py",
+      "original_sha256": "f4823525abb553f76ea33adf61ed51e88ec38dd6c346dbcac86f69ffa8fb0375",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_stronger_screens.py",
+      "original_sha256": "9678b66043b384f1454181bc2069c6d72685eda6576e284ce799d4b9aeb79860",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_subset_cores.py",
+      "original_sha256": "ae38397693540a8cc26d416a6edcda271fd0fa2eb88566df690fb569e812f0a3",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/audit_ternary_side.py",
+      "original_sha256": "c1ab0eb02a53aa32fa9773accea8e9d3b128d6b801345e1b064b9d3c74953027",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "scripts/experiments/affine_vector_screens.py",
+      "original_sha256": "756778eeca27f490adc7354a122dc50c40375156259991469c47a90949118ea1",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/affine_vector_witnesses.json",
+      "original_sha256": "672a4318c48f5286ce088d34736c38957b7f662a5f753d440dbc638e7da5f62a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/balanced_fano.py",
+      "original_sha256": "1586fb1db4f40e79e97bae59f47192675663403bbcacbf5f4e0b702edfd22b0a",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/bit_compression.py",
+      "original_sha256": "d1e6726341b3619262cc07246c3420584f46bdf57d44f1946d8dab18334cbca8",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/block_core.py",
+      "original_sha256": "af94018e8f4b80219a8e9e104eae21e34b66fc670217d03ef54862b59c051fc9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/complex_centers.py",
+      "original_sha256": "3744396587d729253d80980f6310b56e7bf0ea21b165bd178d0d6d4c49faf2e2",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/core_limits.py",
+      "original_sha256": "a31a27cc24cf0349a507d1141a2b965ea25f1c60f355d7e13c581305a12d3a43",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/cube_core_family.py",
+      "original_sha256": "e58f1f4067bda2d4838343f42ec2505316f006561f0702e869847d88b85413a8",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/disjoint_tensor.py",
+      "original_sha256": "102dd59bf96033f96ba0dab4c2aba77b3a7a73b67b0f96929ff8b20a98b91cd8",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "scripts/experiments/early_sharing.py",
+      "original_sha256": "1dd42768536bac13727528e51a999152cf9516a53c4001f2c390323e7f453378",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/fano_completion.py",
+      "original_sha256": "6cade2a36b910bf7e68a872dc4fd3560837935cffe80f9526cd012a28b247738",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/fano_permuted_completion.py",
+      "original_sha256": "0b48e0ba6399ac9864b733998ff32222e7c25c99de052ab8ea5196872f8010d4",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/fano_permuted_routing_witnesses.json",
+      "original_sha256": "b7093d006713f0b026c49b62ac4c502731630d17d15f56a2b63284ad8f4f8102",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/fano_routing_witnesses.json",
+      "original_sha256": "2017a4401c16ac58ccd7911b1d2128f1a93a98b108672db709e0c21cda4bb693",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/inplace_side.py",
+      "original_sha256": "4e7cb3df2e263f6c7f5907c55e3ee04c08926e6dbc984bbda1722a27b0a48ff6",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/inplace_side_witnesses.json",
+      "original_sha256": "90fe710f5daa35cc9e4892b29d712d66110b7b2b4c404da95a960ea7041618b9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/mixed_point_circuit.py",
+      "original_sha256": "f509362b5031976a22af351fd158ae0b4520fa4f286a5176ec37023d672a7ddc",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/parity_phase_repair.py",
+      "original_sha256": "1f76f3b96ed556ed901835bd101d0e2588c997d2ed39bdfca097f0187aa86d40",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/parity_side.py",
+      "original_sha256": "1363ebf82d4c39e458e7bede8253688271008374db70ed4284df84253c8d092b",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/partial_routing.py",
+      "original_sha256": "dd67bf46aa70f1372d49c30c4fbbaff5664e27331a79ca3319251ceeec11ec00",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/positive_side_core.py",
+      "original_sha256": "0d453ab7e869d2cf6a43d6865de82583edb390d3c75038271f0fc09e0f3828ba",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/prime_core.py",
+      "original_sha256": "080a89a2c91505b509068698542843c9d7af3cdec01b5c88972107dc9c688c62",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "scripts/experiments/prime_subset_limits.py",
+      "original_sha256": "3768743ebfd982b7704fdda9c8ee8dd8cfbb4fd126a78396349d075560c047fb",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/quadratic_affine.py",
+      "original_sha256": "8f9252bd092eb14779997c6767e090377e91f4d57e6526e9840ae0dd7dcc8f9c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/quadratic_affine_witnesses.json",
+      "original_sha256": "3efcebf41650681a8a21a901cd2f81dc07a0c4d28064b883af16b10c3e0036c3",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/rank_product_core.py",
+      "original_sha256": "fd0734d663626429164bcb5f118c4a4712e5e48ba3857093cc1273957deb6909",
+      "disposition": "retained current main version; historical prose separately reconciled where applicable"
+    },
+    {
+      "path": "scripts/experiments/shared_core.py",
+      "original_sha256": "d3c59b61229956cb54ae1ef9145ed213abdf1ae743929de145a77c43656f01a8",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "scripts/experiments/signed_sparse_core.py",
+      "original_sha256": "21da8e1de5ab6ac8479183326c2000313d24b47cc5be2f46b4fe6ac3cd59779f",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/single_intersection.py",
+      "original_sha256": "08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/single_intersection_witnesses.json",
+      "original_sha256": "c2308a3d21991f5828b0519b191b470f48b2fbbcaa5af0f7aed3986cc7534185",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/subset_core_family.py",
+      "original_sha256": "373a45a8fb4294cdf72d510d54e16d21535227b085aefb008aa092b3ad26e4de",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/experiments/ternary_side.py",
+      "original_sha256": "93379b6e70cf58bb55432d9f2d1c0e0305c20a075bfe3cc219deabd927afd375",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "scripts/finite_bit_contract.py",
+      "original_sha256": "3cff26a332cb6056f656b824e3a523fb8937d15206ddcc4118b911ac8df1b2a7",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "scripts/general_network_guard.py",
+      "original_sha256": "790a2064449afdbffd6dbd4adbcf4a28eaf41931ce7134e4a4e8766f3764270c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/make_ternary_patch.py",
+      "original_sha256": "fa41b5822503538e50fc56d1ee9f4bdbb45deaaf3c10c892244cc7697e0632e1",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "scripts/rank_obstructions.py",
+      "original_sha256": "af0bb5d7c21409bf0318ec4ec7d5f391163b7ad9564ed9e35de92ada14bca975",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/rational_span_frames.py",
+      "original_sha256": "ac3b9ab462b790d195628f0e5aa4f95143596a51ce7df1a99360b98594c29932",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/routing_smt.py",
+      "original_sha256": "25d2dfb09a34c0c0ecfdf870abe2d3883c95677189836dcce25421b9443e8a44",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "scripts/ternary_assembly.py",
+      "original_sha256": "38d12b09dd9074ca56cb658e25f4e0b9e50fad9c36d0d837fc5c059ae4ddb5b2",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "tests/test_affine_vector_screens.py",
+      "original_sha256": "ab2c301c10a28438ac3d45a7e052e453b87a1f8057ce3ea897b14573f99f8bed",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_bit_compression.py",
+      "original_sha256": "865e6f32fbf36b9c1571e4654f87e5ce2116f568494383cf1b64954180ef4bc8",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_block_carry.py",
+      "original_sha256": "e5b2f1680b12c8fd2dc16e980e43c41f2776b79d88f6023c07338fc00486791c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_block_core.py",
+      "original_sha256": "1e037416aa8c16ef989d44fe601a2563c6330614ec41b975f014468774a616bc",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_complex_centers.py",
+      "original_sha256": "cae650330565f0a4465029ab8a645b14e6ed7b9be6442b0db1d0914beeaeb700",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_core_limits.py",
+      "original_sha256": "025d8010950008844255ac2d9643d60c8ac6648c17aa9df3751af543a80a91b9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_cube_core_family.py",
+      "original_sha256": "0132d3e29d9352cb9fe7e870c5cca14167cfd2ca87b92b8bfef48a3a8f8130d2",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_disjoint_tensor.py",
+      "original_sha256": "f5dff94104c6f2a127567e0457c77968e7558333af09b50330e575da3fef4a3c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_early_sharing_and_centers.py",
+      "original_sha256": "df3835b1e13cc81bdfdb95be7676dc77b921198ce85f676e25ffdd462980e6e7",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_fano_completion.py",
+      "original_sha256": "d9c5a40ac3952250ff9793e320e7a08b0562738f1cbb3ffc9bc4331ae16891d9",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_fano_permutation.py",
+      "original_sha256": "8b9c9bd9f0c85980d97850e12804106ce50e4e1d6417f9dc38eb6960f288177f",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_finite_bit_contract.py",
+      "original_sha256": "2e64760d4f080747a390ff256671958446366555dbfb449eb1bfa1b01e19468d",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_general_network_guard.py",
+      "original_sha256": "19970fcdab739924e98c00463495aca42a992524d20ef9be0e78b950dde3c7e4",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_inplace_side.py",
+      "original_sha256": "3d4cb627088827ca26105ac36b5e1b6ee3ace559494bba3d112c6690b049b93b",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_joint_return.py",
+      "original_sha256": "4c64c31e4abe126ffa82826e96455020cfcddb3fb52d5fca37be803d1f8fb0c4",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_mixed_point.py",
+      "original_sha256": "bb279af4bf072e9709d70cefe0cdf0230688d865f9c5e902350c4aade9218452",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_parity_side.py",
+      "original_sha256": "4b6e78dd62e53defc2aeb29dd87df941b975fba376fbe868ad197216468bbfdb",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_positive_side_core.py",
+      "original_sha256": "46bd4173c6a3fd9295fc2682bf7f572161e95abc6c61e0859bb2f8eee7fb6319",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_prime_core.py",
+      "original_sha256": "0b8c38f4b71aa65ade0720d8286e871c426865c4c6e6b45cc2eb2dc7f192e1fc",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "tests/test_prime_subset_limits.py",
+      "original_sha256": "6c6d7733bedaf016ea5e74d3ee367984eb464db9027859d0b6f4fd766fc50e4c",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_quadratic_affine.py",
+      "original_sha256": "6f2fdf0dff1b8e4d97b045edee1d645aaf0f17c649834f615f4fc6aee2637c20",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_rank_product_core.py",
+      "original_sha256": "501c277c785a6fac39ab8f8c758ed12ffba7a6c0bda3fba957a105287224d7d6",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_shared_core.py",
+      "original_sha256": "523398ca2caeba570f978d022ae443c67b2f9992996597bafa7c67b858c4afe7",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_signed_sparse_core.py",
+      "original_sha256": "2518f4919d6f39ff41ac5c9e10c422de8b29803d79eec94983c73d34009dd585",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_single_intersection.py",
+      "original_sha256": "333f14dee70ddffaf266a8041d0ee3a0bf64794e28c1f05cc8a6e8953a37543e",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_stage_pair.py",
+      "original_sha256": "746aaf91e95495644e0e89f81955d02a3a0d029934090e07a3607c207ab0f2b1",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_stronger_screens.py",
+      "original_sha256": "059e3535f9e610aafbd159897516c299d8d15b9a55806f5197042e19bb4b3e55",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_subset_core_family.py",
+      "original_sha256": "3d776e0d60aa226059a6dc6705ccef1b46f941d3aacd22fd60b5025fa7e45f90",
+      "disposition": "imported historical research; certificates regenerated and prose labeled where needed"
+    },
+    {
+      "path": "tests/test_ternary_patch.py",
+      "original_sha256": "19e7a05d7f9b3cc7d32336173ce456fc63ff85ff231dbae5a89dcbf3b1b0a684",
+      "disposition": "already present unchanged"
+    },
+    {
+      "path": "tests/test_ternary_side.py",
+      "original_sha256": "05b9b82f5bb308010d7663841a90f430326891f601a92af5602ac88a8109f26b",
+      "disposition": "already present unchanged"
+    }
+  ]
+}

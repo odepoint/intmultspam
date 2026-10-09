@@ -1,35 +1,20 @@
-# Reproducing the experiment
+# Reproducing the result
 
-This is a just-for-fun experiment with AI-generated math. The steps below
-reproduce its generated output and finite checks; they do not establish the
-full mathematical argument. The source paper and baseline repository are
-cited in the [README](../README.md#what-this-is-based-on).
-
-The primary artifacts for this extension are the
-[pair-star note](../artifacts/complex-pair-star-note.pdf),
-[combined patch](../patches/complex-pair-star-31.patch),
-[circuit and frame certificate](../certificates/complex-pair-star.json), and
-[parameter certificates](../certificates/complex_pair_star_parameters.json).
-The extension-specific checks run with `make verify-pair-star`; `make verify`
-also runs all retained baseline checks. Build the extension note with
-`make pair-star-note` (requires pdfLaTeX).
-
-The assembly refinements add the [assembly note](../artifacts/assembly-lu-note.pdf),
-[patch](../patches/assembly-lu-30.patch) (built on the pair-star patch), and
-[exact certificate](../certificates/assembly-lu.json). Their checks run with
-`make verify-assembly-lu` and are included in `make verify`; build the note
-with `make assembly-lu-note` (requires Tectonic).
-
-The preserved baseline artifacts are the [compact-control note](../artifacts/compact-control-note.pdf),
-[combined patch](../patches/compact-control-34.patch), and
-[exact layer certificate](../certificates/compact-control-layer.json).
-They are conditional on the retained algorithmic interfaces and written
-extensions identified in the [review guide](research/compact-control-review.md).
+The selected release is documented in the [joint-frame community review](research/community-round2-review.md)
+and [current status](research/current-status.md), with the
+[selected parameter certificate](../research/matrix-exponent-synthesis/candidate/arithmetic.json).
+The bound is conditional on the retained original #109 framework. Earlier notes,
+patches, and the [preserved research](research/preserved-research.md) are historical
+reproduction targets. Run `make verify-research` to regenerate its certificates;
+the expanded tests also run in `make verify-tests`.
 
 ## Requirements
 
-The verification path needs Python 3.11 or newer, Git, and Make, with no
-third-party Python packages. Run commands from the repository root. All input
+The verification path needs Python 3.11 or newer, Git, Make, and a C++17 compiler supporting
+unsigned 128-bit integers and OpenMP (GCC, or Clang with libomp), with no
+third-party Python packages. The enlarged-frame profiler additionally needs Boost
+multiprecision headers (`libboost-dev` on Ubuntu); the ordinary joint-frame
+witness does not use Boost. Run commands from the repository root. All input
 source files are bundled, so verification runs without network access.
 
 The local preparation checks used Python 3.14.6 and Tectonic 0.16.9. The supplied
@@ -104,6 +89,12 @@ This command performs these steps:
    written [compact-control proof](../notes/compact-control-note.tex).
    `scripts/make_compact_control_patch.py` generates the independent combined
    patch, including the changed global exceptional-stream accounting.
+   `scripts/complex_compression.py` records the follow-up weighted complex
+   circuit, binary phase-frame audit and conditional `2^-31` witness.
+   `scripts/make_complex_compression_patch.py` integrates that interface and
+   all downstream constants into an independent complete upstream patch.
+   The earlier compact-control certificate and source patch remain unchanged;
+   see the [construction and integration boundary](research/complex-compression.md).
    `scripts/research_networks.py` and `scripts/search_network_variants.py`
    record scoped family bounds and clearly marked exploratory scores.
    `scripts/complex_pair_star_parameters.py` and `scripts/complex_pair_star.py`
@@ -143,7 +134,7 @@ existing one. It leaves the bundled source untouched:
 mkdir -p build
 mkdir build/review
 cp -R upstream/build build/review/build
-git apply --directory=build/review patches/complex-pair-star-31.patch
+git apply --directory=build/review patches/ternary-30.patch
 ```
 
 Read `build/review/build/main.tex` and its included sections. The other patches
@@ -151,20 +142,14 @@ are alternatives based on the same original manuscript, not successive commits.
 
 ## Build the note
 
-For the current extension, with pdfLaTeX installed:
+With Tectonic installed:
 
 ```sh
-make pair-star-note
+make ternary-note
 ```
 
-The result is `artifacts/complex-pair-star-note.pdf`.
-For the preserved baseline, with Tectonic installed:
-
-```sh
-make compact-note
-```
-
-The result is `artifacts/compact-control-note.pdf`. Build the earlier
+The result is `artifacts/ternary-note.pdf`. Build the preceding
+compact-control note with `make compact-note`. Build the earlier
 parameter-only note with `make note`, producing `artifacts/parameter-note.pdf`.
 Build the separate routing audit
 with `make audit-note`, producing `artifacts/nonadjacent-axis-note.pdf`.
@@ -178,6 +163,8 @@ Build the shared-computation note with `make dag-note`, producing
 Build the cross-group and paired notes with `make shared-point-note` and
 `make paired-note`, producing `artifacts/shared-point-note.pdf` and
 `artifacts/paired-note.pdf`, respectively.
+Build the local complex-network follow-up with `make complex-note`, producing
+`artifacts/complex-compression-note.pdf`.
 The first run may download fonts
 and TeX packages; the numerical verification does not use them. PDF builds may
 differ in metadata or typesetting across TeX environments. The exact-byte
@@ -211,5 +198,121 @@ and [setup-python](https://github.com/actions/setup-python) actions, with
 read-only repository permissions. The PDF is supplied for readers and can be
 rebuilt locally using the command above.
 
-Build the latest note with `make pair-star-note`. The earlier notes and
+Build the latest note with `make ternary-note`. The earlier notes and
 patches remain available as independent witnesses.
+
+## Ternary construction
+
+The full `audit_ternary_side.py` constructs about 21 million addition nodes
+and uses multiple gigabytes of memory. It verifies exact support keys,
+pruning and role counts, and independently expands complete h=8,9 controls.
+`make_ternary_patch.py` checks the certificate's source hashes before generating
+the independent patch. Its twelve focused tests are in `test_prime_core.py`,
+`test_ternary_side.py`, and `test_ternary_patch.py`. The source-hash manifest
+includes the standalone exact Kronecker-product helper used by the compiler.
+
+No exploratory overnight search is required by this release. All prior
+certificates, patches and bundled upstream files are preserved unchanged.
+
+## Fork entries: pair-star, 2026-10-07 (8e739d5) and assembly refinements, 2026-10-08 (7fadfff)
+
+These dated entries come from this fork (odepoint/intmultspam) and are retained
+as written. They are not the current headline result; see the release
+documented at the top of this page.
+
+This is a just-for-fun experiment with AI-generated math. The steps below
+reproduce its generated output and finite checks; they do not establish the
+full mathematical argument. The source paper and baseline repository are
+cited in the [README](../README.md#what-this-is-based-on).
+
+The primary artifacts for this extension are the
+[pair-star note](../artifacts/complex-pair-star-note.pdf),
+[combined patch](../patches/complex-pair-star-31.patch),
+[circuit and frame certificate](../certificates/complex-pair-star.json), and
+[parameter certificates](../certificates/complex_pair_star_parameters.json).
+The extension-specific checks run with `make verify-pair-star`; `make verify`
+also runs all retained baseline checks. Build the extension note with
+`make pair-star-note` (requires pdfLaTeX).
+
+The assembly refinements add the [assembly note](../artifacts/assembly-lu-note.pdf),
+[patch](../patches/assembly-lu-30.patch) (built on the pair-star patch), and
+[exact certificate](../certificates/assembly-lu.json). Their checks run with
+`make verify-assembly-lu` and are included in `make verify`; build the note
+with `make assembly-lu-note` (requires Tectonic).
+
+The preserved baseline artifacts are the [compact-control note](../artifacts/compact-control-note.pdf),
+[combined patch](../patches/compact-control-34.patch), and
+[exact layer certificate](../certificates/compact-control-layer.json).
+They are conditional on the retained algorithmic interfaces and written
+extensions identified in the [review guide](research/compact-control-review.md).
+
+To review the pair-star patch, use a fresh review directory as above:
+
+```sh
+mkdir -p build
+mkdir build/review
+cp -R upstream/build build/review/build
+git apply --directory=build/review patches/complex-pair-star-31.patch
+```
+
+For the current extension, with pdfLaTeX installed:
+
+```sh
+make pair-star-note
+```
+
+The result is `artifacts/complex-pair-star-note.pdf`.
+
+## Imported candidate reproduction (pending maintainer review)
+
+The following contributor instructions are retained from PR #39 at
+`70ae24129649f6d6d4ec6360962a80c3c42a38f1`; their past validation statements
+describe contributor runs, not this integration run. See
+[the integration ledger](research/community-integration.md) for maintainer results.
+
+# Reproducing the current result
+
+Run from the repository root with Python 3.11+, a C++17 compiler supporting
+unsigned 128-bit integers (GCC or Clang), Git, and Make. No third-party
+Python package or network access is required.
+
+```sh
+make copied-centers-verify
+```
+
+The incremental target:
+
+- Matches the unchanged positive-label bit producers at h25 and h23 to
+  the previously verified partial-swap certificate.
+- Recomputes all 47 rational corner pivots and verifies all 315 symbolic
+  zero-minor partitions using 630 exact integer-rank calculations.
+- Regenerates the new h28, d19 mixed-center complex producer, checking its
+  scalar supports, center coefficients, binary frames, matching and histogram.
+- Applies the copied-center histogram replacement, reconstructs both complete
+  child lists and checks both strict moments, the semantic precision guard,
+  product row stock, seven margins and 47 strict assembly constraints.
+
+The copied-center scheduling and simultaneous rational-basis arguments are
+written proofs. The finite checks establish their selected arithmetic inputs.
+Unchanged historical producers and suites are skipped. Intermediate graphs
+and compiled tools are temporary; `--work-dir PATH` retains them if needed:
+
+```sh
+python3 scripts/copied_centers_producer.py --work-dir /tmp/copied-centers-producers
+```
+
+For arithmetic alone, use `make copied-centers-certificate`. `make verify`
+also runs inherited checks, including the previous structured-bulk target.
+
+## Proof and dependencies
+
+The proof is supplied as [LaTeX source](../notes/copied-centers-note.tex).
+No PDF is generated for this submission. The selected
+[two-stage and corner sources](../references/copied-centers/README.md) and
+[semantic/analytic sources](../references/semantic-bulk/README.md) retain
+original licenses, notices and hash manifests.
+
+[SOURCES.json](../SOURCES.json) pins the archive, parent and contribution
+sources. Raw graphs, alternatives, terminal-eligibility experiments and
+recursive copies of predecessor archives remain outside the submission.
+The [historical manuscript patch](../PATCHING.md) retains the #10 result.

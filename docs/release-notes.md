@@ -1,8 +1,16 @@
-# Archived baseline release draft
+# Release notes
+
+The current release is [Community result: conditional exponent saving above
+2^-15](releases/community-kappa-15.md), incorporating Rohan Arun's PR #39
+and its credited dependency chain after conditional maintainer review.
+
+## Fork note, 2026-10-07 (8e739d5): archived baseline release draft
 
 This is preserved text from Douglas Colkitt's original repository, describing
 that project's release plans. This repository is a separate, just-for-fun
 experiment with AI-generated math. The original draft follows for provenance.
+
+## Historical compact-control release draft
 
 Repository: [CrocSwap/integer-mult-bounds](https://github.com/CrocSwap/integer-mult-bounds)
 
